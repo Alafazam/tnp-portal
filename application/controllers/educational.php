@@ -22,13 +22,8 @@ class Educational  extends CI_Controller {
    }
  }
 
- function logout()
- {
-   $this->session->unset_userdata('logged_in');
-   session_destroy();
-   redirect('home', 'refresh');
- }
 
-}
+
+
 
 ?>

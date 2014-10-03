@@ -79,9 +79,11 @@ $fname=$data['fname'];
                 <li><a href="#">Export</a></li>
               </ul>
               <ul class="nav nav-sidebar">
-                <li><a href="">My Profile</a></li>
-                <li><a href="">Edit Profile</a></li>
-                <li><a href="">Create PDF</a></li>
+                <li><a href="/personal">Personal Profile</a></li>
+                <li><a href="/educational">Educational Profile</a></li>
+                <li><a href="/academic">Academic Profile</a></li>
+                <li><a href="/aboutme">About Me</a></li>
+
               </ul>
               <ul class="nav nav-sidebar">
                 <li><a href="">Companies List</a></li>
