@@ -1,4 +1,4 @@
-   <form class="form-horizontal">
+   <form class="form-horizontal" role="form" action="profile/personal/save" method="post" accept-charset="utf-8">
    	<fieldset>
 
    		<!-- Form Name -->
@@ -105,7 +105,7 @@
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="Save"></label>
    			<div class="col-md-4">
-   				<button id="Save" name="Save" class="btn btn-primary">Save Changes</button>
+   				<button id="Save" name="Save" class="btn btn-primary" type="submit">Save Changes</button>
    			</div>
    		</div>
 

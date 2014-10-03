@@ -1,14 +1,18 @@
-<form class="form-horizontal">
+<?php
+$data= $this->session->userdata('logged_in');
+$username=$data['username'];
+?>
+<form class="form-horizontal" role="form" action="profile/aboutme/save" method="post" accept-charset="utf-8">
   <fieldset>
 
     <!-- Form Name -->
     <legend>About Me</legend>
-
+    <!-- ECA,Career_obj,Technical_Skills,Other_skills -->
     <!-- Textarea -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="eca">Extra Curricular Activities</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="eca" name="eca"></textarea>
+        <textarea class="form-control" id="eca" name="eca"><?php if($eca){echo $eca ;} ?></textarea>
       </div>
     </div>
 
@@ -40,7 +44,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="save"></label>
       <div class="col-md-4">
-        <button id="save" name="save" class="btn btn-primary">Save Changes</button>
+        <button id="save" name="save" class="btn btn-primary" type="submit">Save Changes</button>
       </div>
     </div>
 

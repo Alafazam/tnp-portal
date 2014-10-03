@@ -1,6 +1,8 @@
 <?php
-$username= $this->session->userdata('logged_in');
-$username=$username['username'];
+$data= $this->session->userdata('logged_in');
+$username=$data['username'];
+$fname=$data['fname'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +41,7 @@ $username=$username['username'];
             </button>
             <a class="navbar-brand" style ="text-transform: capitalize;" href="#">
               <?php
-              if(isset($username)){echo''.$username; }
+              if(isset($fname)){echo''.$fname; }
               ?></a>
             </div>
             <div class="navbar-collapse collapse">
