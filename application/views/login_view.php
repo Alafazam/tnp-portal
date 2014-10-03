@@ -20,7 +20,7 @@
 
     <body style="background-color:#110022;">
      <div class="container">
-      <form class="form-signin" role="form" action="/login/verify" method="post" accept-charset="utf-8">
+      <form class="form-signin" role="form" action="login/verify" method="post" accept-charset="utf-8">
         <h2 style="color: #FFF;" class="form-signin-heading">Please sign in</h2>
         <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
         <input type="password"  name="password" id="password" class="form-control" placeholder="Password" required>
