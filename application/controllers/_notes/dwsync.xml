@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.html" server="C:/xampp/htdocs/ci/" local="129664021580000000" remote="129664021580000000" />
-<file name="welcome.php" server="C:/xampp/htdocs/ci/" local="130458337840000000" remote="130458337840000000" />
 <file name="home.php" server="C:/xampp/htdocs/ci/" local="130565838932192037" remote="130565838930000000" />
 <file name="login.php" server="C:/xampp/htdocs/ci/" local="130565839467055158" remote="130565839460000000" />
 <file name="home2.php" server="C:/xampp/htdocs/ci/" local="130565470546208595" remote="130565470540000000" />
-<file name="verifylogin.php" server="C:/xampp/htdocs/ci/" local="130565567508131274" remote="130565567500000000" />
 <file name="home.php" server="C:/xampp/htdocs/" local="130566395442730750" remote="130566395440000000" />
 <file name="home2.php" server="C:/xampp/htdocs/" local="130565470546208595" remote="130565470540000000" />
-<file name="index.html" server="C:/xampp/htdocs/" local="129664021580000000" remote="129664021580000000" />
-<file name="login.php" server="C:/xampp/htdocs/" local="130566392716616855" remote="130566392710000000" />
-<file name="verifylogin.php" server="C:/xampp/htdocs/" local="130565567508131274" remote="130565567500000000" />
-<file name="welcome.php" server="C:/xampp/htdocs/" local="130458337840000000" remote="130458337840000000" />
+<file name="login.php" server="C:/xampp/htdocs/" local="130567364344155609" remote="130567364340000000" />
+<file name="aboutme.php" server="C:/xampp/htdocs/" local="130567504926825186" remote="130567504920000000" />
+<file name="educational.php" server="C:/xampp/htdocs/" local="130567505495424544" remote="130567505490000000" />
+<file name="personal.php" server="C:/xampp/htdocs/" local="130567504064815597" remote="130567504060000000" />
 </dwsync>

@@ -15,7 +15,12 @@
 |
 */
 //$config['base_url']	= '';
-$config['base_url'] = "http://localhost/";
+
+$config['base_url']	= 'http://localhost/';
+// $config['base_url'] = "127.0.0.1:80";
+// $config['base_url'] = "1.22.84.254:80";
+
+
 /*
 |--------------------------------------------------------------------------
 | Index File
