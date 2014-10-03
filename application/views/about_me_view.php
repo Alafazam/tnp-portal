@@ -1,8 +1,13 @@
 <?php
 $data= $this->session->userdata('logged_in');
+$flashSuccess =$this->session->flashdata('flashSuccess');
 $username=$data['username'];
 ?>
-<form class="form-horizontal" role="form" action="profile/aboutme/save" method="post" accept-charset="utf-8">
+
+
+
+
+<form class="form-horizontal" role="form" action="aboutme/save" method="post" accept-charset="utf-8">
   <fieldset>
 
     <!-- Form Name -->
@@ -18,25 +23,24 @@ $username=$data['username'];
 
     <!-- Textarea -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="coj">Career objectives</label>
+      <label class="col-md-4 control-label" for="Career_obj">Career objectives</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="coj" name="coj"></textarea>
+        <textarea class="form-control" id="Career_obj" name="Career_obj"><?php if($eca){echo $Career_obj ;} ?></textarea>
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Technical_Skills">Technical Skills</label>
+      <div class="col-md-4">                     
+        <textarea class="form-control" id="Technical_Skills" name="Technical_Skills"><?php if($eca){echo $Technical_Skills ;} ?></textarea>
       </div>
     </div>
 
     <!-- Textarea -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="tech">Technical Skills</label>
+      <label class="col-md-4 control-label" for="Other_skills">Other Skills</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="tech" name="tech"></textarea>
-      </div>
-    </div>
-
-    <!-- Textarea -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="otherskills">Other Skills</label>
-      <div class="col-md-4">                     
-        <textarea class="form-control" id="otherskills" name="otherskills"></textarea>
+        <textarea class="form-control" id="Other_skills" name="Other_skills"><?php if($eca){echo $Other_skills ;} ?></textarea>
       </div>
     </div>
 
@@ -44,9 +48,10 @@ $username=$data['username'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="save"></label>
       <div class="col-md-4">
-        <button id="save" name="save" class="btn btn-primary" type="submit">Save Changes</button>
+        <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " type="submit">
+          <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}else echo "Save Changes"; ?>
+        </button>
       </div>
     </div>
-
   </fieldset>
 </form>

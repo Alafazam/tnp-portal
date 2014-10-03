@@ -4,6 +4,8 @@ $username=$data['username'];
 $fname=$data['fname'];
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
