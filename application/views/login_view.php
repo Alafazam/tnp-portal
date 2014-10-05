@@ -22,8 +22,8 @@
      <div class="container">
       <form class="form-signin" role="form" action="login/verify" method="post" accept-charset="utf-8">
         <h2 style="color: #FFF;" class="form-signin-heading">Please sign in</h2>
-        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
-        <input type="password"  name="password" id="password" class="form-control" placeholder="Password" required>
+        <input type="text" style="text-transform:none;" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="password" style="text-transform:none;" name="password" id="password" class="form-control" placeholder="Password" required>
         <label class="checkbox" style="color: #FFF;">
           <input type="checkbox" name="remember" id="remember" value="remember-me"> Remember me
         </label>
