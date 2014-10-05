@@ -32,6 +32,7 @@ Class User extends CI_Model
     }
   }
 
+
   function load_about_me($username)
   {
     $this->db->select('id, username,ECA,Career_obj,Technical_Skills,Other_skills');
@@ -84,6 +85,25 @@ Class User extends CI_Model
     }
   }
 
+  function _update_acad($data)
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $id     = $session_data['id'];
+    
+    try {
+      $query = $this->db->where(array(
+        'id' => $id,
+      ))->update('academic', $data);
+      return $query;
+    }
+
+    catch(Exception $e) {
+      return $e;
+    }
+  }
+
+
+
   function load_personal()
   {
     $session_data = $this->session->userdata('logged_in');
@@ -105,7 +125,25 @@ Class User extends CI_Model
     }
   }
 
+  function load_acad()
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $id       = $session_data['id'];
+    $username =$session_data['username'];
+    $this->db->select('id,cursem,sem1,sem2,sem3,sem4,sem5,sem6,sem7,sem8,cgpa,supply,back,reason');
+    // $this->db->select('dob');
+    $this->db->from('academic');
+    $this->db->where('id', $id);
+    $this->db->limit(1);
 
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
 
 
 

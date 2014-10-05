@@ -1,4 +1,22 @@
-CREATE TABLE StudentDetails (
+CREATE TABLE academic (
+    acad_id               INT           NOT NULL AUTO_INCREMENT,
+    id                    INT           NOT NULL,
+    cursem                INT           NULL,
+    sem1                  DECIMAL       NULL, 
+    sem2                  DECIMAL       NULL, 
+    sem3                  DECIMAL       NULL, 
+    sem4                  DECIMAL       NULL, 
+    sem5                  DECIMAL       NULL, 
+    sem6                  DECIMAL       NULL, 
+    sem7                  DECIMAL       NULL, 
+    sem8                  DECIMAL       NULL, 
+    cgpa                  DECIMAL       NULL, 
+    supply                VARCHAR(5)    NULL, 
+    back                  VARCHAR(5)    NULL, 
+    reason                TEXT          NULL
+);
+
+CREATE TABLE users (
     id               INT           NOT NULL AUTO_INCREMENT,
     username         VARCHAR (50)  NOT NULL,
     password         VARCHAR (100) NOT NULL,
@@ -39,7 +57,7 @@ CREATE TABLE school_details
     year                    NCHAR(4)           NULL, 
     percentage              NCHAR(9)           NULL, 
     PRIMARY KEY (school_id), 
-    CONSTRAINT FK_Table_ToTable FOREIGN KEY (id) REFERENCES StudentDetails(id)
+    CONSTRAINT FK_Table_ToTable FOREIGN KEY (id) REFERENCES users(id)
 );
 
 //for type 1 we have 12th details
@@ -54,12 +72,12 @@ CREATE TABLE applications
     Status VARCHAR(50)      NULL, 
     date VARCHAR(50)        NULL,
     cover_letter TEXT       NULL, 
-    CONSTRAINT FK_Applications_ToTable FOREIGN KEY (id) REFERENCES StudentDetails(id)
+    CONSTRAINT FK_Applications_ToTable FOREIGN KEY (id) REFERENCES users(id)
 );
 
 
-INSERT INTO StudentDetails (enroll, branch,year_of_admin, FNAME, MNAME, LNAME, 12_std_id, 10_std_id, AIEEE_id, score_sheet_id,Parents_name, AddressL1, AddressL2, City, Email_add, Phone, ECA, Career_obj, Technical_Skills, Other_skills, Project_id) VALUES (552, N'IT', NULL, N'Alaf', N'Azam', N'Khan', NULL, NULL, NULL, NULL, NULL, N'Iqbal Ahmad', N'34 ashoka colony', N'MAnikh bagh road', N'indore', N'alafazam@gmail.com', N'0898989898', N'sdkjvbsdjkvnskjskvnskvns dkncvsdkjvns kdvns vnsdjkn', N'akvnsdkjvnskdj  adskn vskdjvnskj v skjds knvvdskjv dkv sjdv', N'akj fnkajfnaksj sdfns kdjfnskdjnf skdjn  askjfnskjfnsdkj  akjfnakjfnakjfn  akjfdnaksjfn ', N' kajssfnkajfnakjfn  akjfnakfnasjkfn  askjkjfnakj akfn', NULL);
+INSERT INTO users (enroll,branch, year_of_admin, FNAME, MNAME, LNAME, gender, 12_std_id, 10_std_id, AIEEE_id, score_sheet_id, Parents_name, AddressL1, AddressL2, City, Email_add, Phone, ECA, Career_obj, Technical_Skills, Other_skills, Project_id) VALUES (552, N'IT', NULL, N'Alaf', N'Azam', N'Khan','M', NULL, NULL, NULL, NULL, NULL, N'Iqbal Ahmad', N'34 ashoka colony', N'MAnikh bagh road', N'indore', N'alafazam@gmail.com', N'0898989898', N'sdkjvbsdjkvnskjskvnskvns dkncvsdkjvns kdvns vnsdjkn', N'akvnsdkjvnskdj  adskn vskdjvnskj v skjds knvvdskjv dkv sjdv', N'akj fnkajfnaksj sdfns kdjfnskdjnf skdjn  askjfnskjfnsdkj  akjfnakjfnakjfn  akjfdnaksjfn ', N' kajssfnkajfnakjfn  akjfnakfnasjkfn  askjkjfnakj akfn', NULL);
 
 INSERT INTO school (id, school_name, city, year, board, paercentage, type) VALUES (1, N'asdas', N'asfasdf', N'4566', N'sdfsdfsd', N'fsddfsdf  ', 1)
 
-INSERT INTO StudentDetails (username, password) values ('alafazam', MD5('alafazam'));
+INSERT INTO users (username, password) values ('alafazam', MD5('alafazam'));

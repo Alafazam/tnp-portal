@@ -20,9 +20,6 @@ $fname=$data['fname'];
   <link href="/css/dashboard.css" rel="stylesheet">
 
   
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="/js/ie10-viewport-bug-workaround.js"></script>
-
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.1/html5shiv.min.js"></script>
@@ -73,7 +70,7 @@ $fname=$data['fname'];
           <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
               <ul class="nav  nav-sidebar">
-                <li class="active"><a href="#">Overview</a></li>
+                <li class="active"><a href="/">Overview</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="#">Analytics </a></li>
                 <li><a href="#">Export</a></li>
