@@ -16,7 +16,7 @@ $fname=$data['fname'];
   <meta name="author" content="">
   <link rel="icon" href="../../assets/ico/favicon.ico">
   <title>Portal for Trainnig and Placement depatment</title>
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap.css" rel="stylesheet">
   <link href="/css/dashboard.css" rel="stylesheet">
 
   
@@ -30,7 +30,7 @@ $fname=$data['fname'];
       <![endif]-->
     </head>
 
-    <body>
+    <body style="text-transform: capitalize;">
 
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">

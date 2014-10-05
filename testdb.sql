@@ -1,5 +1,5 @@
 CREATE TABLE StudentDetails (
-    student_id       INT           NOT NULL AUTO_INCREMENT,
+    id       INT           NOT NULL AUTO_INCREMENT,
     username         VARCHAR (50)  NOT NULL,
     password         VARCHAR (100) NOT NULL,
     enroll           INT           NULL,
@@ -8,6 +8,7 @@ CREATE TABLE StudentDetails (
     FNAME            VARCHAR (50)  NOT NULL,
     MNAME            VARCHAR (50)  NULL,
     LNAME            VARCHAR (50)  NULL,
+    gender           VARCHAR (1)   NULL,
     12_std_id        INT           NULL,
     10_std_id        INT           NULL,
     AIEEE_id         INT           NULL,

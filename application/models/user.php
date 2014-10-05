@@ -47,7 +47,7 @@ Class User extends CI_Model
     }
   }
 
-function load_edu()
+  function load_edu()
   {
     $session_data = $this->session->userdata('logged_in');
     $id     = $session_data['id'];
@@ -83,6 +83,38 @@ function load_edu()
       return $e;
     }
   }
+
+  function load_personal()
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $id       = $session_data['id'];
+    $username =$session_data['username'];
+    $this->db->select('FNAME,MNAME,LNAME,gender,dob,AddressL1,AddressL2,City,Phone,Email_add');
+    // $this->db->select('dob');
+    $this->db->from('users');
+    $this->db->where('id', $id);
+    $this->db->where('username', $username);
+    $this->db->limit(1);
+
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+
+
+
+
+
 }
+
+
+
+
+
 
 ?>
