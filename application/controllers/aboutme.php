@@ -20,17 +20,15 @@ class Aboutme extends CI_Controller
             $username     = $session_data['username'];
             //load about me page
             $result       = $this->user->load_about_me($username);
-            $data         = array();
-            foreach ($result as $row) {
                 $data = array(
-                    'id' => $row->id,
-                    'username' => $row->username,
-                    'eca' => $row->ECA,
-                    'Career_obj' => $row->Career_obj,
-                    'Technical_Skills' => $row->Technical_Skills,
-                    'Other_skills' => $row->Other_skills
+                    'id' => $result[0]['id'],
+                    'username' => $result[0]['username'],
+                    'eca' => $result[0]['ECA'],
+                    'Career_obj' => $result[0]['Career_obj'],
+                    'Technical_Skills' => $result[0]['Technical_Skills'],
+                    'Other_skills' => $result[0]['Other_skills']
                 );
-            }
+            
             $this->load->template('about_me_view', $data);
         } else {
             //If no session, redirect to login page
@@ -64,7 +62,7 @@ class Aboutme extends CI_Controller
         $postData['Other_skills']     = $this->input->post('Other_skills');
         
         $result = $this->user->_update($username, $postData);
-        $this->session->set_flashdata('flashSuccess', $hello);
+        $this->session->set_flashdata('flashSuccess', 'success');
         redirect('/aboutme', 'refresh');
     }
     

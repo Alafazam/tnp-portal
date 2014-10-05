@@ -30,18 +30,20 @@ CREATE TABLE StudentDetails (
 
 CREATE TABLE school_details
 (
-    school_id INT           NOT NULL AUTO_INCREMENT, 
-    student_id INT          NOT NULL  , 
-    school_name VARCHAR(80) NULL, 
-    city VARCHAR(50)        NULL, 
-    year NCHAR(4)           NULL, 
-    board VARCHAR(50)       NULL, 
-    percentage NCHAR(2)     NULL, 
-    type INT                NOT NULL, 
+    school_id               INT                NOT NULL AUTO_INCREMENT, 
+    student_id              INT                NOT NULL  , 
+    type                    INT                NOT NULL, 
+    school_name             VARCHAR(80)        NULL, 
+    board                   VARCHAR(50)        NULL, 
+    year                    NCHAR(4)           NULL, 
+    percentage              NCHAR(9)           NULL, 
     PRIMARY KEY (school_id), 
     CONSTRAINT FK_Table_ToTable FOREIGN KEY (student_id) REFERENCES StudentDetails(student_id)
 );
 
+//for type 1 we have 12th details
+//for type 2  we have 10th details
+//for type 3 we have aieee details with name being quota,board being category,year = year,and percentage = percentage
 
 CREATE TABLE applications
 (

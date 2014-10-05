@@ -1,11 +1,12 @@
 <?php
 $data= $this->session->userdata('logged_in');
 $username=$data['username'];
+$flashSuccess =$this->session->flashdata('flashSuccess');
 $fname=$data['fname'];
 ?>
 
 
-<form class="form-horizontal" role="form" action="profile/edu/save" method="post" accept-charset="utf-8">
+<form class="form-horizontal" role="form" action="educational/save" method="post" accept-charset="utf-8">
   <fieldset>
 
     <!-- Form Name -->
@@ -14,10 +15,9 @@ $fname=$data['fname'];
     <h4 class="text-center"><small>12th Standard</small></h4>
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="school1">School Name</label>  
+      <label class="col-md-4 control-label" for="school_name1">School Name</label>  
       <div class="col-md-6">
-        <input id="school1" name="school1" type="text" placeholder="School Name" class="form-control input-md">
-
+        <input id="school_name1" value="<?php if ($school_name1) {echo $school_name1 ;}?>" name="school_name1" type="text" placeholder="School Name" class="form-control input-md">
       </div>
     </div>
 
@@ -25,7 +25,7 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="year1">Year of passing</label>
       <div class="col-md-4">
-        <select id="year1" name="year1" class="form-control">
+        <select id="year1" name="year1" selected='<?php if($year1){ echo $year1 ;} ?>' class="form-control">
           <option value="2008">2008</option>
           <option value="2009">2009</option>
           <option value="2010">2010</option>
@@ -41,17 +41,17 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="board1">Board</label>  
       <div class="col-md-4">
-        <input id="board1" name="board1" type="text" placeholder="CBSE" class="form-control input-md">
+        <input id="board1" name="board1" value="<?php if($board1){ echo $board1 ;} ?>" type="text" placeholder="CBSE" class="form-control input-md">
 
       </div>
     </div>
 
     <!-- Appended Input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="agg1">Aggregate</label>
+      <label class="col-md-4 control-label" for="percentage1">Aggregate</label>
       <div class="col-md-4">
         <div class="input-group">
-          <input id="agg1" name="agg1" class="form-control" placeholder="Percentage" type="text">
+          <input id="percentage1" name="percentage1" value="<?php if($percentage1){ echo $percentage1 ;} ?>" class="form-control" placeholder="Percentage" type="text">
           <span class="input-group-addon">%</span>
         </div>
 
@@ -62,9 +62,9 @@ $fname=$data['fname'];
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="school2">School Name</label>  
+      <label class="col-md-4 control-label" for="school_name2">School Name</label>  
       <div class="col-md-6">
-        <input id="school2" name="school2" type="text" placeholder="School Name" class="form-control input-md">
+        <input id="school_name2" name="school_name2" value="<?php if($school_name2){ echo $school_name2 ;} ?>" type="text" placeholder="School Name" class="form-control input-md">
 
       </div>
     </div>
@@ -89,17 +89,17 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="board2">Board</label>  
       <div class="col-md-4">
-        <input id="board2" name="board2" type="text" placeholder="CBSE" class="form-control input-md">
+        <input id="board2" name="board2" type="text" value="<?php if($board2){ echo $board2 ;} ?>" placeholder="CBSE" class="form-control input-md">
 
       </div>
     </div>
 
     <!-- Appended Input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="agg2">Aggregate</label>
+      <label class="col-md-4 control-label" for="percentage2">Aggregate</label>
       <div class="col-md-4">
         <div class="input-group">
-          <input id="agg2" name="agg2" class="form-control" placeholder="Percentage" type="text">
+          <input id="percentage2" name="percentage2" value="<?php if($percentage2){ echo $percentage2 ;} ?>" class="form-control" placeholder="Percentage" type="text">
           <span class="input-group-addon">%</span>
         </div>
 
@@ -112,8 +112,7 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="air">AIR</label>  
       <div class="col-md-4">
-        <input id="air" name="air" type="text" placeholder="Rank" class="form-control input-md">
-
+        <input id="air" name="air" type="text" value="<?php if($air){ echo $air ;} ?>" placeholder="Rank" class="form-control input-md">
       </div>
     </div>
 
@@ -135,9 +134,9 @@ $fname=$data['fname'];
 
     <!-- Select Basic -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="hs">Quota</label>
+      <label class="col-md-4 control-label" for="quota">Quota</label>
       <div class="col-md-4">
-        <select id="hs" name="hs" class="form-control">
+        <select id="quota" name="quota" value="<?php if($quota){ echo $quota ;} ?>" class="form-control">
           <option value="Home State">Home State</option>
           <option value="Other State">Other State</option>
         </select>
@@ -148,7 +147,7 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="category">Category</label>
       <div class="col-md-4">
-        <select id="category" name="category" class="form-control">
+        <select id="category" name="category" value="<?php if($category){ echo $category ;} ?>" class="form-control">
           <option value="General">General</option>
           <option value="S.C">S.C.</option>
           <option value="S.T">S.T.</option>
@@ -161,7 +160,9 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="save"></label>
       <div class="col-md-4">
-        <button id="save" name="save" class="btn btn-primary" type="submit">Save Changes</button>
+        <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " type="submit">
+          <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}else echo "Save Changes"; ?>
+        </button>      
       </div>
     </div>
 

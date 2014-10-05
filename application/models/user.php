@@ -40,14 +40,49 @@ Class User extends CI_Model
     $this->db->limit(1);
     $query = $this->db->get();
     if ($query->num_rows() == 1) {
-      return $query->result();
+      return $query->result_array();
     }
     else {
       return false;
     }
   }
 
-  
+function load_edu()
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $id     = $session_data['id'];
+    
+    $this->db->select('*');
+    $this->db->from('school_details');
+    // $this->db->join('users', 'users.id = student_details.id', 'inner');
+    $this->db->where('student_id', '1');
+    $this->db->limit(3);
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+  function _update_school($data,$type)
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $id     = $session_data['id'];
+    
+    try {
+      $query = $this->db->where(array(
+        'student_id' => $id,
+        'type' => $type
+      ))->update('school_details', $data);
+      return $query;
+    }
+
+    catch(Exception $e) {
+      return $e;
+    }
+  }
 }
 
 ?>
