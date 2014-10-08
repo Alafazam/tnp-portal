@@ -23,6 +23,7 @@ class Aboutme extends CI_Controller
                 $data = array(
                     'id' => $result[0]['id'],
                     'username' => $result[0]['username'],
+                    'branch' => $result[0]['branch'],
                     'eca' => $result[0]['ECA'],
                     'Career_obj' => $result[0]['Career_obj'],
                     'Technical_Skills' => $result[0]['Technical_Skills'],
@@ -46,6 +47,7 @@ class Aboutme extends CI_Controller
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
         $this->form_validation->set_rules('EVC', 'eca', 'trim|xss_clean');
+        $this->form_validation->set_rules('branch', 'branch', 'trim|xss_clean');
         $this->form_validation->set_rules('Career_obj', 'Career_obj', 'trim|xss_clean');
         $this->form_validation->set_rules('Technical_Skills', 'Technical_Skills', 'trim|xss_clean');
         $this->form_validation->set_rules('Other_skills', 'Other_skills', 'trim|xss_clean');
@@ -56,7 +58,9 @@ class Aboutme extends CI_Controller
             redirect('/aboutme', 'refresh');
         }
         //query the database
+
         $postData['eca']              = $this->input->post('eca');
+        $postData['branch']           = $this->input->post('branch');
         $postData['Career_obj']       = $this->input->post('Career_obj');
         $postData['Technical_Skills'] = $this->input->post('Technical_Skills');
         $postData['Other_skills']     = $this->input->post('Other_skills');

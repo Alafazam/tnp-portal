@@ -4,7 +4,6 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
 $username=$data['username'];
 ?>
 
-   
    <form class="form-horizontal" role="form" action="personal/save" method="post" accept-charset="utf-8">
    	<fieldset>
 

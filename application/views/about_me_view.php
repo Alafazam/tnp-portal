@@ -14,12 +14,24 @@ $username=$data['username'];
     <legend>About Me</legend>
     <!-- ECA,Career_obj,Technical_Skills,Other_skills -->
     <!-- Textarea -->
+ 
+  <!-- Select Basic -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="eca">Extra Curricular Activities</label>
-      <div class="col-md-4">                     
-        <textarea class="form-control" id="eca" name="eca"><?php if($eca){echo $eca ;} ?></textarea>
+      <label class="col-md-4 control-label" for="branch">Branch</label>
+      <div class="col-md-4">
+        <select id="branch" name="branch"  class="form-control">
+          <option <?php if($branch=='CHE'){ echo 'selected' ;} ?> value="CHE">Chemical</option>
+          <option <?php if($branch=='CIV'){ echo 'selected' ;} ?> value="CIV">Civil</option>
+          <option <?php if($branch=='CS'){ echo 'selected' ;} ?> value="CS">Computer Science</option>
+          <option <?php if($branch=='ELE'){ echo 'selected' ;} ?> value="ELE">Electrical</option>
+          <option <?php if($branch=='ECE'){ echo 'selected' ;} ?> value="ECE">Electronics &amp; Communications</option>
+          <option <?php if($branch=='IT'){ echo 'selected' ;} ?> value="IT">Information Technology</option>
+          <option <?php if($branch=='MEC'){ echo 'selected' ;} ?> value="MEC">Mechanical</option>
+          <option <?php if($branch=='MAM'){ echo 'selected' ;} ?> value="MAM">Materials and Mettalurgy</option>
+        </select>
       </div>
     </div>
+
 
     <!-- Textarea -->
     <div class="form-group">
@@ -44,6 +56,14 @@ $username=$data['username'];
       </div>
     </div>
 
+  
+      <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="eca">Extra Curricular Activities</label>
+      <div class="col-md-4">                     
+        <textarea class="form-control" id="eca" name="eca"><?php if($eca){echo $eca ;} ?></textarea>
+      </div>
+    </div>
     <!-- Button -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="save"></label>

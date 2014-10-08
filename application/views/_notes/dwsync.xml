@@ -3,15 +3,19 @@
 <file name="welcome_message.php" server="C:/xampp/htdocs/ci/" local="130458337840000000" remote="130458337840000000" />
 <file name="login_view.php" server="C:/xampp/htdocs/ci/" local="130565838025140234" remote="130565838020000000" />
 <file name="home_view.php" server="C:/xampp/htdocs/ci/" local="130565538630239236" remote="130565538630000000" />
-<file name="home_view.php" server="C:/xampp/htdocs/" local="130566418120919653" remote="130566418120000000" />
+<file name="home_view.php" server="C:/xampp/htdocs/" local="130571940309898998" remote="130571940300000000" />
 <file name="login_view.php" server="C:/xampp/htdocs/" local="130569870817611228" remote="130569870810000000" />
 <file name="welcome_message.php" server="C:/xampp/htdocs/" local="130458337840000000" remote="130458337840000000" />
 <file name="login_view.23php" server="C:/xampp/htdocs/" local="130566218733357738" remote="130566218730000000" />
-<file name="about_me_view.php" server="C:/xampp/htdocs/" local="130568368337850679" remote="130568368330000000" />
+<file name="about_me_view.php" server="C:/xampp/htdocs/" local="130570183390115862" remote="130570183390000000" />
 <file name="companyList_view.php" server="C:/xampp/htdocs/" local="130567483120450563" remote="130567483120000000" />
-<file name="edu_view.php" server="C:/xampp/htdocs/" local="130569274286315987" remote="130569274280000000" />
-<file name="personal_view.php" server="C:/xampp/htdocs/" local="130569891432432626" remote="130569891430000000" />
+<file name="edu_view.php" server="C:/xampp/htdocs/" local="130570183685204450" remote="130570183680000000" />
+<file name="personal_view.php" server="C:/xampp/htdocs/" local="130571017280499235" remote="130571017280000000" />
 <file name="upload_view.php" server="C:/xampp/htdocs/" local="130567459699362681" remote="130567459690000000" />
 <file name="test_view.php" server="C:/xampp/htdocs/" local="130570096852646439" remote="130570096850000000" />
 <file name="academic_view.php" server="C:/xampp/htdocs/" local="130570093475082428" remote="130570093470000000" />
+<file name="profiler_view.html" server="C:/xampp/htdocs/" local="130571914418420012" remote="130571914410000000" />
+<file name="profile_view.php" server="C:/xampp/htdocs/" local="130571607874818643" remote="130571607870000000" />
+<file name="home_view1.php" server="C:/xampp/htdocs/" local="130566418120919653" remote="130566418120000000" />
+<file name="home_view2.php" server="C:/xampp/htdocs/" local="130571901112323797" remote="130571901110000000" />
 </dwsync>

@@ -18,21 +18,6 @@ Class User extends CI_Model
     }
   }
 
-  function load_feeds()
-  {
-    $this->db->select('*');
-    $this->db->from('feed');
-     $this->db->order_by('date', 'desc');
-     //desc
-    $query = $this->db->get();
-    if ($query->num_rows()) {
-      return $query->result_array();
-    }
-    else {
-      return false;
-    }
-  }
-
   function _update($username, $data)
   {
     try {

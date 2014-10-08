@@ -25,14 +25,14 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="year1">Year of passing</label>
       <div class="col-md-4">
-        <select id="year1" name="year1" selected='<?php if($year1){ echo $year1 ;} ?>' class="form-control">
-          <option value="2008">2008</option>
-          <option value="2009">2009</option>
-          <option value="2010">2010</option>
-          <option value="2011">2011</option>
-          <option value="2012">2012</option>
-          <option value="2013">2013</option>
-          <option value="2014">2014</option>
+        <select id="year1" name="year1"  class="form-control">
+          <option <?php if($year1=='2008'){ echo 'selected' ;} ?> value="2008">2008</option>
+          <option <?php if($year1=='2009'){ echo 'selected' ;} ?> value="2009">2009</option>
+          <option <?php if($year1=='2010'){ echo 'selected' ;} ?> value="2010">2010</option>
+          <option <?php if($year1=='2011'){ echo 'selected' ;} ?> value="2011">2011</option>
+          <option <?php if($year1=='2012'){ echo 'selected' ;} ?> value="2012">2012</option>
+          <option <?php if($year1=='2013'){ echo 'selected' ;} ?> value="2013">2013</option>
+          <option <?php if($year1=='2014'){ echo 'selected' ;} ?> value="2014">2014</option>
         </select>
       </div>
     </div>
@@ -74,13 +74,13 @@ $fname=$data['fname'];
       <label class="col-md-4 control-label" for="year2">Year of passing</label>
       <div class="col-md-4">
         <select id="year2" name="year2" class="form-control">
-          <option value="2006">2006</option>
-          <option value="2007">2007</option>
-          <option value="2008">2008</option>
-          <option value="2009">2009</option>
-          <option value="2010">2010</option>
-          <option value="2011">2011</option>
-          <option value="2012">2012</option>
+          <option <?php if($year2=='2006'){ echo 'selected' ;} ?> value="2006">2006</option>
+          <option <?php if($year2=='2007'){ echo 'selected' ;} ?> value="2007">2007</option>
+          <option <?php if($year2=='2008'){ echo 'selected' ;} ?> value="2008">2008</option>
+          <option <?php if($year2=='2009'){ echo 'selected' ;} ?> value="2009">2009</option>
+          <option <?php if($year2=='2010'){ echo 'selected' ;} ?> value="2010">2010</option>
+          <option <?php if($year2=='2011'){ echo 'selected' ;} ?> value="2011">2011</option>
+          <option <?php if($year2=='2012'){ echo 'selected' ;} ?> value="2012">2012</option>
         </select>
       </div>
     </div>
@@ -121,13 +121,13 @@ $fname=$data['fname'];
       <label class="col-md-4 control-label" for="year3">Year</label>
       <div class="col-md-4">
         <select id="year3" name="year3" class="form-control">
-          <option value="2008">2008</option>
-          <option value="2009">2009</option>
-          <option value="2010">2010</option>
-          <option value="2011">2011</option>
-          <option value="2012">2012</option>
-          <option value="2013">2013</option>
-          <option value="2014">2014</option>
+          <option <?php if($year3=='2008'){ echo 'selected' ;} ?> value="2008">2008</option>
+          <option <?php if($year3=='2009'){ echo 'selected' ;} ?> value="2009">2009</option>
+          <option <?php if($year3=='2010'){ echo 'selected' ;} ?> value="2010">2010</option>
+          <option <?php if($year3=='2011'){ echo 'selected' ;} ?> value="2011">2011</option>
+          <option <?php if($year3=='2012'){ echo 'selected' ;} ?> value="2012">2012</option>
+          <option <?php if($year3=='2013'){ echo 'selected' ;} ?> value="2013">2013</option>
+          <option <?php if($year3=='2014'){ echo 'selected' ;} ?> value="2014">2014</option>
         </select>
       </div>
     </div>
