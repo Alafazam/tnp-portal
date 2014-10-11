@@ -9,6 +9,13 @@ class Aboutme extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user', '', TRUE);
+        if ($this->session->userdata('logged_in'))
+            { $session_data = $this->session->userdata('logged_in');
+            if ($session_data['type']!=='student') {
+                redirect('recruiter_home', 'refresh');                  
+                }//if recruiter redirect to recruiter page
+        }
+
     }
     
     
@@ -18,8 +25,9 @@ class Aboutme extends CI_Controller
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             $username     = $session_data['username'];
+
             //load about me page
-            $result       = $this->user->load_about_me($username);
+            $result       = $this->user->load_about_me();
                 $data = array(
                     'id' => $result[0]['id'],
                     'username' => $result[0]['username'],

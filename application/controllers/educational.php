@@ -7,8 +7,13 @@ class Educational  extends CI_Controller {
  function __construct()
  {
    parent::__construct();
-           $this->load->model('user', '', TRUE);
-
+   $this->load->model('user', '', TRUE);
+   if ($this->session->userdata('logged_in'))
+        { $session_data = $this->session->userdata('logged_in');
+        if ($session_data['type']!=='student') {
+            redirect('recruiter_home', 'refresh');                  
+            }//if recruiter redirect to recruiter page
+    }
  }
 
  function index()
@@ -20,18 +25,18 @@ class Educational  extends CI_Controller {
             $result       = $this->user->load_edu();
             // 'student_id','school_name','type','year','percentage','board'
                   $data = array(
-                    'school_name1' => $result[0]['school_name'],   
-                    'year1'        => $result[0]['year'],        
-                    'percentage1'  => $result[0]['percentage'],   
-                    'board1'       => $result[0]['board'],       
-                    'school_name2' => $result[1]['school_name'], 
-                    'year2'        => $result[1]['year'],        
-                    'percentage2'  => $result[1]['percentage'],  
-                    'board2'       => $result[1]['board'],       
-                    'quota'       => $result[2]['school_name'], 
-                    'year3'       => $result[2]['year'],        
-                    'air'         => $result[2]['percentage'],  
-                    'category'    => $result[2]['board']
+                    'school_name1'  => $result[0]['school_name'],   
+                    'year1'         => $result[0]['year'],        
+                    'percentage1'   => $result[0]['percentage'],   
+                    'board1'        => $result[0]['board'],       
+                    'school_name2'  => $result[1]['school_name'], 
+                    'year2'         => $result[1]['year'],        
+                    'percentage2'   => $result[1]['percentage'],  
+                    'board2'        => $result[1]['board'],       
+                    'quota'         => $result[2]['school_name'], 
+                    'year3'         => $result[2]['year'],        
+                    'air'           => $result[2]['percentage'],  
+                    'category'      => $result[2]['board']
                      );                  
             $this->load->template('edu_view', $data);
                      

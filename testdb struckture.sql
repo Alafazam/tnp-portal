@@ -16,8 +16,13 @@ CREATE TABLE academic (
     reason                TEXT          NULL
 );
 
+
+//new column added seo-friendly url
+// this functionality is yet to be implemented internally
+// see modes/users->get_url()
 CREATE TABLE users (
     id               INT           NOT NULL AUTO_INCREMENT,
+    url              VARCHAR (50)  NOT NULL,
     username         VARCHAR (50)  NOT NULL,
     password         VARCHAR (100) NOT NULL,
     enroll           INT           NULL,
@@ -76,6 +81,66 @@ CREATE TABLE applications
     CONSTRAINT FK_Applications_ToTable FOREIGN KEY (id) REFERENCES users(id)
 );
 
+//TODO add more feilds
+CREATE TABLE recruiters
+(
+    r_id            INT             NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    username        VARCHAR(50)     NOT NULL,
+    password        VARCHAR(100)    NOT NULL,
+    Company_name    VARCHAR(50)     NOT NULL,
+    url             VARCHAR(30)     NULL,
+    website_link    VARCHAR(100)    NULL,
+    Company_Type    VARCHAR(50)     NULL,
+    Industry_Sector VARCHAR(50)     NULL,
+    Brief           TEXT            NULL
+);
+
+//every company will have to create a job or job-position they can have multiple jobs too 
+//jobs available
+
+CREATE TABLE job_profiles
+(
+    job_id          INT         NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    r_id            INT         NOT NULL,    
+    Job_Designation
+    Job_Description
+    Place
+    ctc
+    gross     
+    Bonus 
+    Bond
+    Shortlist_from_Resumes    
+    Written_Test_(Technical, Aptitude)  
+    Group_Discussion             
+    Personal_Interview           
+    Medical_Test        
+    Number_of_Rounds
+    min_offers
+    Eligible_Departments
+    Number_of_Members
+    Number_of_Rooms
+    Other_Requirements                    
+    Contact_Name                :
+    Contact_Designation            :
+    Contact_Email      :
+    Contact_Postal     :
+    Contact_Number (Mobile)    :
+    Contact_Number (Other)  :
+    Fax_Number  
+
+);
+
+
+//NOTE FOR List of Programs Either mention general category such as: All Students / All B. Tech & Dual Degree Students / All Dual Degree/ All M. Tech Students / All students majoring in 
+
+
+
+
+
+
+
+
+
 
 //for announcements
 CREATE TABLE FEED
@@ -96,3 +161,5 @@ INSERT INTO school (id, school_name, city, year, board, paercentage, type) VALUE
 INSERT INTO users (username, password) values ('alafazam', MD5('alafazam'));
 
 INSERT INTO feed (date,data,heading) values('2014-12-15','I am a disco dancer','Yeah baby');
+
+INSERT INTO recruiters(usersname ,password ,Company_name ,url ,website_link ,Company_Type ,Industry_Sector ,Brief) values ('gravity_games',MD5('alafazam'),'Gravity-games');

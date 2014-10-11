@@ -2,22 +2,22 @@
 <?php
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Login extends CI_Controller
+class recruiter_login extends CI_Controller
 
 	{
 	function __construct()
 		{
 		parent::__construct();
 		if ($this->session->userdata('logged_in'))
-			{	$session_data = $this->session->userdata('logged_in');
-			if ($session_data['type']==='student') {
-				redirect('home', 'refresh');
-				}else{
-				redirect('recruiter_home', 'refresh');					
-				}
+			{
+		    $session_data = $this->session->userdata('logged_in');
+		    if ($session_data['type']==='recruiter') {
+				redirect('recruiter_home', 'refresh');
+		    	}else{
+				redirect('home', 'refresh');		    		
+		    	}
 			}
-
-		$this->load->model('user', '', TRUE);
+		$this->load->model('recruiter', '', TRUE);
 		}
 
 	function password()
@@ -136,7 +136,7 @@ class Login extends CI_Controller
 		$this->load->helper(array(
 			'form'
 		));
-		$this->load->view('login_view');
+		$this->load->view('recruiter_login_view');
 		}
 
 	function verify()
@@ -152,14 +152,14 @@ class Login extends CI_Controller
 
 			// Field validation failed.  User redirected to login page
 
-			$this->load->view("login_view");
+			$this->load->view("recruiter_login_view");
 			}
 		  else
 			{
 
 			// Go to private area
 
-			redirect('home', 'refresh');
+			redirect('Recruiter_home', 'refresh');
 			}
 		}
 
@@ -172,17 +172,17 @@ class Login extends CI_Controller
 
 		// query the database
 
-		$result = $this->user->login($username, $password);
+		$result = $this->recruiter->login($username, $password);
 		if ($result)
 			{
 			$sess_array = array();
 			foreach($result as $row)
 				{
 				$sess_array = array(
-					'id' => $row->id,
+					'r_id' => $row->r_id,
 					'username' => $row->username,
-					'fname' => $row->fname,
-					'type'=> 'student'
+					'company_name' => $row->Company_name,
+					'type'   => 'recruiter'
 				);
 				$this->session->set_userdata('logged_in', $sess_array);
 				}

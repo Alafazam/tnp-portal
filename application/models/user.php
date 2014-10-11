@@ -18,6 +18,52 @@ Class User extends CI_Model
     }
   }
 
+  function get_username($id='')
+  {
+    if ($id==='') {
+    $session_data = $this->session->userdata('logged_in');
+    $id = $session_data['id'];
+    }
+    $this->db->select('id,username');
+    $this->db->from('users');
+    $this->db->where('id',$id);
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+  function get_id($username='')
+  {
+   if ($username==='') {
+    $username = $session_data['username'];
+    }
+    $this->db->select('id,username');
+    $this->db->from('users');
+    $this->db->where('username',$username);
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+  function get_userurl($id='')
+  {
+    # TODO 
+    # 1. make url column in users table
+    # 2. make function for making url out of students's fname,mname,lanme or think of better option
+    # 3. checl that url is not duplicate
+    # 4. implement it so that we can see anyones profile by profiles/studenturl
+    # 5. same for companies
+  }
+
+
   function load_feeds()
   {
     $this->db->select('*');
@@ -48,11 +94,16 @@ Class User extends CI_Model
   }
 
 
-  function load_about_me($username)
+  function load_about_me($id='')
   {
-    $this->db->select('id, username,branch,ECA,Career_obj,Technical_Skills,Other_skills');
+    if ($id==='') {
+    $session_data = $this->session->userdata('logged_in');  
+    $id = $session_data['id'];
+    }
+
+    $this->db->select('id,username,branch,ECA,Career_obj,Technical_Skills,Other_skills');
     $this->db->from('users');
-    $this->db->where('username', $username);
+    $this->db->where('id', $id);
     $this->db->limit(1);
     $query = $this->db->get();
     if ($query->num_rows() == 1) {
@@ -63,15 +114,60 @@ Class User extends CI_Model
     }
   }
 
-  function load_edu()
+
+  function load_personal($id='')
   {
+    if ($id==='') {
     $session_data = $this->session->userdata('logged_in');
-    $id     = $session_data['id'];
+    $id = $session_data['id'];
+    }
+
+    $this->db->select('FNAME,MNAME,LNAME,gender,dob,AddressL1,AddressL2,City,Phone,Email_add');
+    $this->db->from('users');
+    $this->db->where('id', $id);
+    $this->db->limit(1);
+
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+  function load_acad($id='')
+  {
+    if ($id==='') {
+    $session_data = $this->session->userdata('logged_in');
+    $id = $session_data['id'];
+    }
+    $this->db->select('id,cursem,sem1,sem2,sem3,sem4,sem5,sem6,sem7,sem8,cgpa,supply,back,reason');
+    // $this->db->select('dob');
+    $this->db->from('academic');
+    $this->db->where('id', $id);
+    $this->db->limit(1);
+
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+
+  function load_edu($id='')
+  {
+    if ($id==='') {
+    $session_data = $this->session->userdata('logged_in');
+    $id = $session_data['id'];
+    }
     
     $this->db->select('*');
     $this->db->from('school_details');
-    // $this->db->join('users', 'users.id = student_details.id', 'inner');
-    $this->db->where('student_id', '1');
+    $this->db->where('student_id', $id);
     $this->db->limit(3);
     $query = $this->db->get();
     if ($query->num_rows()) {
@@ -118,47 +214,6 @@ Class User extends CI_Model
   }
 
 
-
-  function load_personal()
-  {
-    $session_data = $this->session->userdata('logged_in');
-    $id       = $session_data['id'];
-    $username =$session_data['username'];
-    $this->db->select('FNAME,MNAME,LNAME,gender,dob,AddressL1,AddressL2,City,Phone,Email_add');
-    // $this->db->select('dob');
-    $this->db->from('users');
-    $this->db->where('id', $id);
-    $this->db->where('username', $username);
-    $this->db->limit(1);
-
-    $query = $this->db->get();
-    if ($query->num_rows()) {
-      return $query->result_array();
-    }
-    else {
-      return false;
-    }
-  }
-
-  function load_acad()
-  {
-    $session_data = $this->session->userdata('logged_in');
-    $id       = $session_data['id'];
-    $username =$session_data['username'];
-    $this->db->select('id,cursem,sem1,sem2,sem3,sem4,sem5,sem6,sem7,sem8,cgpa,supply,back,reason');
-    // $this->db->select('dob');
-    $this->db->from('academic');
-    $this->db->where('id', $id);
-    $this->db->limit(1);
-
-    $query = $this->db->get();
-    if ($query->num_rows()) {
-      return $query->result_array();
-    }
-    else {
-      return false;
-    }
-  }
 
 
 

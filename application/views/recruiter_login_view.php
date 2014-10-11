@@ -16,28 +16,34 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.1/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
-            <style type="text/css">a:hover{color:white;}a{color: #FFFFFF;}</style>
+      <style type="text/css">a:hover{color:white;}a{color: #FFFFFF;}</style>
 
     </head>
 
     <body style="background-color:#110022;">
      <div class="container" style="margin-top:100px;">
-      <form class="form-signin" role="form" action="login/verify" method="post" accept-charset="utf-8">
-        <h2 style="color: #FFF;" class="form-signin-heading">Please sign in</h2>
+      <form class="form-signin" role="form" action="recruiter_login/verify" method="post" accept-charset="utf-8">
+        <h2 style="color: #FFF;" class="form-signin-heading">Recruiter Login</h2>
         <input type="text" style="text-transform:none;" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
-        <input type="password" style="text-transform:none;margin-top:10px;" name="password" id="password" class="form-control" placeholder="Password" required>
-        <label class="checkbox" style="color: #FFF;">
-          <input type="checkbox" name="remember" id="remember" value="remember-me"> Remember me
-        </label>
+        <input type="password" style="text-transform:none;margin-top:10px" name="password" id="password" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <!-- <div class="row">
+                <div class="col-md-6">
+                  <button class="btn btn-lg  btn-primary btn-block"  style="margin-top:10px;"><a style="" href="/login">Not a Recruiter</a></button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-lg  btn-primary btn-block" type="submit" style="margin-top:10px;">Sign in</button>
+                </div>
+        </div> -->
         <div class="row">
                 <div class="col-md-6">            
-                    <h5><a href="/login/password" class="forgot">Forgot Password?</a></h5>
+                    <h5><a href="#" class="forgot">Forgot Password?</a></h5>
                 </div>
                 <div class="" style="float:right;padding-right:20px">
-                    <h5><a href="/recruiter_login" class="forgot">Not a Student</a></h5>
+                    <h5><a href="/login" class="forgot">Not a Recruiter</a></h5>
                 </div>
         </div>
+        
       </form>
 
     </div> <!-- /container -->

@@ -32,6 +32,21 @@ class my_loader extends CI_Loader {
     }
 }
 
+public function recruiter_template($template_name, $vars = array(), $return = FALSE)
+    {
+      $CI =& get_instance();
+
+
+      $content  = $this->view('templates/c_header', $vars, $return);
+      $content .= $this->view($template_name, $vars, $return);
+      $content .= $this->view('templates/c_footer', $vars, $return);
+
+      if ($return)
+      {
+        return $content;
+    }
+}
+
 	// public function opera($template_name, $vars = array(), $return = FALSE)
  //    {
  //        $content  = $this->view('opera/templates/header', $vars, $return);

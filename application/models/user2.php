@@ -86,8 +86,7 @@ Class User extends CI_Model
 			'v_code' => $v_id
 		));
 		
-		$this->email->message("Please Click the Link below to verify your account
-".base_url("register/verify/".$data['username']."/".$v_id)."");	
+		$this->email->message("Please Click the Link below to verify your accoun".base_url("register/verify/".$data['username']."/".$v_id)."");	
 		
 		$this->email->send();
 		try{

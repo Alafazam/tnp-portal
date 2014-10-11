@@ -6,6 +6,12 @@ class personal extends CI_Controller {
  {
    parent::__construct();
    $this->load->model('user','',TRUE);
+   if ($this->session->userdata('logged_in'))
+        { $session_data = $this->session->userdata('logged_in');
+        if ($session_data['type']!=='student') {
+            redirect('recruiter_home', 'refresh');                  
+            }//if recruiter redirect to recruiter page
+    }
  }
 
  function index()
