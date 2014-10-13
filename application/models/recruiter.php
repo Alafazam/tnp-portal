@@ -79,12 +79,27 @@ Class recruiter extends CI_Model
     }
   }
 
+  // function get_id($username='')
+  // {
+  //   $this->db->select('r_id');
+  //   $this->db->from('recruiters');
+  //   $this->db->where('')
+  //   $query = $this->db->get();
+  //   if ($query->num_rows()) {
+  //     return $query->result_array();
+  //   }
+  //   else {
+  //     return false;
+  //   }
+
+  
+
   function _update($username, $data)
   {
     try {
       $query = $this->db->where(array(
         'username' => $username
-      ))->update('users', $data);
+      ))->update('recruiters', $data);
       return $query;
     }
 
@@ -93,9 +108,34 @@ Class recruiter extends CI_Model
     }
   }
 
-
+  function load_recruiter_profile($Company_name='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->select('*');
+    $this->db->from('recruiters');
+    if ($Company_name==='') {
+      $this->db->where('r_id',$r_id);      
+    }else{
+      $this->db->where('Company_name',$Company_name);
+    }
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
  
-
+  function insert_job($data='')
+  {
+  $session_data = $this->session->userdata('logged_in');
+  $r_id = $session_data['r_id'];
+  $data['r_id']  = $r_id;
+  $this->db->insert('job_profiles', $data); 
+  
+  }
 
 }
 

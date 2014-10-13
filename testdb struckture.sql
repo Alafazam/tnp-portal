@@ -72,12 +72,13 @@ CREATE TABLE school_details
 
 CREATE TABLE applications
 (
-    application_id INT      NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    id INT          NOT NULL, 
-    Company VARCHAR(50)     NULL, 
-    Status VARCHAR(50)      NULL, 
-    date VARCHAR(50)        NULL,
-    cover_letter TEXT       NULL, 
+    application_id          INT             NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    id                      INT             NOT NULL,
+    job_id                  INT             NOT NULL. 
+    Company_name            VARCHAR(50)     NULL, 
+    Status                  VARCHAR(50)     NULL, 
+    date                    VARCHAR(50)     NULL,
+    cover_letter            TEXT            NULL, 
     CONSTRAINT FK_Applications_ToTable FOREIGN KEY (id) REFERENCES users(id)
 );
 
@@ -100,33 +101,31 @@ CREATE TABLE recruiters
 
 CREATE TABLE job_profiles
 (
-    job_id          INT         NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    r_id            INT         NOT NULL,    
-    Job_Designation
-    Job_Description
-    Place
-    ctc
-    gross     
-    Bonus 
-    Bond
-    Shortlist_from_Resumes    
-    Written_Test_(Technical, Aptitude)  
-    Group_Discussion             
-    Personal_Interview           
-    Medical_Test        
-    Number_of_Rounds
-    min_offers
-    Eligible_Departments
-    Number_of_Members
-    Number_of_Rooms
-    Other_Requirements                    
-    Contact_Name                :
-    Contact_Designation            :
-    Contact_Email      :
-    Contact_Postal     :
-    Contact_Number (Mobile)    :
-    Contact_Number (Other)  :
-    Fax_Number  
+    job_id                      INT         NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    r_id                        INT         NOT NULL,    
+    job_desig                   VARCHAR(50)     NULL,
+    job_descr                   TEXT            NULL,
+    application_dead_line       DATETIME        NOT NULL
+    place                       VARCHAR(50)     NULL,
+    ctc                         VARCHAR(50)     NULL,
+    gross                       VARCHAR(50)     NULL,
+    bonus                       VARCHAR(50)     NULL,
+    bond                        TEXT            NULL,
+    shortlist_from_Resumes      VARCHAR(50)     NULL,
+    written_Test                VARCHAR(50)     NULL,
+    group_Discussion            VARCHAR(50)     NULL, 
+    personal_Interview          VARCHAR(50)     NULL,
+    medical_Test                VARCHAR(50)     NULL,
+    number_of_rounds            VARCHAR(50)     NULL,
+    min_offers                  VARCHAR(50)     NULL,
+    eligible_departments        VARCHAR(50)     NULL,
+    number_of_members           VARCHAR(50)     NULL,
+    number_of_rooms             VARCHAR(50)     NULL,
+    other_requirements          VARCHAR(50)     NULL,
+    contact_name                VARCHAR(50)     NULL,
+    contact_designation         VARCHAR(50)     NULL,
+    contact_email               VARCHAR(50)     NULL, 
+    contact_number              VARCHAR(50)     NULL
 
 );
 

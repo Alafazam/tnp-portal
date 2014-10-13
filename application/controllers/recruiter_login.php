@@ -149,17 +149,11 @@ class recruiter_login extends CI_Controller
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 		if ($this->form_validation->run() == FALSE)
 			{
-
-			// Field validation failed.  User redirected to login page
-
-			$this->load->view("recruiter_login_view");
+				$this->load->view("recruiter_login_view");
 			}
 		  else
 			{
-
-			// Go to private area
-
-			redirect('Recruiter_home', 'refresh');
+				redirect('recruiter_home', 'refresh');
 			}
 		}
 
@@ -181,7 +175,7 @@ class recruiter_login extends CI_Controller
 				$sess_array = array(
 					'r_id' => $row->r_id,
 					'username' => $row->username,
-					'company_name' => $row->Company_name,
+					'Company_name' => $row->Company_name,
 					'type'   => 'recruiter'
 				);
 				$this->session->set_userdata('logged_in', $sess_array);

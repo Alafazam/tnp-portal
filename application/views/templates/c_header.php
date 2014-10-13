@@ -1,4 +1,4 @@
-<?php $data= $this->session->userdata('logged_in'); $username=$data['username']; $fname=$data['company_name'];?>
+<?php $data= $this->session->userdata('logged_in'); $username=$data['username']; $fname=$data['Company_name'];?>
 
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
                     </li>
                     <li><a href="#">Settings</a>
                     </li>
-                    <li><a href="/profile">My Profile</a>
+                    <li><a href="/recruiter_profile">My Profile</a>
                     </li>
                     <li>
                         <a <?php if(isset($username)) { echo ' href="/recruiter_home/logout">Logout'; } else { echo ' href="/login">Login'; } ?></a>
@@ -69,7 +69,7 @@
                     </li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="#">Profile</a>
+                    <li><a href="/recruiter_profile">Profile</a>
                     </li>
                     <li><a href="#">Add new Job</a>
                     </li>

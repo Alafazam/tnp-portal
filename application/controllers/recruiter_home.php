@@ -23,7 +23,7 @@ class recruiter_home extends CI_Controller {
    {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $data['company_name'] = $session_data['company_name'];
+     $data['Company_name'] = $session_data['Company_name'];
 
      $feeddata = $this->user->load_feeds();
      $data   = array(
