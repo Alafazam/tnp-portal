@@ -71,7 +71,7 @@
                 <ul class="nav nav-sidebar">
                     <li><a href="/recruiter_profile">Profile</a>
                     </li>
-                    <li><a href="#">Add new Job</a>
+                    <li><a href="/recruiter_create_job">Add new Job</a>
                     </li>
                     <li><a href="#">calander</a>
                     </li>

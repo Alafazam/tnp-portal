@@ -130,12 +130,37 @@ Class recruiter extends CI_Model
  
   function insert_job($data='')
   {
-  $session_data = $this->session->userdata('logged_in');
-  $r_id = $session_data['r_id'];
-  $data['r_id']  = $r_id;
-  $this->db->insert('job_profiles', $data); 
-  
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $data['r_id']  = $r_id;
+    $this->db->insert('job_profiles', $data);  
   }
+
+//loads all job if value is not given ,load ony specific job if Job_id is given
+  function getJob($value='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->select('*');  
+    $this->db->from('job_profiles');
+    if ($value==='') {
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('r_id',$r_id);      
+    }else{
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('job_id',$value);   
+      $this->db->where('r_id',$r_id);         
+    }
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+
 
 }
 

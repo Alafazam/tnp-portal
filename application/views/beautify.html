@@ -1,12 +1,4 @@
-<?php
-$data= $this->session->userdata('logged_in');
-$username=$data['username'];
-$flashSuccess =$this->session->flashdata('flashSuccess');
-?>
-
-
-
-<form class="form-horizontal" role="form" action="recruiter_create_job/newJob" method="post" >
+<form class="form-horizontal" role="form" action="recruiter_create_job/new" method="post" accept-charset="utf-8">
     <fieldset>
 
         <!-- Form Name -->
@@ -16,7 +8,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Job Designation">Job Designation</label>
             <div class="col-md-4">
-                <input id="Job Designation" name="job_desig" type="text" placeholder="Job Designation" class="form-control input-md">
+                <input id="Job Designation" name="Job Designation" type="text" placeholder="Job Designation" class="form-control input-md">
 
             </div>
         </div>
@@ -25,7 +17,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Job Description">Job Description</label>
             <div class="col-md-4">
-                <textarea id="Job Description" name="job_descr" type="text" placeholder="Job Description" class="form-control input-md"></textarea>
+                <textarea id="Job Description" name="Job Description" type="text" placeholder="Job Description" class="form-control input-md"></textarea>
 
             </div>
         </div>
@@ -34,7 +26,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Place of Posting">Place of Posting</label>
             <div class="col-md-4">
-                <input id="Place of Posting" name="place" type="text" placeholder="Place of Posting" class="form-control input-md">
+                <input id="Place of Posting" name="Place of Posting" type="text" placeholder="Place of Posting" class="form-control input-md">
 
             </div>
         </div>
@@ -62,7 +54,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Cost to Company">Cost to Company</label>
             <div class="col-md-4">
-                <input id="Cost to Company" name="ctc" type="text" placeholder="Cost to Company" class="form-control input-md">
+                <input id="Cost to Company" name="Cost to Company" type="text" placeholder="Cost to Company" class="form-control input-md">
 
             </div>
         </div>
@@ -71,7 +63,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Gross">Gross (Take-home, before tax and other deductions)</label>
             <div class="col-md-4">
-                <input id="Gross" name="gross" type="text" placeholder="Gross" class="form-control input-md">
+                <input id="Gross" name="Gross" type="text" placeholder="Gross" class="form-control input-md">
 
             </div>
         </div>
@@ -89,7 +81,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Bond">Bond or Service Contract(If yes, give details)</label>
             <div class="col-md-4">
-                <select id="Bond" name="bond" class="form-control">
+                <select id="Bond" name="Bond" class="form-control">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -113,9 +105,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Shortlist from Resumes">Shortlist from Resumes</label>
+            <label class="col-md-4 control-label" for="Shortlist from Resumes    ">Shortlist from Resumes</label>
             <div class="col-md-4">
-                <select id="Shortlist from Resumes" name="shortlist_from_Resumes" class="form-control">
+                <select id="Shortlist from Resumes    " name="Shortlist from Resumes    " class="form-control">
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                 </select>
@@ -126,7 +118,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Written Test (Technical, Aptitude) ">Written Test (Technical, Aptitude)</label>
             <div class="col-md-4">
-                <select id="Written Test" name="written_Test" class="form-control">
+                <select id="Written Test (Technical, Aptitude)  " name="Written Test (Technical, Aptitude)  " class="form-control">
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                 </select>
@@ -135,9 +127,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Group Discussion">Group Discussion</label>
+            <label class="col-md-4 control-label" for="Group Discussion       ">Group Discussion</label>
             <div class="col-md-4">
-                <select id="Group_Discussion" name="group_Discussion" class="form-control">
+                <select id="Group Discussion       " name="Group Discussion       " class="form-control">
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                 </select>
@@ -148,7 +140,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Personal Interview">Personal Interview</label>
             <div class="col-md-4">
-                <select id="Personal_Interview" name="personal_Interview" class="form-control">
+                <select id="Personal Interview" name="Personal Interview" class="form-control">
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                 </select>
@@ -159,7 +151,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Medical Test">Medical Test</label>
             <div class="col-md-4">
-                <select id="Medical_Test" name="medical_Test" class="form-control">
+                <select id="Medical Test" name="Medical Test" class="form-control">
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                 </select>
@@ -170,7 +162,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Number of Rounds">Number of Rounds</label>
             <div class="col-md-4">
-                <input id="Number_of_Rounds" name="number_of_rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
+                <input id="Number of Rounds" name="Number of Rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
 
             </div>
         </div>
@@ -179,7 +171,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Minimum Number of offers you intend to make:">Minimum Number of offers you intend to make:</label>
             <div class="col-md-4">
-                <input id="MinNoOffers" name="min_offers" type="text" placeholder="" class="form-control input-md">
+                <input id="Minimum Number of offers you intend to make:" name="Minimum Number of offers you intend to make:" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -190,42 +182,42 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
             <div class="col-md-4">
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-0" value="Chemical Engineering">Chemical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-1" value="Civil Engineering">Civil Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-2" value="Computer Science &amp; Engineering">Computer Science &amp; Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
+                        <input type="checkbox" name="Eligible" id="Eligible-3" value="Information Technology">Information Technology
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-4" value="Electronics and Communication Engineering">Electronics and Communication Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-5" value="Electrical Engineering">Electrical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-6">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-6" value="Mechanical Engineering">Mechanical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-7" value="MEE">Metallurgy Engineering
+                        <input type="checkbox" name="Eligible" id="Eligible-7" value="Metallurgy Engineering">Metallurgy Engineering
                     </label>
                 </div>
             </div>
@@ -238,7 +230,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Number of Members">Number of Members</label>
             <div class="col-md-4">
-                <input id="Number of Members" name="number_of_members" type="text" placeholder="" class="form-control input-md">
+                <input id="Number of Members" name="Number of Members" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -247,7 +239,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Number of Rooms required for selection process">Number of Rooms required for selection process</label>
             <div class="col-md-4">
-                <input id="Number of Rooms required for selection process" name="number_of_rooms" type="text" placeholder="" class="form-control input-md">
+                <input id="Number of Rooms required for selection process" name="Number of Rooms required for selection process" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -256,7 +248,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Other Requirements">Other Requirements</label>
             <div class="col-md-4">
-                <input id="Other Requirements" name="other_requirements" type="text" placeholder="" class="form-control input-md">
+                <input id="Other Requirements" name="Other Requirements" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -265,7 +257,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Name">Name</label>
             <div class="col-md-4">
-                <input id="Name" name="contact_name" type="text" placeholder="" class="form-control input-md">
+                <input id="Name" name="Name" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -274,7 +266,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Designation">Designation</label>
             <div class="col-md-4">
-                <input id="Designation" name="contact_designation" type="text" placeholder="" class="form-control input-md">
+                <input id="Designation" name="Designation" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -283,7 +275,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Email Address">Email Address</label>
             <div class="col-md-4">
-                <input id="Email Address" name="contact_email" type="text" placeholder="" class="form-control input-md">
+                <input id="Email Address" name="Email Address" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -292,7 +284,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Contact Number (Mobile)">Contact Number (Mobile)</label>
             <div class="col-md-4">
-                <input id="Contact Number (Mobile)" name="contact_number" type="text" placeholder="" class="form-control input-md">
+                <input id="Contact Number (Mobile)" name="Contact Number (Mobile)" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>

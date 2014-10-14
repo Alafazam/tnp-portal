@@ -6,11 +6,13 @@
 <file name="login.php" server="C:/xampp/htdocs/" local="130574410926032556" remote="130574410920000000" />
 <file name="aboutme.php" server="C:/xampp/htdocs/" local="130574502605263863" remote="130574502600000000" />
 <file name="educational.php" server="C:/xampp/htdocs/" local="130574406746480631" remote="130574406740000000" />
-<file name="personal.php" server="C:/xampp/htdocs/" local="130574407340824410" remote="130574407340000000" />
+<file name="personal.php" server="C:/xampp/htdocs/" local="130577055501411971" remote="130577055500000000" />
 <file name="academic.php" server="C:/xampp/htdocs/" local="130574406554915349" remote="130574406550000000" />
 <file name="home2.p5hp" server="C:/xampp/htdocs/" local="130565470546208595" remote="130565470540000000" />
 <file name="profile.php" server="C:/xampp/htdocs/" local="130574466780200332" remote="130574466780000000" />
 <file name="recruiter_login.php" server="C:/xampp/htdocs/" local="130576702874490376" remote="130576702870000000" />
 <file name="recruiter_home.php" server="C:/xampp/htdocs/" local="130576713749222689" remote="130576713740000000" />
-<file name="recruiter_profile.php" server="C:/xampp/htdocs/" local="130576716613382289" remote="130576716610000000" />
+<file name="recruiter_profile.php" server="C:/xampp/htdocs/" local="130577087546449802" remote="130577087540000000" />
+<file name="recruiter_create_job.php" server="C:/xampp/htdocs/" local="130577593122328034" remote="130577593120000000" />
+<file name="recruiter_myjobs.php" server="C:/xampp/htdocs/" local="130577109555384732" remote="130577109550000000" />
 </dwsync>

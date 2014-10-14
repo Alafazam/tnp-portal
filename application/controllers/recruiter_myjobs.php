@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 session_start(); //we need to call PHP's session object to access it through CI
-class recruiter_profile extends CI_Controller
+class recruiter_myjobs extends CI_Controller
 {
     
     function __construct()
@@ -26,9 +26,11 @@ class recruiter_profile extends CI_Controller
             $session_data     = $this->session->userdata('logged_in');
             $username = $session_data['username'];
             $Company_name = $session_data['Company_name'];
-            $result = $this->recruiter->load_recruiter_profile();
-            $data = $result[0];
-            $this->load->recruiter_template('recruiter_profile_view', $data);
+            $feeddata = $this->recruiter->getJob();
+            $data   = array(
+              'jobs'=> $feeddata
+          );
+            $this->load->recruiter_template('recruiter_myjobs', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');
