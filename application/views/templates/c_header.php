@@ -14,6 +14,7 @@
     <title>Portal for Trainnig and Placement depatment</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
+       <script src="/js/jquery.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.1/html5shiv.min.js"></script>
@@ -82,7 +83,7 @@
                 <ul class="nav nav-sidebar">
                     <li><a href="#">Students List</a>
                     </li>
-                    <li><a href="#">My jobs</a>
+                    <li><a href="recruiter_myjobs">My jobs</a>
                     </li>
                     <li><a href="#">Applicants</a>
                     </li>

@@ -47,7 +47,7 @@ class recruiter_create_job extends CI_Controller
         
         $this->form_validation->set_rules('job_desig', 'job_desig', 'trim|xss_clean');
         $this->form_validation->set_rules('job_descr', 'job_descr', 'trim|xss_clean');
-        // $this->form_validation->set_rules('application_dead_line', 'application_dead_line','trim|xss_clean');
+        $this->form_validation->set_rules('application_dead_line', 'application_dead_line','trim|xss_clean');
         $this->form_validation->set_rules('place', 'place', 'trim|xss_clean');
         $this->form_validation->set_rules('ctc', 'ctc', 'trim|xss_clean');
         $this->form_validation->set_rules('gross', 'gross', 'trim|xss_clean');
@@ -79,7 +79,7 @@ class recruiter_create_job extends CI_Controller
         //query the database
         $postData['job_desig']              = $this->input->post('job_desig');
         $postData['job_descr']              = $this->input->post('job_descr');
-        // $postData['application_dead_line']  = $this->input->post('application_dead_line');
+        $postData['application_dead_line']  = $this->input->post('application_dead_line');
         $postData['place']                  = $this->input->post('place');
         $postData['ctc']                    = $this->input->post('ctc');
         $postData['gross']                  = $this->input->post('gross');
@@ -108,7 +108,7 @@ class recruiter_create_job extends CI_Controller
 
         $result = $this->recruiter->insert_job($postData);
         $this->session->set_flashdata('flashSuccess', 'success');
-        redirect('/recruiter_create_job', 'refresh');
+        redirect('/recruiter_myjobs', 'refresh');
 
     }
 

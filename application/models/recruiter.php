@@ -141,7 +141,8 @@ Class recruiter extends CI_Model
   {
     $session_data = $this->session->userdata('logged_in');
     $r_id = $session_data['r_id'];
-    $this->db->select('*');  
+    $this->db->select('*');
+    $this->db->order_by('application_dead_line', 'desc');  
     $this->db->from('job_profiles');
     if ($value==='') {
       // $this->db->where('Company_name',$Company_name);
@@ -158,6 +159,16 @@ Class recruiter extends CI_Model
     else {
       return false;
     }
+  }
+
+  function delete_job($value='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    if (ctype_digit($value)) {   
+    $r_id = $session_data['r_id'];
+    $this->db->where('r_id',$r_id);
+    $this->db->delete('job_profiles', array('job_id' => $value));
+    } 
   }
 
 

@@ -300,7 +300,10 @@
 			<!-- Start of articals -->
 	
 			<?php foreach ($jobs as $key)
-			{	$type = "";
+            // implode("-", array_reverse(explode("/", $var)));
+			{	$key['application_dead_line'] = implode("-", array_reverse(explode("/", $key['application_dead_line'])));
+                $key['type'] = '1';
+                $type = "";
 				if ($key['type']==='1') {
 					$type = "<div class='timeline-icon bg-success'><i class='entypo-feather'></i></div>";
 				} elseif ($key['type']==='2') {
@@ -312,8 +315,8 @@
 
 	            <div class='timeline-entry-inner'>".$type."<div class='timeline-label'>
 	                    <h2><a href='/recruiter_myjobs/".$key['job_id']."'>".$key['job_desig']."</a> <span>".$key['application_dead_line']."</span></h2>
-                        <pre>WHERE.".$key['place']."</pre>
-                        <pre>CTC/GROSS.".$key['ctc']."/".$key['gross']."</pre>
+                        <pre>".$key['place']."</pre>
+                        <pre>CTC:".$key['ctc'].", GROSS:".$key['gross']."</pre>
                         <p>".$key['job_descr']."</p>
 	                </div>
 	            </div>
