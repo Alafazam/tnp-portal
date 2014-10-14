@@ -75,6 +75,3 @@ $username=$data['username'];
     </div>
   </fieldset>
 </form>
-<script>
-  $.validate();
-</script>

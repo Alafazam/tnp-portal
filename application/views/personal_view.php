@@ -58,7 +58,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="dob">Date of Birth</label>  
    			<div class="col-md-4">
-   				<input id="dob" name="dob" value="<?php if ($dob) {  echo $dob ;}?>" type="text" placeholder="YYYY-MM-DD" class="form-control input-md">
+   				<input id="dob" name="dob" data-validation="date" data-validation-format="dd/mm/yyyy" value="<?php if ($dob) {  echo $dob ;}?>" type="text" placeholder="YYYY-MM-DD" class="form-control input-md">
    			</div>
    		</div>
 
@@ -103,7 +103,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="email_add">Email Address</label>  
    			<div class="col-md-4">
-   				<input id="email_add" name="email_add" style="text-transform: none;" value="<?php if ($email_add) { echo $email_add ;}?>" type="text" placeholder="Email Address" class="form-control input-md">
+   				<input id="email_add" name="email_add" data-validation="email" style="text-transform: none;" value="<?php if ($email_add) { echo $email_add ;}?>" type="text" placeholder="Email Address" class="form-control input-md">
 
    			</div>
    		</div>
