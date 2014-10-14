@@ -1,3 +1,6 @@
+
+For Ankit sir to do.. :)
+
 1. calender implement karna hai jo student ko dikhe wtih all company names
 but company ko jahan date pic karni ho usko busy day aur open day type me hi dikhe (baki companies k naam na dikhe)
 2. reset password/forgot  password banana hai
