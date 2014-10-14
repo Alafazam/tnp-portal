@@ -14,6 +14,8 @@
     <title>Portal for Trainnig and Placement depatment</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
