@@ -2,19 +2,26 @@
 $data= $this->session->userdata('logged_in');
 $username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
+
+if (!isset($approved)) {
+$approved = 0;
+}
+
+$eligible = array();
+foreach ($eligible_departments as $key => $value) {
+    $eligible[$key] = $value;
+}
+
+
 ?>
-<link rel="stylesheet" type="text/css" media="screen"
-     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
- 
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-    </script>
+<link rel="stylesheet" type="text/css" media="screen"href="/css/datepicker.css">
+<script type="text/javascript"src="/js/datepicker.js"></script>
+<script type="text/javascript" src="/js/datetimepicker.pt-BR.js"></script>
+<style>.form-control[readonly] {
+     cursor: text;
+}</style>
 
-
-<form class="form-horizontal" role="form" action="recruiter_create_job/newJob" method="post" >
+<form class="form-horizontal" role="form" <?php if (!$approved) { echo "action='recruiter_create_job/newJob'"; }?> method="post" >
     <fieldset>
 
         <!-- Form Name -->
@@ -24,7 +31,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Job Designation">Job Designation</label>
             <div class="col-md-4">
-                <input required id="Job Designation" name="job_desig" type="text" placeholder="Job Designation" class="form-control input-md"  >
+                <input required   <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($job_desig)) { echo "value='".$job_desig."'"; } ?> id="Job Designation" name="job_desig" type="text" placeholder="Job Designation" class="form-control input-md"  >
 
             </div>
         </div>
@@ -33,7 +40,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Job Description">Job Description</label>
             <div class="col-md-4">
-                <textarea id="Job Description" name="job_descr" type="text" required  placeholder="Job Description" class="form-control input-md"></textarea>
+                <textarea  id="Job Description" <?php if ($approved) { echo "readonly"; } ?> name="job_descr" <?php if (isset($job_descr)) { echo "value='".$job_descr."'"; } ?> type="text" required  placeholder="Job Description" class="form-control input-md"></textarea>
 
             </div>
         </div>
@@ -42,30 +49,33 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Place of Posting">Place of Posting</label>
             <div class="col-md-4">
-                <input required id="Place of Posting" required name="place" type="text" placeholder="Place of Posting" class="form-control input-md">
+                <input required id="Place of Posting" <?php if ($approved) { echo "readonly"; } ?>  name="place" <?php if (isset($place)) { echo "value='".$place."'"; } ?> type="text" placeholder="Place of Posting" class="form-control input-md">
 
             </div>
         </div>
 
         <div class="form-group">
           <label for="last_date" class="col-md-4 control-label">Application Deadline</label>
-          <div id="datetimepicker1" class="input-append input-group date col-md-4">
-            <input required name="application_dead_line" class="form-control " data-format="yyyy-MM-dd hh:mm:ss" type="text">
+          <div id="datetimepicker1"   class="input-append input-group date col-md-4">
+            <input required <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" class="form-control " data-format="yyyy-MM-dd hh:mm:ss" type="text">
             <span class="add-on input-group-addon">
               <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
             </span>
           </div>
       </div>
-      
-      <script type="text/javascript">
+      <?php 
+      if (!$approved) {
+      echo 
+      "<script type='text/javascript'>
   $(function() {
     $('#datetimepicker1').datetimepicker({
       language: 'en',
       pick12HourFormat: true
     });
   });
-</script>
-
+</script>";
+}
+    ?>
         <legend>Salary Details</legend>
 
         <!-- <h4 class="text-center"><small>Salary Details</small></h4> -->
@@ -89,7 +99,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Cost to Company">Cost to Company</label>
             <div class="col-md-4">
-                <input required id="Cost to Company" required name="ctc" type="text" placeholder="Cost to Company" class="form-control input-md">
+                <input <?php if (isset($place)) { echo "value='".$place."'"; } ?>  required id="Cost to Company" <?php if ($approved) { echo "readonly"; } ?> required name="ctc" type="text" placeholder="Cost to Company" class="form-control input-md">
 
             </div>
         </div>
@@ -98,7 +108,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label"  for="Gross">Gross (Take-home, before tax and other deductions)</label>
             <div class="col-md-4">
-                <input required id="Gross" name="gross" type="text" placeholder="Gross" class="form-control input-md">
+                <input <?php if (isset($gross)) { echo "value='".$gross."'"; } ?> required id="Gross" <?php if ($approved) { echo "readonly"; } ?> name="gross" type="text" placeholder="Gross" class="form-control input-md">
 
             </div>
         </div>
@@ -107,7 +117,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="bonus">Bonus/Perks/Incentive (if any)</label>
             <div class="col-md-4">
-                <input required id="bonus" name="bonus" type="text" placeholder="bonus" class="form-control input-md">
+                <input <?php if (isset($bonus)) { echo "value='".$bonus."'"; } ?> required id="bonus" <?php if ($approved) { echo "readonly"; } ?> name="bonus" type="text" placeholder="bonus" class="form-control input-md">
 
             </div>
         </div>
@@ -116,7 +126,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Bond">Bond or Service Contract(If yes, give details)</label>
             <div class="col-md-4">
-                <select id="Bond" name="bond" class="form-control">
+                <select id="Bond" <?php if (isset($bond)) { echo "value='".$bond."'"; } ?>  <?php if ($approved) { echo "readonly"; } ?> name="bond" class="form-control">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -128,7 +138,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="bond_desc">Bond Description</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="bond_desc" placeholder="Bond Description" name="bond_desc"></textarea>
+                <textarea class="form-control" id="bond_desc" <?php if ($approved) { echo "readonly"; } ?> placeholder="Bond Description" <?php if (isset($bond_desc)) { echo "value='".$bond_desc."'"; } ?> name="bond_desc"></textarea>
                 <!-- <span class="help-block"></span>  -->
             </div>
         </div>
@@ -142,9 +152,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Shortlist from Resumes">Shortlist from Resumes</label>
             <div class="col-md-4">
-                <select id="Shortlist from Resumes" name="shortlist_from_Resumes" class="form-control">
+                <select id="Shortlist from Resumes"  <?php if ($approved) { echo "readonly"; } ?> name="shortlist_from_Resumes" class="form-control">
                     <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option <?php if ($shortlist_from_Resumes=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -153,9 +163,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Written Test (Technical, Aptitude) ">Written Test (Technical, Aptitude)</label>
             <div class="col-md-4">
-                <select id="Written Test" name="written_Test" class="form-control">
+                <select id="Written Test" <?php if ($approved) { echo "readonly"; } ?> name="written_Test" class="form-control">
                     <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option <?php if ($written_Test=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -164,9 +174,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Group Discussion">Group Discussion</label>
             <div class="col-md-4">
-                <select id="Group_Discussion" name="group_Discussion" class="form-control">
+                <select id="Group_Discussion" <?php if ($approved) { echo "readonly"; } ?> name="group_Discussion" class="form-control">
                     <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option <?php if ($group_Discussion=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -175,9 +185,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Personal Interview">Personal Interview</label>
             <div class="col-md-4">
-                <select id="Personal_Interview" name="personal_Interview" class="form-control">
+                <select id="Personal_Interview" <?php if ($approved) { echo "readonly"; } ?> name="personal_Interview" class="form-control">
                     <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option <?php if ($personal_Interview=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -186,9 +196,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Medical Test">Medical Test</label>
             <div class="col-md-4">
-                <select id="Medical_Test" name="medical_Test" class="form-control">
+                <select id="Medical_Test" <?php if ($approved) { echo "readonly"; } ?> name="medical_Test" class="form-control">
                     <option value="YES">YES</option>
-                    <option value="NO">NO</option>
+                    <option <?php if ($medical_Test=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -197,7 +207,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label"    for="Number of Rounds">Number of Rounds</label>
             <div class="col-md-4">
-                <input required id="Number_of_Rounds" required name="number_of_rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
+                <input required id="Number_of_Rounds" <?php if ($approved) { echo "readonly"; } ?> required <?php if (isset($number_of_rounds)) { echo "value='".$number_of_rounds."'"; } ?> name="number_of_rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
 
             </div>
         </div>
@@ -206,7 +216,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Minimum Number of offers you intend to make:">Minimum Number of offers you intend to make:</label>
             <div class="col-md-4">
-                <input required id="MinNoOffers" name="min_offers" type="text" placeholder="" class="form-control input-md">
+                <input required id="MinNoOffers" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($min_offers)) { echo "value='".$min_offers."'"; } ?> name="min_offers" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -217,42 +227,51 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
             <div class="col-md-4">
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input  type="checkbox" name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
+                        <input  type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-0" <?php if($eligible_departments && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CHE">Chemical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input  type="checkbox" name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
+                        <input  type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-1" <?php if($eligible_departments && (in_array("CE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CE">Civil Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-2" <?php if($eligible_departments && (in_array("CSE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CSE">Computer Science &amp; Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-3" <?php if($eligible_departments && (in_array("IT", $eligible))){ echo "checked = 'checked' " ;} ?> value="IT">Information Technology
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-4" <?php if($eligible_departments && (in_array("ECE", $eligible))){ echo "checked = 'checked' " ;} ?> value="ECE">Electronics and Communication Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-5" <?php if($eligible_departments && (in_array("EE", $eligible))){ echo "checked = 'checked' " ;} ?> value="EE">Electrical Engineering
                     </label>
                 </div>
-                <div class="checkbox">
-                    <label for="Eligible-6">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
+
+                <?php if ($approved) { echo 
+                '<div class="checkbox" hidden>
+                    <label for="Eligible-6" hidden>
+                        <input type="checkbox" hidden checked name="eligible_departments[]"  id="Eligible-6" value="MEC">
                     </label>
+                </div>';
+                }
+                ?>
+                <div class="checkbox" >
+                    <label for="Eligible-6" >
+                        <input type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-6" <?php if($eligible_departments && (in_array("MEC", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEC">Mechanical Engineering</label>
                 </div>
+
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-7" value="MEE">Metallurgical and Materials Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if($eligible_departments && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEE">Metallurgical and Materials Engineering
                     </label>
                 </div>
             </div>
@@ -265,7 +284,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Number of Members">Number of Members</label>
             <div class="col-md-4">
-                <input required id="Number of Members" name="number_of_members" type="text" placeholder="" class="form-control input-md">
+                <input required id="Number of Members" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($number_of_members)) { echo "value='".$number_of_members."'"; } ?> name="number_of_members" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -274,7 +293,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Number of Rooms required for selection process">Number of Rooms required for selection process</label>
             <div class="col-md-4">
-                <input required id="Number of Rooms required for selection process" name="number_of_rooms" type="text" placeholder="" class="form-control input-md">
+                <input required <?php if ($approved) { echo "readonly"; } ?> id="Number of Rooms required for selection process" <?php if (isset($number_of_rooms)) { echo "value='".$number_of_rooms."'"; } ?> name="number_of_rooms" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -283,7 +302,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Other Requirements">Other Requirements</label>
             <div class="col-md-4">
-                <input  id="Other Requirements" name="other_requirements" type="text" placeholder="" class="form-control input-md">
+                <input  id="Other Requirements" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($other_requirements)) { echo "value='".$other_requirements."'"; } ?> name="other_requirements" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -292,7 +311,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Name">Name</label>
             <div class="col-md-4">
-                <input required id="Name" name="contact_name" type="text" placeholder="" class="form-control input-md">
+                <input required id="Name" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($contact_name)) { echo "value='".$contact_name."'"; } ?> name="contact_name" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -301,7 +320,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Designation">Designation</label>
             <div class="col-md-4">
-                <input id="Designation" name="contact_designation" type="text" placeholder="" class="form-control input-md">
+                <input id="Designation" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($contact_designation)) { echo "value='".$contact_designation."'"; } ?> name="contact_designation" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -310,7 +329,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Email Address">Email Address</label>
             <div class="col-md-4">
-                <input required id="Email Address" name="contact_email" type="text" placeholder="" class="form-control input-md">
+                <input required id="Email Address" style="text-transform:none;" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($contact_email)) { echo "value='".$contact_email."'"; } ?> name="contact_email" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -319,7 +338,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="Contact Number (Mobile)">Contact Number (Mobile)</label>
             <div class="col-md-4">
-                <input required id="Contact Number (Mobile)" name="contact_number" type="text" placeholder="" class="form-control input-md">
+                <input required id="Contact Number (Mobile)" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($contact_number)) { echo "value='".$contact_number."'"; } ?> name="contact_number" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -328,8 +347,8 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
-                <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " type="submit">
-                    <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}else echo "Save Changes"; ?>
+                <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " <?php if (!$approved) { echo "type='submit'"; } ?> >
+                    <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}elseif ($approved) { echo "Contact Admin to Edit "; }else echo "Save Changes"; ?>
                 </button>
             </div>
         </div>

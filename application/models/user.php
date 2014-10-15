@@ -64,6 +64,36 @@ Class User extends CI_Model
   }
 
 
+//for students
+//only shows approved jobs
+  function getjob_all($Company_name='',$value='')
+  {
+    $this->db->select('*');
+    $this->db->order_by('application_dead_line', 'desc');  
+    $this->db->from('job_profiles');
+    $this->db->where('approved','1');      
+     if ($Company_name=='' && $value==='') {
+      //nothing means return all approved jobs
+    }else if ($Company_name!='' && $value==='') {
+      //if only one parameter ie searching job by company name 
+      //return all approved jobs of that company 
+      $this->db->where('Company_name',$Company_name);
+    }elseif ($value!=='') {
+      //if we want to open only a perticulat job
+      $this->db->where('job_id',$value);   
+    }
+
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+
+
   function load_feeds()
   {
     $this->db->select('*');

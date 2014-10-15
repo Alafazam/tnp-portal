@@ -52,6 +52,13 @@ CREATE TABLE users (
 );
 
 
+CREATE TABLE pwd_reset
+(
+    username         VARCHAR (50)  NOT NULL,
+    email            VARCHAR (50)  NOT NULL,
+    v_id             VARCHAR (50)  NOT NULL
+);
+
 
 CREATE TABLE school_details
 (
@@ -104,6 +111,9 @@ CREATE TABLE branchesRecruiters(
 );
 
 
+
+
+
 //every company will have to create a job or job-position they can have multiple jobs too 
 //jobs available
 
@@ -113,7 +123,7 @@ CREATE TABLE job_profiles
     r_id                        INT         NOT NULL,    
     job_desig                   VARCHAR(50)     NULL,
     job_descr                   TEXT            NULL,
-    application_dead_line       DATE    NOT NULL,
+    application_dead_line       DATETIME    NOT NULL,
     place                       VARCHAR(50)     NULL,
     ctc                         VARCHAR(50)     NULL,
     gross                       VARCHAR(50)     NULL,
@@ -134,9 +144,12 @@ CREATE TABLE job_profiles
     contact_name                VARCHAR(50)     NULL,
     contact_designation         VARCHAR(50)     NULL,
     contact_email               VARCHAR(50)     NULL, 
-    contact_number              VARCHAR(50)     NULL
-
+    contact_number              VARCHAR(50)     NULL,
+    approved                    INT             NULL DEFAULT '0' 
 );
+
+
+
 
 
 //NOTE FOR List of Programs Either mention general category such as: All Students / All B. Tech & Dual Degree Students / All Dual Degree/ All M. Tech Students / All students majoring in 

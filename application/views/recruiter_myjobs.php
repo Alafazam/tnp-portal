@@ -10,32 +10,56 @@
         <div class="timeline-centered">
 			<!-- Start of articals -->
 	
-			<?php foreach ($jobs as $key)
+			<?php 
+		if ($jobs) {
+			foreach ($jobs as $key)
             // implode("-", array_reverse(explode("/", $var)));
 			// {	$key['application_dead_line'] = implode("-", array_reverse(explode("/", $key['application_dead_line'])));
             {
-                $key['type'] = '1';
-                $type = "";
+                $key['type'] = $key['approved'];
+
 				if ($key['type']==='1') {
 					$type = "<div class='timeline-icon bg-success'><i class='entypo-feather'></i></div>";
-				} elseif ($key['type']==='2') {
+				} else{
 					$type = "<div class='timeline-icon bg-secondary'><i class='entypo-suitcase'></i></div>";
-				} elseif ($key['type']==='3') {
-					$type = "<div class='timeline-icon bg-warning'><i class='entypo-camera'></i></div>";
 				}
 				echo "<article class='timeline-entry'>
 
 	            <div class='timeline-entry-inner'>".$type."<div class='timeline-label'>
-	                    <h2><a href='/recruiter_myjobs/".$key['job_id']."'>".$key['job_desig']."</a> <span>".$key['application_dead_line']."</span></h2>
+	                    <h2><a href='/recruiter_myjobs/view/".$key['job_id']."'>".$key['job_desig']."</a> <span>".$key['application_dead_line']."</span></h2>
                         <pre>".$key['place']."</pre>
                         <pre>CTC:".$key['ctc'].", GROSS:".$key['gross']."</pre>
-                        <p>".$key['job_descr']."</p>
-	                </div>
+                        <p>".$key['job_descr']."</p>	                    
+	                	<a class='btn btn-primary btn-md' style='margin-top:10px;'href='/recruiter_myjobs/delete/".$key['job_id']."'>Delete this job</a>
+                	</div>
 	            </div>
 	        </article>";
 
-			} ?>
+			} 
+		}else{
 
+		echo '
+		<article class="timeline-entry">
+		<div class="timeline-entry-inner">
+		<div class="timeline-label">
+		<h4><a href="/recruiter_create_job">Want to create a job..???</a></h4>
+		</div>
+		</div>
+		</article>
+		';
+		// echo '
+		// <article class="timeline-entry">
+		// <div class="timeline-entry-inner">
+		// <div class="timeline-label">
+		// <h4><a href="/recruiter_create_job">Want to create a job..???</a></h4>
+		// </div>
+		// </div>
+		// </article>
+		// ';
+
+
+		}
+		?>
 	
 	        <article class="timeline-entry begin">
 

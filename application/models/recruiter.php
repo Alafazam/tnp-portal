@@ -69,7 +69,6 @@ Class recruiter extends CI_Model
     $this->db->select('*');
     $this->db->from('feed');
      $this->db->order_by('date', 'desc');
-     //desc
     $query = $this->db->get();
     if ($query->num_rows()) {
       return $query->result_array();
@@ -124,7 +123,7 @@ Class recruiter extends CI_Model
     $session_data = $this->session->userdata('logged_in');
     $r_id = $session_data['r_id'];
     $this->db->delete('branchesrecruiters', array('r_id' => $r_id));
-      }
+  }
 
   function _getBranches()
   {
@@ -172,6 +171,7 @@ Class recruiter extends CI_Model
   }
 
 //loads all job if value is not given ,load ony specific job if Job_id is given
+  //only for recruiter
   function getJob($value='')
   {
     $session_data = $this->session->userdata('logged_in');
@@ -196,6 +196,29 @@ Class recruiter extends CI_Model
     }
   }
 
+  function edit_job($data)
+  {
+    $this->db->select('approved');
+    $this->db->from('job_profiles');
+    $this->db->where('job_id',$data['job_id']);   
+    $query = $this->db->get();
+    $result = $query->result_array();
+
+    if ($result[0]['approved']==0) {
+      try {
+        $query = $this->db->where(array(
+          'j_id' => $data['j_id']
+        ))->update('recruiters', $data);
+        return $query;
+      }
+      catch(Exception $e) {
+        return $e;
+      }
+  }else{
+    return false;
+  }
+
+  }
   function delete_job($value='')
   {
     $session_data = $this->session->userdata('logged_in');

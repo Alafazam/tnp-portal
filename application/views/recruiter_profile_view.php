@@ -14,7 +14,7 @@ foreach ($branches as $key => $value) {
             <fieldset>
 
                 <!-- Form Name -->
-                <legend>Form Name</legend>
+                <legend><?php if(isset($Company_name)){ echo $Company_name;}else{ echo "My Profile";} ?></legend>
 
                 <!-- Text input-->
                 <div class="form-group">
@@ -74,6 +74,8 @@ foreach ($branches as $key => $value) {
             $('input[name=offer]').change(function() {
             if ($('#one').is(':checked') && $('#two').is(':checked')) {
                 $('#three').prop('checked', true);
+                }else{
+                $('#three').prop('checked', false);
                 }
             });
 
