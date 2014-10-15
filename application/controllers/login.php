@@ -2,29 +2,29 @@
 <?php
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Login extends CI_Controller
+class Login extends CI_Controller{
+	function __construct(){
 
-	{
-	function __construct()
-		{
 		parent::__construct();
-		if ($this->session->userdata('logged_in'))
-			{	$session_data = $this->session->userdata('logged_in');
+
+		if ($this->session->userdata('logged_in')){	
+			// if user exists give access
+			$session_data = $this->session->userdata('logged_in');
 			if ($session_data['type']==='student') {
 				redirect('home', 'refresh');
-				}else{
+			}else{
 				redirect('recruiter_home', 'refresh');					
-				}
 			}
-
-		$this->load->model('user', '', TRUE);
 		}
 
-	function password()
-		{
-		if ($this->input->post('email') != '')
-			{ // if user already entered email
+		$this->load->model('user', '', TRUE);
+	}
 
+	function password(){
+
+		if ($this->input->post('email') != ''){ 
+
+			// if user already entered email
 			// get email from form
 
 			$email = $this->input->post('email');
@@ -36,15 +36,17 @@ class Login extends CI_Controller
 			$this->db->where(array(
 				'email' => $email
 			));
+
 			$this->db->limit(1);
 			$query = $this->db->get('users');
 			$result = $query->result();
-			if ($query->num_rows() == 1)
-				{ //if user exists
-				foreach($result as $row)
-					{
+
+			
+			if ($query->num_rows() == 1){ // if user exists 
+
+				foreach($result as $row){
 					$username = $row->username;
-					}
+				}
 
 				$this->load->library('email');
 				$this->email->from('no-reply@nitsri.net', 'TNP');
@@ -55,10 +57,11 @@ class Login extends CI_Controller
 				$this->db->where(array(
 					'email' => $email
 				));
+
 				$this->db->limit(1);
 				$query = $this->db->get('pwd_reset');
-				if ($query->num_rows() == 1)
-					{ // if pwd reset already requested
+				if ($query->num_rows() == 1){ // if pwd reset already requested
+
 					$this->db->where(array(
 						'email' => $email
 					));
@@ -66,36 +69,32 @@ class Login extends CI_Controller
 						'username' => $username,
 						'v_id' => $v_id
 					));
-					}
-				  else
-					{ // if pwd reset not requested
+				}else{ // if pwd reset not requested
+
 					$this->db->insert('pwd_reset', array(
 						'username' => $username,
 						'v_id' => $v_id,
 						'email' => $email
 					));
-					}
+				}
 
 				$this->email->message("Please Click the Link below to reset your password" . base_url("login/reset/" . $username . "/" . $v_id) . "");
 				$this->email->send();
 				$this->load->template('password_reset', array(
 					'message' => 'Password Reset email has been sent to ' . $email
 				)); // Display pwd reset form
-				}
-			  else
-				{
+			}else{
+
 				$this->load->template('password_reset', array(
 					'message' => $email . ' does not exist in our database. You may register first.'
 				)); // TODO show user a way to create account
-				}
 			}
-		  else
-			{ // if user entered email
+		}else{ // if user entered email
 			$this->load->template('password_reset', array(
 				'message' => ""
 			));
-			}
 		}
+	}
 
 	function reset($username = 0, $v_id = 0)
 		{
