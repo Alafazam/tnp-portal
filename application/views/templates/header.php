@@ -11,12 +11,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../assets/ico/favicon.ico">
-    <title>Portal for Trainnig and Placement depatment</title>
+    <title>Portal for Training and Placement Department</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
     <script src="/js/jquery.js"></script>
-    <script src="/js/jquery.validate.min.js"></script>
-
+    <script src="/js/jquery.form-validator.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -86,11 +85,11 @@
 
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="">Companies List</a>
+                    <li><a href="#">Companies List</a>
                     </li>
-                    <li><a href="">Companies i have applied for</a>
+                    <li><a href="#">Companies i have applied for</a>
                     </li>
-                    <li><a href="">Wishlist to apply</a>
+                    <li><a href="#">Wishlist to apply</a>
                     </li>
                 </ul>
             </div>

@@ -2,6 +2,11 @@
 $data= $this->session->userdata('logged_in');
 $username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
+$eligible = array();
+foreach ($branches as $key => $value) {
+    $eligible[$key] = $value['branch'];
+}
+
 ?>
 
 
@@ -52,7 +57,7 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
                   <div class="col-md-2">
                     <div class="checkbox">
                       <!-- <label for="offer-2"> -->
-                        <input hidden type="checkbox" name="offer" value="3">
+                        <input hidden type="checkbox" id="three" name="offer" value="3">
                       <!-- </label> -->
                     </div>
                   </div>
@@ -64,8 +69,64 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
               //write a small script that will make value of offer as three when both intership and job are checked
               //and make that third one hidden
 
+
+              //dear past self thank you for pointing that out :)
+            $('input[name=offer]').change(function() {
+            if ($('#one').is(':checked') && $('#two').is(':checked')) {
+                $('#three').prop('checked', true);
+                }
+            });
+
             </script>
             
+            <!-- Multiple Checkboxes -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Eligible">Eligible Departments and Programs</label>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <label for="Eligible-0">
+                        <input  type="checkbox" <?php if($branches && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-1">
+                        <input  type="checkbox" <?php if($branches && (in_array("CE", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-2">
+                        <input type="checkbox" <?php if($branches && (in_array("CSE", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-3">
+                        <input type="checkbox" <?php if($branches && (in_array("IT", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-4">
+                        <input type="checkbox" <?php if($branches && (in_array("ECE", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-5">
+                        <input type="checkbox" <?php if($branches && (in_array("EE", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-6">
+                        <input type="checkbox" <?php if($branches && (in_array("MEC", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="Eligible-7">
+                        <input type="checkbox" <?php if($branches && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-7" value="MME">Metallurgical and Materials Engineering
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
 
                 <!-- Multiple Radios -->
                 <div class="form-group">

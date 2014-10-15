@@ -28,6 +28,8 @@ class recruiter_profile extends CI_Controller
             $Company_name = $session_data['Company_name'];
             $result = $this->recruiter->load_recruiter_profile();
             $data = $result[0];
+            $result2 = $this->recruiter->_getBranches();
+            $data['branches'] = $result2;
             $this->load->recruiter_template('recruiter_profile_view', $data);
         } else {
             //If no session, redirect to login page
@@ -58,7 +60,7 @@ class recruiter_profile extends CI_Controller
             redirect('/recruiter_profile', 'refresh');
 
         }
-         // FNAME,MNAME,LNAME,gender,dob,AddressL1,AddressL2,City,Phone,Email_add
+        $eligible                                   = $this->input->post('eligible_departments');
         //query the database
         $postData['Company_name']                   = $this->input->post('Company_name');
         $postData['url'    ]                        = $this->input->post('url');
@@ -67,6 +69,12 @@ class recruiter_profile extends CI_Controller
         $postData['Industry_Sector']                = $this->input->post('Industry_Sector');
         $postData['Brief']                      = $this->input->post('Brief');
         $postData['offer']                      = $this->input->post('offer');
+
+        $this->recruiter->_deletebranches();//use with care
+        foreach ($eligible as $key => $value) {
+        $result = $this->recruiter->_updatebranch($value);            
+        }
+
         $result = $this->recruiter->_update($username, $postData);
         $this->session->set_flashdata('flashSuccess', 'success');
         redirect('/recruiter_profile', 'refresh');

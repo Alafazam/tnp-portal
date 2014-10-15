@@ -32,7 +32,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <div class="row">
                 <div class="col-md-6">            
-                    <h5><a href="/login/password" class="forgot">Forgot Password?</a></h5>
+                    <h5><a href="#" class="forgot">Forgot Password?</a></h5>
                 </div>
                 <div class="" style="float:right;padding-right:20px">
                     <h5><a href="/recruiter_login" class="forgot">Not a Student</a></h5>

@@ -96,6 +96,14 @@ CREATE TABLE recruiters
     Brief           TEXT            NULL
 );
 
+
+CREATE TABLE branchesRecruiters(
+        br_id           NOT NULL PRIMARY KEY AUTO_INCREMENT,   
+        branch          VARCHAR(50)     NOT NULL ,
+        r_id            INT             NOT NULL
+);
+
+
 //every company will have to create a job or job-position they can have multiple jobs too 
 //jobs available
 

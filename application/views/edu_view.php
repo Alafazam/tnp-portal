@@ -5,7 +5,6 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
 $fname=$data['fname'];
 ?>
 
-
 <form class="form-horizontal" role="form" action="educational/save" method="post" accept-charset="utf-8">
   <fieldset>
 
@@ -17,7 +16,7 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="school_name1">School Name</label>  
       <div class="col-md-6">
-        <input id="school_name1" value="<?php if ($school_name1) {echo $school_name1 ;}?>" name="school_name1" type="text" placeholder="School Name" class="form-control input-md">
+        <input id="school_name1" data-validation="length" data-validation-length="max50" value="<?php if ($school_name1) {echo $school_name1 ;}?>" name="school_name1" type="text" placeholder="School Name" class="form-control input-md">
       </div>
     </div>
 
@@ -41,7 +40,7 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="board1">Board</label>  
       <div class="col-md-4">
-        <input id="board1" name="board1" value="<?php if($board1){ echo $board1 ;} ?>" type="text" placeholder="CBSE" class="form-control input-md">
+        <input id="board1" name="board1" data-validation="length" data-validation-length="max50" value="<?php if($board1){ echo $board1 ;} ?>" type="text" placeholder="CBSE" class="form-control input-md">
 
       </div>
     </div>
@@ -51,7 +50,7 @@ $fname=$data['fname'];
       <label class="col-md-4 control-label" for="percentage1">Aggregate</label>
       <div class="col-md-4">
         <div class="input-group">
-          <input id="percentage1" name="percentage1" value="<?php if($percentage1){ echo $percentage1 ;} ?>" class="form-control" placeholder="Percentage" type="text">
+          <input id="percentage1" name="percentage1" data-validation="number" data-validation-allowing="range[1.0;100.00],float" value="<?php if($percentage1){ echo $percentage1 ;} ?>" class="form-control" placeholder="Percentage" type="text">
           <span class="input-group-addon">%</span>
         </div>
 
@@ -99,7 +98,7 @@ $fname=$data['fname'];
       <label class="col-md-4 control-label" for="percentage2">Aggregate</label>
       <div class="col-md-4">
         <div class="input-group">
-          <input id="percentage2" name="percentage2" value="<?php if($percentage2){ echo $percentage2 ;} ?>" class="form-control" placeholder="Percentage" type="text">
+          <input id="percentage2" name="percentage2"  data-validation="number" data-validation-allowing="range[1.0;100.00],float" value="<?php if($percentage2){ echo $percentage2 ;} ?>" class="form-control" placeholder="Percentage" type="text">
           <span class="input-group-addon">%</span>
         </div>
 
@@ -112,7 +111,7 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="air">AIR</label>  
       <div class="col-md-4">
-        <input id="air" name="air" type="text" value="<?php if($air){ echo $air ;} ?>" placeholder="Rank" class="form-control input-md">
+        <input id="air" name="air" type="text"  data-validation="number" value="<?php if($air){ echo $air ;} ?>" placeholder="Rank" class="form-control input-md">
       </div>
     </div>
 

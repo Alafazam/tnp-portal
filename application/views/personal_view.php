@@ -14,7 +14,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label"  for="fname">First Name</label>  
    			<div class="col-md-4">
-   				<input id="fname" name="fname" value="<?php if ($fname){echo $fname ;} ?>" type="text" placeholder="First Name" class="form-control input-md" required="">
+   				<input id="fname" name="fname" data-validation="length" data-validation-length="max50" value="<?php if ($fname){echo $fname ;} ?>" type="text" placeholder="First Name" class="form-control input-md" required="">
 
    			</div>
    		</div>
@@ -23,7 +23,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="mname">Middle Name</label>  
    			<div class="col-md-4">
-   				<input id="mname" name="mname" value="<?php  if ($mname){echo $mname ;}?>" type="text" placeholder="Middle Name" class="form-control input-md">
+   				<input id="mname" name="mname" data-validation="length" data-validation-length="max50" value="<?php  if ($mname){echo $mname ;}?>" type="text" placeholder="Middle Name" class="form-control input-md">
 
    			</div>
    		</div>
@@ -32,7 +32,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label"  for="lname">Last Name</label>  
    			<div class="col-md-4">
-   				<input id="lname" name="lname" value="<?php if ($lname) {  echo $lname ;}?>" type="text" placeholder="Last Name" class="form-control input-md" required="">
+   				<input id="lname" name="lname" data-validation="length" data-validation-length="max50" value="<?php if ($lname) {  echo $lname ;}?>" type="text" placeholder="Last Name" class="form-control input-md" required="">
 
    			</div>
    		</div>
@@ -66,7 +66,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="addl1">Address Line 1</label>
    			<div class="col-md-4">                     
-   				<textarea class="form-control" id="addl1" name="addl1"><?php if ($addl1) {  echo $addl1 ;}?></textarea>
+   				<textarea class="form-control" data-validation="length" data-validation-length="max90" id="addl1" name="addl1"><?php if ($addl1) {  echo $addl1 ;}?></textarea>
    			</div>
    		</div>
 
@@ -74,7 +74,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="addl2">Address Line 2</label>
    			<div class="col-md-4">                     
-   				<textarea class="form-control" id="addl2" name="addl2"><?php if ($addl2) {  echo $addl2 ;}?></textarea>
+   				<textarea class="form-control" data-validation="length" data-validation-length="max90" id="addl2" name="addl2"><?php if ($addl2) {  echo $addl2 ;}?></textarea>
    			</div>
    		</div>
 
@@ -82,7 +82,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="city">City</label>  
    			<div class="col-md-4">
-   				<input id="city" name="city" value="<?php if ($city) {  echo $city ;}?>" type="text" placeholder="City" class="form-control input-md">
+   				<input id="city" name="city" data-validation="length" data-validation-length="max50" value="<?php if ($city) {  echo $city ;}?>" type="text" placeholder="City" class="form-control input-md">
 
    			</div>
    		</div>
@@ -93,7 +93,7 @@ $username=$data['username'];
    			<div class="col-md-4">
    				<div class="input-group">
    					<span class="input-group-addon">+91</span>
-   					<input id="phone" name="phone" value="<?php if ($phone) { echo $phone ;}?>" class="form-control" placeholder="Phone Number" type="text">
+   					<input id="phone" name="phone" data-validation="length" data-validation-length="max10" value="<?php if ($phone) { echo $phone ;}?>" class="form-control" placeholder="Phone Number" type="text">
    				</div>
 
    			</div>
