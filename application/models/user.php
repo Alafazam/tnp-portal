@@ -55,10 +55,24 @@ Class User extends CI_Model
 
   function _genrate($id,$table)
   {
-    $this->db->select('id,username');
+    $this->db->select('id');
     $this->db->from($table);
-    $this->db->where('id',$username);
-    
+    $this->db->where('id',$id);
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return false;
+    }
+    else {
+      if ($table==='school_details') {
+      $this->db->insert($table,array('id' =>$id,'type'=>'1'));
+      $this->db->insert($table,array('id' =>$id,'type'=>'2'));
+      $this->db->insert($table,array('id' =>$id,'type'=>'3'));
+      }else{
+      $this->db->insert($table,array('id' =>$id));
+      }
+      return true; 
+    }
+        
   }
 
   function get_userurl($id='')

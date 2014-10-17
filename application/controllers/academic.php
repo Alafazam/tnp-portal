@@ -57,7 +57,7 @@ class Academic  extends CI_Controller {
     $session_data = $this->session->userdata('logged_in');
     $username     = $session_data['username'];
     $id           = $session_data['id'];
-    
+    $genrated = $this->user->_genrate($id,'academic');    
 
 
     //save about me page

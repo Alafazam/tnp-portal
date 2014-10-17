@@ -48,6 +48,7 @@ class personal extends CI_Controller {
 
   function save()
     {
+        
         //save about me page
         $session_data = $this->session->userdata('logged_in');
         $username     = $session_data['username'];
