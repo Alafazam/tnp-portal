@@ -53,6 +53,14 @@ Class User extends CI_Model
     }
   }
 
+  function _genrate($id,$table)
+  {
+    $this->db->select('id,username');
+    $this->db->from($table);
+    $this->db->where('id',$username);
+    
+  }
+
   function get_userurl($id='')
   {
     # TODO 
@@ -197,7 +205,7 @@ Class User extends CI_Model
     
     $this->db->select('*');
     $this->db->from('school_details');
-    $this->db->where('student_id', $id);
+    $this->db->where('id', $id);
     $this->db->limit(3);
     $query = $this->db->get();
     if ($query->num_rows()) {
@@ -215,7 +223,7 @@ Class User extends CI_Model
     
     try {
       $query = $this->db->where(array(
-        'student_id' => $id,
+        'id' => $id,
         'type' => $type
       ))->update('school_details', $data);
       return $query;

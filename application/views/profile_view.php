@@ -1,9 +1,12 @@
-<?php $data= $this->session->userdata('logged_in'); $flashSuccess =$this->session->flashdata('flashSuccess'); $username=$data['username']; ?>
+<?php $data= $this->session->userdata('logged_in'); $flashSuccess =$this->session->flashdata('flashSuccess'); $username=$data['username'];if(!isset($allowedit)){$allowedit=false;} ?>
 <!--   <pre>i am just here for tesing purposes</pre> -->
+    <?php if($allowedit) echo'<h2 class="text-center">My Profile</h2>'?>
+    <?php if(!$allowedit) echo'<h2 class="text-center" style="text-transform:capitalize" >'.$fname.' '.$mname.' '.$lname.'</h2>'?>
+
 <form class="form-horizontal">
     <fieldset>
         <!-- Form Name -->
-        <legend>Personal Details</legend>
+        <legend>Personal Details  <?php if($allowedit) echo '<a href="/personal" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="fname">First Name</label>
@@ -75,7 +78,7 @@
             </div>
         </div>
 
-        <legend>Semester wise SGPA</legend>
+        <legend>Semester wise SGPA <?php if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?></legend>
         <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="cursem">Current Semester</label>
@@ -156,7 +159,7 @@
 
 
         <!-- Form Name -->
-        <legend>About Me</legend>
+        <legend>About Me  <?php if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
         <!-- ECA,Career_obj,Technical_Skills,Other_skills -->
         <!-- Textarea -->
 
@@ -200,7 +203,7 @@
 
 
         <!-- Form Name -->
-        <legend>Educational Details</legend>
+        <legend>Educational Details <?php if($allowedit) echo '<a href="/educational" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
         <h4 class="text-center">
             <small>12th Standard</small>
         </h4>

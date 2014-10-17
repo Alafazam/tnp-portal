@@ -44,7 +44,7 @@ class recruiter_create_job extends CI_Controller
         $r_id           = $session_data['r_id'];
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
-        
+        $this->form_validation->set_rules('job_id', 'job_id', 'trim|xss_clean');        
         $this->form_validation->set_rules('job_desig', 'job_desig', 'trim|xss_clean');
         $this->form_validation->set_rules('job_descr', 'job_descr', 'trim|xss_clean');
         $this->form_validation->set_rules('application_dead_line', 'application_dead_line','trim|xss_clean');
@@ -106,12 +106,12 @@ class recruiter_create_job extends CI_Controller
 
 
         if ($value=='edit') {
-            $postData['j_id'] = $this->input->post('j_id');
+            $postData['job_id'] = $this->input->post('job_id');
             $result = $this->recruiter->edit_job($postData);        
         }else{
             $result = $this->recruiter->insert_job($postData);
         }
-        $this->session->set_flashdata('flashSuccess', 'success');
+        $this->session->set_flashdata('flashSuccess',$postData['job_id']);
         redirect('/recruiter_myjobs', 'refresh');
 
     }

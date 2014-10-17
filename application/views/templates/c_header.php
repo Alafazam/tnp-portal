@@ -65,17 +65,15 @@
                     </li>
                     <li><a href="#">Reports</a>
                     </li>
-                    <li><a href="#">Analytics </a>
-                    </li>
-                    <li><a href="#">Export</a>
-                    </li>
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="/recruiter_profile">Profile</a>
                     </li>
                     <li><a href="/recruiter_create_job">Add new Job</a>
                     </li>
-                    <li><a href="#">Calendar</a>
+                    <li><a href="/recruiter_create_intern">Add new Internship</a>
+                    </li>
+                    <li><a href="recruiter_plan">Plan a visit</a>
                     </li>
                     <li><a href="#">About Me</a>
                     </li>
@@ -85,6 +83,8 @@
                     <li><a href="#">Students List</a>
                     </li>
                     <li><a href="recruiter_myjobs">My jobs</a>
+                    </li>
+                    <li><a href="recruiter_myinterns">My interns</a>
                     </li>
                     <li><a href="#">Applicants</a>
                     </li>

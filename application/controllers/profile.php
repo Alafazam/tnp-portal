@@ -21,12 +21,10 @@ class profile extends CI_Controller
                 }//if recruiter is logged in ,redirect to recruiter page
         }
         if ($this->session->userdata('logged_in')) {
-            $session_data     = $this->session->userdata('logged_in');
-            $data['username'] = $session_data['username'];
-            $username = $session_data['username'];
             $result1 = $this->user->load_personal();
             // $data = array('fname'=>var_dump($result));
             $data1   = array(
+                'allowedit'=>true,
                 'fname' => $result1[0]['FNAME'],
                 'mname' => $result1[0]['MNAME'],
                 'lname' => $result1[0]['LNAME'],
@@ -100,19 +98,20 @@ class profile extends CI_Controller
 
     function view($username='')
     {
-        if ($username==='') {
+        if ($username===''&& !ctype_digit($username)) {
         redirect('profile', 'refresh');
         }
 
         $result_id = $this->user->get_id($username);
         $id = $result_id[0]['id'];
-        if ($id===false||$id===NULL||$id==='') {
+        if ($id===false) {
              redirect('profile', 'refresh');
         }
         else{
             $result1 = $this->user->load_personal($id);
                 // $data = array('fname'=>var_dump($result));
                 $data1   = array(
+                    'allowedit'=>false,
                     'fname' => $result1[0]['FNAME'],
                     'mname' => $result1[0]['MNAME'],
                     'lname' => $result1[0]['LNAME'],
