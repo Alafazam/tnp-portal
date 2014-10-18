@@ -3,7 +3,7 @@
 <file name="home.php" server="C:/xampp/htdocs/ci/" local="130565838932192037" remote="130565838930000000" />
 <file name="login.php" server="C:/xampp/htdocs/ci/" local="130565839467055158" remote="130565839460000000" />
 <file name="home.php" server="C:/xampp/htdocs/" local="130580424770998595" remote="130580424770000000" />
-<file name="login.php" server="C:/xampp/htdocs/" local="130578772037735541" remote="130578772030000000" />
+<file name="login.php" server="C:/xampp/htdocs/" local="130581288653835220" remote="130581288650000000" />
 <file name="aboutme.php" server="C:/xampp/htdocs/" local="130580492320579637" remote="130580492320000000" />
 <file name="educational.php" server="C:/xampp/htdocs/" local="130580493617710282" remote="130580493610000000" />
 <file name="personal.php" server="C:/xampp/htdocs/" local="130580492627609968" remote="130580492620000000" />
@@ -17,4 +17,5 @@
 <file name="recruiter_myjobs.php" server="C:/xampp/htdocs/" local="130580163711369260" remote="130580163710000000" />
 <file name="recruiter_create_intern.php" server="C:/xampp/htdocs/" local="130580040819049816" remote="130580040810000000" />
 <file name="recruiter_myinterns.php" server="C:/xampp/htdocs/" local="130580164323127048" remote="130580164320000000" />
+<file name="recruiters.php" server="C:/xampp/htdocs/" local="130581200512965085" remote="130581200510000000" />
 </dwsync>

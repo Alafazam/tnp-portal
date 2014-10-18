@@ -18,6 +18,14 @@ Class User extends CI_Model
     }
   }
 
+function resetPassword($username,$password){
+    
+    $this->db ->where('username', $username ) 
+          ->update('users', array('password'=>$password)); 
+          
+    $this->db ->delete('pwd_reset',array('username'=>$username));
+  }
+  
   function get_username($id='')
   {
     if ($id==='') {
@@ -265,8 +273,53 @@ Class User extends CI_Model
     }
   }
 
+  function loadCompanyList($value='')
+  {
+    $this->db->select('recruiters.r_id, Company_name, offer, website_link, Company_type,Industry_Sector,Brief,GROUP_CONCAT(DISTINCT branchesrecruiters.branch) as branchez');
+    $this->db->from('recruiters');
+    $this->db->join('branchesrecruiters', 'recruiters.r_id = branchesrecruiters.r_id', 'LEFT OUTER');
+    if ($value!='') {
+    $this->db->where('recruiters.r_id',$value);  
+    }
+    
+    $query = $this->db->get();
+    return $query->result_array();    
+  }
+//looad all jobs if no parameter is give
+//loads all of a recruiter jobs if only r_id is given ,loads a periculat jon if job_id is also given
+//loads only approved job
+//can not load a job with only job iD
+//further plans -> later everthing will be used by company name
+ function getJob($value='',$job_id ='')
+  {
+    if ($value!=''&&ctype_digit($value)) {
+      $r_id = $value;
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('job_profiles');
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('r_id',$r_id);      
+      $this->db->where('approved','1');      
+      if (!$job_id==='') {
+        $this->db->where('job_id',$job_id);   
+      }
+    }else{
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('job_profiles');
+      $this->db->where('approved','1');            
+    }
 
 
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+
+  }
 
 
 

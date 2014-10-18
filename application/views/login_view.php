@@ -1,3 +1,8 @@
+<?php if (!isset($message)) {
+$message = $this->session->flashdata('message');
+}
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,9 @@
   <title>Signin</title>
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/signin.css" rel="stylesheet">
+   <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.1/html5shiv.min.js"></script>
@@ -20,7 +28,7 @@
 
     </head>
 
-    <body style="background-color:#110022;">
+    <body style="background-color:#110022;text-transform:none;">
      <div class="container" style="margin-top:100px;">
       <form class="form-signin" role="form" action="login/verify" method="post" accept-charset="utf-8">
         <h2 style="color: #FFF;" class="form-signin-heading">Please sign in</h2>
@@ -32,7 +40,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <div class="row">
                 <div class="col-md-6">            
-                    <h5><a href="#" class="forgot">Forgot Password?</a></h5>
+                    <h5><a href="/login/password" class="forgot">Forgot Password?</a></h5>
                 </div>
                 <div class="" style="float:right;padding-right:20px">
                     <h5><a href="/recruiter_login" class="forgot">Not a Student</a></h5>
@@ -41,5 +49,34 @@
       </form>
 
     </div> <!-- /container -->
+    
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title text-center" id="mySmallModalLabel" >Message</h4>
+        </div>
+        <div class="modal-body text-center">
+        </div>
+      </div>
+  </div>
+</div>
+
+<?php  
+
+    if ($message) {
+        echo "
+        <script>
+        $( document ).ready(function() {
+        $('#myModal').modal('show');
+        $('.modal-body').text('".$message."');
+        });
+        </script>
+        ";
+    }
+ ?>
+
   </body>
   </html>

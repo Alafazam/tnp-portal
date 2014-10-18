@@ -137,14 +137,14 @@ foreach ($branches as $key => $value) {
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-0">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="1.Private Sector"){ echo "checked = 'checked' " ;} ?> id="Company_Type-0" value="1.Private Sector" >1.Private Sector
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="Private Sector"){ echo "checked = 'checked' " ;} ?> id="Company_Type-0" value="Private Sector" >1.Private Sector
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-1">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="2.Start-up"){ echo "checked = 'checked' " ;} ?> id="Company_Type-1" value="2.Start-up">2.Start-up
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="Start-up"){ echo "checked = 'checked' " ;} ?> id="Company_Type-1" value="Start-up">2.Start-up
                                 </label>
                             </div>
                         </div>
@@ -154,14 +154,14 @@ foreach ($branches as $key => $value) {
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-2">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="3.Government"){ echo "checked = 'checked' " ;} ?> id="Company_Type-2" value="3.Government">3.Government
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="Government"){ echo "checked = 'checked' " ;} ?> id="Company_Type-2" value="Government">3.Government
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-3">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="4.Public Sector"){ echo "checked = 'checked' " ;} ?> id="Company_Type-3" value="4.Public Sector">4.Public Sector
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="Public Sector"){ echo "checked = 'checked' " ;} ?> id="Company_Type-3" value="Public Sector">4.Public Sector
                                 </label>
                             </div>
                         </div>
@@ -171,14 +171,14 @@ foreach ($branches as $key => $value) {
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-2">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="5.MNC (Indian Origin)"){ echo "checked = 'checked' " ;} ?> id="Company_Type-4" value="5.MNC (Indian Origin)">5.MNC (Indian Origin)
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Indian Origin)"){ echo "checked = 'checked' " ;} ?> id="Company_Type-4" value="MNC (Indian Origin)">5.MNC (Indian Origin)
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-3">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="6.MNC (Foreign Origin)"){ echo "checked = 'checked' " ;} ?> id="Company_Type-5" value="6.MNC (Foreign Origin)">6.MNC (Foreign Origin)
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Foreign Origin)"){ echo "checked = 'checked' " ;} ?> id="Company_Type-5" value="MNC (Foreign Origin)">6.MNC (Foreign Origin)
                                 </label>
                             </div>
                         </div>
@@ -189,7 +189,7 @@ foreach ($branches as $key => $value) {
                         <div class="col-md-2">
                             <div class="radio">
                                 <label for="Company_Type-2">
-                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="7.Others"){ echo "checked = 'checked' " ;} ?> id="Company_Type-6" value="7.Others">7.Others
+                                    <input type="radio" name="Company_Type" <?php if($Company_Type=="Others"){ echo "checked = 'checked' " ;} ?> id="Company_Type-6" value="Others">7.Others
                                 </label>
                             </div>
                         </div>
@@ -206,7 +206,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-0">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-0" <?php if($Industry_Sector=="1.Analytics"){ echo "checked = 'checked' " ;} ?> value="1.Analytics" checked="checked">1.Analytics
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-0" <?php if($Industry_Sector=="Analytics"){ echo "checked = 'checked' " ;} ?> value="Analytics" checked="checked">1.Analytics
                                 </label>
                             </div>
                         </div>
@@ -214,7 +214,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-1">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-1" <?php if($Industry_Sector=="2.Consulting"){ echo "checked = 'checked' " ;} ?> value="2.Consulting">2.Consulting
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-1" <?php if($Industry_Sector=="Consulting"){ echo "checked = 'checked' " ;} ?> value="Consulting">2.Consulting
                                 </label>
                             </div>
                         </div>
@@ -225,7 +225,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-2">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-2" <?php if($Industry_Sector=="3.Core"){ echo "checked = 'checked' " ;} ?> value="3.Core">3.Core (Technical)
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-2" <?php if($Industry_Sector=="Core"){ echo "checked = 'checked' " ;} ?> value="Core">3.Core (Technical)
                                 </label>
                             </div>
                         </div>
@@ -233,7 +233,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-3">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-3" <?php if($Industry_Sector=="4.Finance"){ echo "checked = 'checked' " ;} ?> value="4.Finance">4.Finance
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-3" <?php if($Industry_Sector=="Finance"){ echo "checked = 'checked' " ;} ?> value="Finance">4.Finance
                                 </label>
                             </div>
                         </div>
@@ -244,7 +244,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-4">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-4" <?php if($Industry_Sector=="5.IT"){ echo "checked = 'checked' " ;} ?> value="5.IT">5.IT
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-4" <?php if($Industry_Sector=="IT"){ echo "checked = 'checked' " ;} ?> value="IT">5.IT
                                 </label>
                             </div>
                         </div>
@@ -252,7 +252,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-5">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-5" <?php if($Industry_Sector=="6.Management"){ echo "checked = 'checked' " ;} ?> value="6.Management">6.Management
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-5" <?php if($Industry_Sector=="Management"){ echo "checked = 'checked' " ;} ?> value="Management">6.Management
                                 </label>
                             </div>
                         </div>
@@ -263,7 +263,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-6">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-6" <?php if($Industry_Sector=="7.Teaching"){ echo "checked = 'checked' " ;} ?> value="7.Teaching">7.Teaching &amp; Research
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-6" <?php if($Industry_Sector=="Teaching"){ echo "checked = 'checked' " ;} ?> value="Teaching">7.Teaching &amp; Research
                                 </label>
                             </div>
                         </div>
@@ -271,7 +271,7 @@ foreach ($branches as $key => $value) {
 
                             <div class="radio">
                                 <label for="Industry_Sector-7">
-                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-7" <?php if($Industry_Sector=="8.Other"){ echo "checked = 'checked' " ;} ?> value="8.Other">8.Other
+                                    <input type="radio" name="Industry_Sector" id="Industry_Sector-7" <?php if($Industry_Sector=="Other"){ echo "checked = 'checked' " ;} ?> value="Other">8.Other
                                 </label>
                             </div>
                         </div>

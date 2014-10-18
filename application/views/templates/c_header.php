@@ -15,6 +15,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
     <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.form-validator.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -34,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="text-transform: capitalize;" href="#">
+                <a class="navbar-brand" style="text-transform: capitalize;color:#4A89DC;font-size: 30px" href="#">
                     <?php if(isset($fname)){echo ''.$fname; } ?>
                 </a>
             </div>
@@ -94,5 +95,20 @@
             </div>
         </div>
     </div>
+
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title text-center" id="mySmallModalLabel" >Message</h4>
+            </div>
+            <div class="modal-body text-center">
+            </div>
+          </div>
+      </div>
+    </div>
+
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

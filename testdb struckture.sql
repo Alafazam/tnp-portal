@@ -204,7 +204,7 @@ INSERT INTO users (enroll,branch, year_of_admin, FNAME, MNAME, LNAME, gender, 12
 INSERT INTO school (id, school_name, city, year, board, paercentage, type) VALUES (1, N'asdas', N'asfasdf', N'4566', N'sdfsdfsd', N'fsddfsdf  ', 1)
 
 //notice that username format has changed
-INSERT INTO users (username, password) values ('2012786', MD5('alafazam'));
+INSERT INTO users (username, password) values ('2012552', MD5('alaf552'));
 
 INSERT INTO feed (date,data,heading) values('2014-12-15','I am a disco dancer','Yeah baby');
 
