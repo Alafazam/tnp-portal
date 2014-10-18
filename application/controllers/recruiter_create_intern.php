@@ -29,7 +29,7 @@ class recruiter_create_intern extends CI_Controller
             
             $result = $this->recruiter->load_recruiter_profile();
             $data = $result[0];
-            $this->load->recruiter_template('recruiter_create_new_intern_view', $data);
+            $this->load->template('recruiter_create_new_intern_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');

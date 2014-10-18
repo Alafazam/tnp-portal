@@ -29,7 +29,7 @@ class recruiter_home extends CI_Controller {
      $data   = array(
               'feeds'=> $feeddata
           );
-     $this->load->recruiter_template('home_view', $data);
+     $this->load->template('home_view', $data);
    }
    else
    {

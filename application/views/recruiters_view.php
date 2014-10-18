@@ -10,30 +10,34 @@
 		<legend></legend>
 
 
+			<div class="list-group">
 <?php 
 if (isset($list)&&$list) {
+
+			for ($i=0; $i <35 ; $i++) { 
+				
 			foreach ($list as $key)
-            {		$key["visit"] = "22/8/2014";
+            {		$key["visit"] = "22/8/2014";//TODO make calender for slecting visiting date
+        			$key["Accepting applications"] = true;
             
             	echo '	
-					    <div class="panel panel-default">
-						  	<div class="panel-heading">
-							  	<h3 class="panel-title row">
-							  		<p class="col-md-8"><a class="text-left company_name" href="/recruiters/view/'.$key["r_id"].'">'.$key["Company_name"].'</a>'.$key["Company_type"].'</p>
-							    	<p  class="col-md-4 text-right">'.$key["Industry_Sector"].'</p>
-						    	</h3>
-						    	<div class="row">
-							    	<label class="col-md-8 ">'.$key["visit"].'</label>
-							    	<p class="col-md-4 text-right">'.$key["branchez"].'</p>
-						    	</div>
-						  	</div>
-						  	<div class="panel-body">
-							 	<p>'.$key["Brief"].'</p>   
-							</div>
-						</div>
+
+			  <a href="/recruiters/view/'.$key["r_id"].'" class="list-group-item">
+			    <h3 class="list-group-item-heading row">
+			    	<p class="col-md-8">'.$key["Company_name"].'<small>'.$key["Company_type"].'</small></p>
+			    	<p  class="col-md-4 text-right">'.$key["Industry_Sector"].'</p>
+		    	</h3>
+				<div class="list-group-item-text row">
+			    	<p class="col-md-8 ">Visiting on: '.$key["visit"].'</p>
+			    	<p class="col-md-4 text-right">Eligible Branches: '.$key["branchez"].'</p>
+		    	</div>
+			  </a>
+
 '	;
 			}
 
 	} 
-
+}
 			?>
+
+		</div>

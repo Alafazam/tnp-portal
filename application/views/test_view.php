@@ -26,7 +26,7 @@ $fname=$data['fname'];
 
 
 <div class="container-fluid">
-		<h2>Companies</h2>
+		<h2></h2>
 		<legend></legend>
 
 
@@ -53,3 +53,5 @@ $visit = "22/8/2014";
 		
 
 			?>
+
+

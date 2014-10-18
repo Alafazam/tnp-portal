@@ -30,7 +30,7 @@ class recruiter_myinterns extends CI_Controller
             $data   = array(
               'interns'=> $feeddata
           );
-            $this->load->recruiter_template('recruiter_myinterns_view', $data);
+            $this->load->template('recruiter_myinterns_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');
@@ -50,7 +50,7 @@ class recruiter_myinterns extends CI_Controller
             $data = $result[0];
             $branches = $data['eligible_departments'];
             $data['eligible_departments'] = explode(',', $branches);
-            $this->load->recruiter_template('recruiter_create_new_intern_view', $data);
+            $this->load->template('recruiter_create_new_intern_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('recruiter_myinterns', 'refresh');

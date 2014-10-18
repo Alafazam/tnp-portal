@@ -32,7 +32,7 @@ class recruiter_myjobs extends CI_Controller
             $data   = array(
               'jobs'=> $feeddata
           );
-            $this->load->recruiter_template('recruiter_myjobs', $data);
+            $this->load->template('recruiter_myjobs', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');
@@ -51,7 +51,7 @@ class recruiter_myjobs extends CI_Controller
             $data = $result[0];
             $branches = $data['eligible_departments'];
             $data['eligible_departments'] = explode(',', $branches);
-            $this->load->recruiter_template('recruiter_create_new_job_view', $data);
+            $this->load->template('recruiter_create_new_job_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('recruiter_myjobs', 'refresh');

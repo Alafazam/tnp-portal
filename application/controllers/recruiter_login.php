@@ -78,20 +78,20 @@ class recruiter_login extends CI_Controller
 
 				$this->email->message("Please Click the Link below to reset your password" . base_url("login/reset/" . $username . "/" . $v_id) . "");
 				$this->email->send();
-				$this->load->template('password_reset', array(
+				$this->load->view('password_reset', array(
 					'message' => 'Password Reset email has been sent to ' . $email
 				)); // Display pwd reset form
 				}
 			  else
 				{
-				$this->load->template('password_reset', array(
+				$this->load->view('password_reset', array(
 					'message' => $email . ' does not exist in our database. You may register first.'
 				)); // TODO show user a way to create account
 				}
 			}
 		  else
 			{ // if user entered email
-			$this->load->template('password_reset', array(
+			$this->load->view('password_reset', array(
 				'message' => ""
 			));
 			}
@@ -105,7 +105,7 @@ class recruiter_login extends CI_Controller
 		))->limit(1)->get('pwd_reset');
 		if (!$query->num_rows())
 			{
-			$this->load->template('message_view', array(
+			$this->load->view('message_view', array(
 				'message' => "<p class='clearfix'>Link Might have Expired...</p>" . "<p class='clearfix'><a href='/login'><input type='submit' value='Sign In'></a></p>"
 			));
 			return false;
@@ -120,12 +120,12 @@ class recruiter_login extends CI_Controller
 
 			// Field validation failed.
 
-			$this->load->template('pwd_reset');
+			$this->load->view('pwd_reset');
 			}
 		  else
 			{
 			$this->user->resetPassword($username, $this->input->post('password'));
-			$this->load->template('message_view', array(
+			$this->load->view('message_view', array(
 				'message' => "Your password has Been reset, Please visit " . "<a href='/login'>here</a> to continue..."
 			));
 			}
