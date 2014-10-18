@@ -59,7 +59,9 @@ class Login extends CI_Controller{
 				));
 
 				$this->db->limit(1);
+
 				$query = $this->db->get('pwd_reset');
+
 				if ($query->num_rows() == 1){ // if pwd reset already requested
 
 					$this->db->where(array(
@@ -96,12 +98,12 @@ class Login extends CI_Controller{
 		}
 	}
 
-	function reset($username = 0, $v_id = 0)
-		{
+	function reset($username = 0, $v_id = 0){
 		$query = $this->db->select('username')->where(array(
 			'username' => $username,
 			'v_id' => $v_id
 		))->limit(1)->get('pwd_reset');
+		
 		if (!$query->num_rows())
 			{
 			$this->load->template('message_view', array(
