@@ -18,6 +18,14 @@ Class User extends CI_Model
     }
   }
 
+function resetPassword($username,$password){
+    
+    $this->db ->where('username', $username ) 
+          ->update('users', array('password'=>$password)); 
+          
+    $this->db ->delete('pwd_reset',array('username'=>$username));
+  }
+  
   function get_username($id='')
   {
     if ($id==='') {
@@ -51,6 +59,28 @@ Class User extends CI_Model
     else {
       return false;
     }
+  }
+
+  function _genrate($id,$table)
+  {
+    $this->db->select('id');
+    $this->db->from($table);
+    $this->db->where('id',$id);
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return false;
+    }
+    else {
+      if ($table==='school_details') {
+      $this->db->insert($table,array('id' =>$id,'type'=>'1'));
+      $this->db->insert($table,array('id' =>$id,'type'=>'2'));
+      $this->db->insert($table,array('id' =>$id,'type'=>'3'));
+      }else{
+      $this->db->insert($table,array('id' =>$id));
+      }
+      return true; 
+    }
+        
   }
 
   function get_userurl($id='')
@@ -197,7 +227,7 @@ Class User extends CI_Model
     
     $this->db->select('*');
     $this->db->from('school_details');
-    $this->db->where('student_id', $id);
+    $this->db->where('id', $id);
     $this->db->limit(3);
     $query = $this->db->get();
     if ($query->num_rows()) {
@@ -215,7 +245,7 @@ Class User extends CI_Model
     
     try {
       $query = $this->db->where(array(
-        'student_id' => $id,
+        'id' => $id,
         'type' => $type
       ))->update('school_details', $data);
       return $query;
@@ -243,8 +273,53 @@ Class User extends CI_Model
     }
   }
 
+  function loadCompanyList($value='')
+  {
+    $this->db->select('recruiters.r_id, Company_name, offer, website_link, Company_type,Industry_Sector,Brief,GROUP_CONCAT(DISTINCT branchesrecruiters.branch) as branchez');
+    $this->db->from('recruiters');
+    $this->db->join('branchesrecruiters', 'recruiters.r_id = branchesrecruiters.r_id', 'LEFT OUTER');
+    if ($value!='') {
+    $this->db->where('recruiters.r_id',$value);  
+    }
+    
+    $query = $this->db->get();
+    return $query->result_array();    
+  }
+//looad all jobs if no parameter is give
+//loads all of a recruiter jobs if only r_id is given ,loads a periculat jon if job_id is also given
+//loads only approved job
+//can not load a job with only job iD
+//further plans -> later everthing will be used by company name
+ function getJob($value='',$job_id ='')
+  {
+    if ($value!=''&&ctype_digit($value)) {
+      $r_id = $value;
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('job_profiles');
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('r_id',$r_id);      
+      $this->db->where('approved','1');      
+      if (!$job_id==='') {
+        $this->db->where('job_id',$job_id);   
+      }
+    }else{
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('job_profiles');
+      $this->db->where('approved','1');            
+    }
 
 
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+
+  }
 
 
 

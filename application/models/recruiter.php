@@ -198,25 +198,18 @@ Class recruiter extends CI_Model
 
   function edit_job($data)
   {
-    $this->db->select('approved');
-    $this->db->from('job_profiles');
-    $this->db->where('job_id',$data['job_id']);   
-    $query = $this->db->get();
-    $result = $query->result_array();
-
-    if ($result[0]['approved']==0) {
+   
       try {
-        $query = $this->db->where(array(
-          'j_id' => $data['j_id']
-        ))->update('recruiters', $data);
+        $this->db->where('job_id',$data['job_id']);
+        $this->db->update('job_profiles', $data);
+        $query = $this->db->affected_rows();
+        // $query = $data['job_id'];
         return $query;
       }
       catch(Exception $e) {
         return $e;
       }
-  }else{
-    return false;
-  }
+  
 
   }
   function delete_job($value='')
@@ -229,7 +222,47 @@ Class recruiter extends CI_Model
     } 
   }
 
+  function insert_intern($data='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $data['r_id']  = $r_id;
+    $this->db->insert('intern_profiles', $data);  
+  }
 
+  function getIntern($value='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->select('*');
+    $this->db->order_by('application_dead_line', 'desc');  
+    $this->db->from('intern_profiles');
+    if ($value==='') {
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('r_id',$r_id);      
+    }else{
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('intern_id',$value);   
+      $this->db->where('r_id',$r_id);         
+    }
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+  function delete_intern($value='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    if (ctype_digit($value)) {   
+    $r_id = $session_data['r_id'];
+    $this->db->where('r_id',$r_id);
+    $this->db->delete('intern_profiles', array('intern_id' => $value));
+    } 
+  }
 
 }
 

@@ -1,5 +1,5 @@
 CREATE TABLE academic (
-    acad_id               INT           NOT NULL AUTO_INCREMENT,
+    acad_id               INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id                    INT           NOT NULL,
     cursem                INT           NULL,
     sem1                  DECIMAL       NULL, 
@@ -22,7 +22,7 @@ CREATE TABLE academic (
 // see modes/users->get_url()
 CREATE TABLE users (
     id               INT           NOT NULL AUTO_INCREMENT,
-    url              VARCHAR (50)  NOT NULL,
+    url              VARCHAR (50)  NULL,
     username         VARCHAR (50)  NOT NULL,
     password         VARCHAR (100) NOT NULL,
     enroll           INT           NULL,
@@ -81,7 +81,7 @@ CREATE TABLE applications
 (
     application_id          INT             NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     id                      INT             NOT NULL,
-    job_id                  INT             NOT NULL. 
+    job_id                  INT             NOT NULL, 
     Company_name            VARCHAR(50)     NULL, 
     Status                  VARCHAR(50)     NULL, 
     date                    VARCHAR(50)     NULL,
@@ -157,6 +157,30 @@ CREATE TABLE job_profiles
 
 
 
+CREATE TABLE  intern_profiles  (
+intern_id                   INT(11)     NOT NULL PRIMARY KEY AUTO_INCREMENT,
+r_id                        INT(11)     NOT NULL,
+intern_name                 VARCHAR(50)  NULL,
+training_descr              text         NULL,           
+application_dead_line       DATETIME     NULL,
+skills                      TEXT         NULL,
+loc                         VARCHAR(50)  NULL,
+stipend                     VARCHAR(50)  NULL,
+accom                       VARCHAR(50)  NULL,
+travel                      VARCHAR(50)  NULL,
+approved                    INT          DEFAULT '0',
+facilities                  text         NULL,
+shortlist_from_Resumes      VARCHAR(50)  NULL,
+personal_Interview          VARCHAR(50)  NULL,
+seats                       VARCHAR(50)  NULL,
+eligible_departments        VARCHAR(50)  NULL,
+l_requirements              text         NULL,
+contact_name                VARCHAR(50)  NULL,
+contact_designation         VARCHAR(50)  NULL,
+contact_email               VARCHAR(50)  NULL,
+contact_number              VARCHAR(50)  NULL
+);
+
 
 
 
@@ -179,8 +203,11 @@ INSERT INTO users (enroll,branch, year_of_admin, FNAME, MNAME, LNAME, gender, 12
 
 INSERT INTO school (id, school_name, city, year, board, paercentage, type) VALUES (1, N'asdas', N'asfasdf', N'4566', N'sdfsdfsd', N'fsddfsdf  ', 1)
 
-INSERT INTO users (username, password) values ('alafazam', MD5('alafazam'));
+//notice that username format has changed
+INSERT INTO users (username, password) values ('2012552', MD5('alaf552'));
 
 INSERT INTO feed (date,data,heading) values('2014-12-15','I am a disco dancer','Yeah baby');
 
 INSERT INTO recruiters(usersname ,password ,Company_name ,url ,website_link ,Company_Type ,Industry_Sector ,Brief) values ('gravity_games',MD5('alafazam'),'Gravity-games');
+
+INSERT INTO intern_profiles (intern_id, r_id, intern_name, training_descr, application_dead_line, loc, stipend, accom, travel, facilities, shortlist_from_Resumes, personal_Interview, seats, eligible_departments, l_requirements, contact_name, contact_designation, contact_email, contact_number) VALUES ('', '', 'GoogleCodeForChange', 'The most brilliant place to be this winter .', '2014-10-31 00:00:00', 'Bangalore ', '25k', 'Yes', 'Yes', 'Everything you can dream of.', 'Yes', 'Yes', '25', 'IT', 'Show us Kashmir , Budies !!', 'Johnny Depp', 'Student Mentor', 'johnnydepp@az.co', '*99#');

@@ -26,6 +26,7 @@ $fname=$data['fname'];
   </div>
 </div>
 <!-- Text input-->
+<h3 class="text-center"><small>if result is awaited put 0</small></h3>
 <div class="form-group row">
   <label class="col-md-4 control-label" for="sem1">Semester I</label>  
   <div class="col-md-2">

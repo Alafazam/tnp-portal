@@ -49,9 +49,11 @@ class Aboutme extends CI_Controller
     
     function save()
     {
+    $session_data = $this->session->userdata('logged_in');
+    $username     = $session_data['username'];
+    $id           = $session_data['id'];
+
         //save about me page
-        $session_data = $this->session->userdata('logged_in');
-        $username     = $session_data['username'];
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
         $this->form_validation->set_rules('EVC', 'eca', 'trim|xss_clean');

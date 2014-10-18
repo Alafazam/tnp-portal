@@ -55,6 +55,8 @@ class Educational  extends CI_Controller {
         $session_data = $this->session->userdata('logged_in');
         $username     = $session_data['username'];
         $id           = $session_data['id'];
+        $genrated = $this->user->_genrate($id,'school_details');    
+
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
         $this->form_validation->set_rules('school_name1' ,'school_name1', 'trim|xss_clean');

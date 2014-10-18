@@ -2,16 +2,19 @@
 $data= $this->session->userdata('logged_in');
 $username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
+$flashError = $this->session->flashdata('flashError');
+echo $flashError;
 
 if (!isset($approved)) {
 $approved = 0;
 }
 
 $eligible = array();
-foreach ($eligible_departments as $key => $value) {
-    $eligible[$key] = $value;
-}
-
+if (isset($eligible_departments)) {   
+    foreach ($eligible_departments as $key => $value) {
+        $eligible[$key] = $value;
+    }
+}else{}
 
 ?>
 <link rel="stylesheet" type="text/css" media="screen"href="/css/datepicker.css">
@@ -21,7 +24,7 @@ foreach ($eligible_departments as $key => $value) {
      cursor: text;
 }</style>
 
-<form class="form-horizontal" role="form" <?php if (!$approved) { echo "action='recruiter_create_job/newJob'"; }?> method="post" >
+<form class="form-horizontal" role="form" <?php if(!isset($job_desig)){ echo "action='/recruiter_create_job/newJob'"; }elseif(isset($job_desig)&&!$approved){echo "action='/recruiter_create_job/newJob/edit'"; } ?> method="post" >
     <fieldset>
 
         <!-- Form Name -->
@@ -40,7 +43,7 @@ foreach ($eligible_departments as $key => $value) {
         <div class="form-group">
             <label class="col-md-4 control-label" for="Job Description">Job Description</label>
             <div class="col-md-4">
-                <textarea  id="Job Description" <?php if ($approved) { echo "readonly"; } ?> name="job_descr" <?php if (isset($job_descr)) { echo "value='".$job_descr."'"; } ?> type="text" required  placeholder="Job Description" class="form-control input-md"></textarea>
+                <textarea  id="Job Description" <?php if ($approved) { echo "readonly"; } ?> name="job_descr"  type="text" required  placeholder="Job Description" class="form-control input-md"><?php if (isset($job_descr)) { echo "".$job_descr.""; } ?></textarea>
 
             </div>
         </div>
@@ -57,7 +60,7 @@ foreach ($eligible_departments as $key => $value) {
         <div class="form-group">
           <label for="last_date" class="col-md-4 control-label">Application Deadline</label>
           <div id="datetimepicker1"   class="input-append input-group date col-md-4">
-            <input required <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" class="form-control " data-format="yyyy-MM-dd hh:mm:ss" type="text">
+            <input required <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" class="form-control add-on" data-format="yyyy-MM-dd hh:mm:ss" type="text">
             <span class="add-on input-group-addon">
               <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
             </span>
@@ -74,7 +77,14 @@ foreach ($eligible_departments as $key => $value) {
     });
   });
 </script>";
+};
+
+if (isset($job_id))
+{echo '<input hidden name="job_id" type="text" value="'.$job_id.'">';
 }
+
+
+
     ?>
         <legend>Salary Details</legend>
 
@@ -99,7 +109,7 @@ foreach ($eligible_departments as $key => $value) {
         <div class="form-group">
             <label class="col-md-4 control-label" for="Cost to Company">Cost to Company</label>
             <div class="col-md-4">
-                <input <?php if (isset($place)) { echo "value='".$place."'"; } ?>  required id="Cost to Company" <?php if ($approved) { echo "readonly"; } ?> required name="ctc" type="text" placeholder="Cost to Company" class="form-control input-md">
+                <input <?php if (isset($ctc)) { echo "value='".$ctc."'"; } ?>  required id="Cost to Company" <?php if ($approved) { echo "readonly"; } ?> required name="ctc" type="text" placeholder="Cost to Company" class="form-control input-md">
 
             </div>
         </div>
@@ -154,7 +164,7 @@ foreach ($eligible_departments as $key => $value) {
             <div class="col-md-4">
                 <select id="Shortlist from Resumes"  <?php if ($approved) { echo "readonly"; } ?> name="shortlist_from_Resumes" class="form-control">
                     <option value="YES">YES</option>
-                    <option <?php if ($shortlist_from_Resumes=='NO') { echo "checked"; } ?> value="NO">NO</option>
+                    <option <?php if (isset($shortlist_from_Resumes)&&$shortlist_from_Resumes=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -165,7 +175,7 @@ foreach ($eligible_departments as $key => $value) {
             <div class="col-md-4">
                 <select id="Written Test" <?php if ($approved) { echo "readonly"; } ?> name="written_Test" class="form-control">
                     <option value="YES">YES</option>
-                    <option <?php if ($written_Test=='NO') { echo "checked"; } ?> value="NO">NO</option>
+                    <option <?php if (isset($written_Test)&&$written_Test=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -176,7 +186,7 @@ foreach ($eligible_departments as $key => $value) {
             <div class="col-md-4">
                 <select id="Group_Discussion" <?php if ($approved) { echo "readonly"; } ?> name="group_Discussion" class="form-control">
                     <option value="YES">YES</option>
-                    <option <?php if ($group_Discussion=='NO') { echo "checked"; } ?> value="NO">NO</option>
+                    <option <?php if (isset($written_Test)&&$group_Discussion=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -187,7 +197,7 @@ foreach ($eligible_departments as $key => $value) {
             <div class="col-md-4">
                 <select id="Personal_Interview" <?php if ($approved) { echo "readonly"; } ?> name="personal_Interview" class="form-control">
                     <option value="YES">YES</option>
-                    <option <?php if ($personal_Interview=='NO') { echo "checked"; } ?> value="NO">NO</option>
+                    <option <?php if (isset($written_Test)&&$personal_Interview=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -198,7 +208,7 @@ foreach ($eligible_departments as $key => $value) {
             <div class="col-md-4">
                 <select id="Medical_Test" <?php if ($approved) { echo "readonly"; } ?> name="medical_Test" class="form-control">
                     <option value="YES">YES</option>
-                    <option <?php if ($medical_Test=='NO') { echo "checked"; } ?> value="NO">NO</option>
+                    <option <?php if (isset($written_Test)&&$medical_Test=='NO') { echo "checked"; } ?> value="NO">NO</option>
                 </select>
             </div>
         </div>
@@ -227,32 +237,32 @@ foreach ($eligible_departments as $key => $value) {
             <div class="col-md-4">
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input  type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-0" <?php if($eligible_departments && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CHE">Chemical Engineering
+                        <input  type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-0" <?php if(isset($eligible_departments) && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CHE">Chemical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input  type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-1" <?php if($eligible_departments && (in_array("CE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CE">Civil Engineering
+                        <input  type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-1" <?php if(isset($eligible_departments) && (in_array("CE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CE">Civil Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-2" <?php if($eligible_departments && (in_array("CSE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CSE">Computer Science &amp; Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-2" <?php if(isset($eligible_departments) && (in_array("CSE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CSE">Computer Science &amp; Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-3" <?php if($eligible_departments && (in_array("IT", $eligible))){ echo "checked = 'checked' " ;} ?> value="IT">Information Technology
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-3" <?php if(isset($eligible_departments) && (in_array("IT", $eligible))){ echo "checked = 'checked' " ;} ?> value="IT">Information Technology
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-4" <?php if($eligible_departments && (in_array("ECE", $eligible))){ echo "checked = 'checked' " ;} ?> value="ECE">Electronics and Communication Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-4" <?php if(isset($eligible_departments) && (in_array("ECE", $eligible))){ echo "checked = 'checked' " ;} ?> value="ECE">Electronics and Communication Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-5" <?php if($eligible_departments && (in_array("EE", $eligible))){ echo "checked = 'checked' " ;} ?> value="EE">Electrical Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-5" <?php if(isset($eligible_departments) && (in_array("EE", $eligible))){ echo "checked = 'checked' " ;} ?> value="EE">Electrical Engineering
                     </label>
                 </div>
 
@@ -266,12 +276,12 @@ foreach ($eligible_departments as $key => $value) {
                 ?>
                 <div class="checkbox" >
                     <label for="Eligible-6" >
-                        <input type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-6" <?php if($eligible_departments && (in_array("MEC", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEC">Mechanical Engineering</label>
+                        <input type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-6" <?php if(isset($eligible_departments) && (in_array("MEC", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEC">Mechanical Engineering</label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if($eligible_departments && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEE">Metallurgical and Materials Engineering
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if(isset($eligible_departments) && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEE">Metallurgical and Materials Engineering
                     </label>
                 </div>
             </div>
@@ -347,7 +357,7 @@ foreach ($eligible_departments as $key => $value) {
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
-                <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " <?php if (!$approved) { echo "type='submit'"; } ?> >
+                <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " <?php if(!isset($job_desig)){ echo "type='submit'"; }elseif(isset($job_desig)&&!$approved){echo ""; } ?>  >
                     <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}elseif ($approved) { echo "Contact Admin to Edit "; }else echo "Save Changes"; ?>
                 </button>
             </div>

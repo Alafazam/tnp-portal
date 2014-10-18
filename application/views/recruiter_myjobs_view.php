@@ -3,7 +3,6 @@
 <div class="container-fluid">
 		<h2>Announcements</h2>
 		<legend></legend>
-
 	<div class="row">
     
 
@@ -11,7 +10,7 @@
 			<!-- Start of articals -->
 	
 			<?php 
-		if ($jobs) {
+		if (isset($jobs)&&$jobs) {
 			foreach ($jobs as $key)
             // implode("-", array_reverse(explode("/", $var)));
 			// {	$key['application_dead_line'] = implode("-", array_reverse(explode("/", $key['application_dead_line'])));
@@ -30,7 +29,7 @@
                         <pre>".$key['place']."</pre>
                         <pre>CTC:".$key['ctc'].", GROSS:".$key['gross']."</pre>
                         <p>".$key['job_descr']."</p>	                    
-	                	<a class='btn btn-primary btn-md' style='margin-top:10px;'href='/recruiter_myjobs/delete/".$key['job_id']."'>Delete this job</a>
+	                	<a class='btn btn-primary btn-md delete' style='margin-top:10px;'href='/recruiter_myjobs/delete/".$key['job_id']."'>Delete this job</a>
                 	</div>
 	            </div>
 	        </article>";
@@ -60,6 +59,18 @@
 
 		}
 		?>
+
+
+<script>
+	
+	$.('.delete').click(){
+
+	}
+
+
+
+</script>
+
 	
 	        <article class="timeline-entry begin">
 

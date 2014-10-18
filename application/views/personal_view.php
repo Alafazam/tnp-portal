@@ -58,7 +58,7 @@ $username=$data['username'];
    		<div class="form-group">
    			<label class="col-md-4 control-label" for="dob">Date of Birth</label>  
    			<div class="col-md-4">
-   				<input id="dob" name="dob" data-validation="date" data-validation-format="dd/mm/yyyy" value="<?php if ($dob) {  echo $dob ;}?>" type="text" placeholder="YYYY-MM-DD" class="form-control input-md">
+   				<input id="dob" name="dob" data-validation="date" data-validation-format="yyyy-mm-dd" value="<?php if ($dob) {  echo $dob ;}?>" type="text" placeholder="YYYY-MM-DD" class="form-control input-md">
    			</div>
    		</div>
 

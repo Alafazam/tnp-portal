@@ -53,10 +53,14 @@ class Academic  extends CI_Controller {
 
   function save()
   {
+    //first check if data exist or not.. 
+    $session_data = $this->session->userdata('logged_in');
+    $username     = $session_data['username'];
+    $id           = $session_data['id'];
+    $genrated = $this->user->_genrate($id,'academic');    
+
+
     //save about me page
-        $session_data = $this->session->userdata('logged_in');
-        $username     = $session_data['username'];
-        $id           = $session_data['id'];
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
         $this->form_validation->set_rules('id'    ,'id'     ,'trim|xss_clean') ;

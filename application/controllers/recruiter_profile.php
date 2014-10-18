@@ -30,7 +30,7 @@ class recruiter_profile extends CI_Controller
             $data = $result[0];
             $result2 = $this->recruiter->_getBranches();
             $data['branches'] = $result2;
-            $this->load->recruiter_template('recruiter_profile_view', $data);
+            $this->load->template('recruiter_profile_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');

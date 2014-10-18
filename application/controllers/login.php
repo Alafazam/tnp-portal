@@ -34,7 +34,7 @@ class Login extends CI_Controller{
 
 			$this->db->select('username');
 			$this->db->where(array(
-				'email' => $email
+				'Email_add' => $email
 			));
 
 			$this->db->limit(1);
@@ -80,19 +80,19 @@ class Login extends CI_Controller{
 					));
 				}
 
-				$this->email->message("Please Click the Link below to reset your password" . base_url("login/reset/" . $username . "/" . $v_id) . "");
+				$this->email->message("Please Click the Link below to reset your password \n" . base_url("login/reset/" . $username . "/" . $v_id) . "");
 				$this->email->send();
-				$this->load->template('password_reset', array(
+				$this->load->view('password_reset', array(
 					'message' => 'Password Reset email has been sent to ' . $email
 				)); // Display pwd reset form
 			}else{
 
-				$this->load->template('password_reset', array(
+				$this->load->view('password_reset', array(
 					'message' => $email . ' does not exist in our database. You may register first.'
 				)); // TODO show user a way to create account
 			}
 		}else{ // if user entered email
-			$this->load->template('password_reset', array(
+			$this->load->view('password_reset', array(
 				'message' => ""
 			));
 		}
@@ -106,9 +106,8 @@ class Login extends CI_Controller{
 		
 		if (!$query->num_rows())
 			{
-			$this->load->template('message_view', array(
-				'message' => "<p class='clearfix'>Link Might have Expired...</p>" . "<p class='clearfix'><a href='/login'><input type='submit' value='Sign In'></a></p>"
-			));
+			$this->session->set_flashdata('flashSuccess', 'Link might have expired. Please try again');
+            redirect('login', 'refresh');
 			return false;
 			}
 
@@ -121,14 +120,13 @@ class Login extends CI_Controller{
 
 			// Field validation failed.
 
-			$this->load->template('pwd_reset');
+			$this->load->view('pwd_reset');
 			}
 		  else
 			{
 			$this->user->resetPassword($username, $this->input->post('password'));
-			$this->load->template('message_view', array(
-				'message' => "Your password has Been reset, Please visit " . "<a href='/login'>here</a> to continue..."
-			));
+	        $this->session->set_flashdata('message', 'Your password has been reset. Please Login with your new password');
+            redirect('login', 'refresh');
 			}
 		}
 
@@ -153,7 +151,8 @@ class Login extends CI_Controller{
 
 			// Field validation failed.  User redirected to login page
 
-			$this->load->view("login_view");
+			$this->load->view("login_view",array('message' => 'Wrong username password' ));
+
 			}
 		  else
 			{
