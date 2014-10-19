@@ -22,7 +22,10 @@ if (isset($eligible_departments)) {
 <script type="text/javascript" src="/js/datetimepicker.pt-BR.js"></script>
 <style>.form-control[readonly] {
      cursor: text;
-}</style>
+}
+.bootstrap-datetimepicker-widget,.dropdown-menu>ul{padding:0px;}
+
+</style>
 
 <form class="form-horizontal" role="form" <?php if(!isset($job_desig)){ echo "action='/recruiter_create_job/newJob'"; }elseif(isset($job_desig)&&!$approved){echo "action='/recruiter_create_job/newJob/edit'"; } ?> method="post" >
     <fieldset>
@@ -60,10 +63,9 @@ if (isset($eligible_departments)) {
         <div class="form-group">
           <label for="last_date" class="col-md-4 control-label">Application Deadline</label>
           <div id="datetimepicker1"   class="input-append input-group date col-md-4">
-            <input required <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" class="form-control add-on" data-format="yyyy-MM-dd hh:mm:ss" type="text">
-            <span class="add-on input-group-addon">
-              <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-            </span>
+            <div class="input-group date">
+              <input type="text" data-format="yyyy-MM-dd hh:mm:ss" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" required class="form-control"><span class="input-group-addon add-on"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
           </div>
       </div>
       <?php 
@@ -73,7 +75,9 @@ if (isset($eligible_departments)) {
   $(function() {
     $('#datetimepicker1').datetimepicker({
       language: 'en',
-      pick12HourFormat: true
+      pick12HourFormat: true,
+    startDate: 'today'
+
     });
   });
 </script>";

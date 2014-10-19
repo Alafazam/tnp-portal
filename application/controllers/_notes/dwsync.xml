@@ -17,10 +17,11 @@
 <file name="recruiter_myjobs.php" server="C:/xampp/htdocs/" local="130581373717262739" remote="130581373710000000" />
 <file name="recruiter_create_intern.php" server="C:/xampp/htdocs/" local="130581374962674821" remote="130581374960000000" />
 <file name="recruiter_myinterns.php" server="C:/xampp/htdocs/" local="130581373504407277" remote="130581373500000000" />
-<file name="recruiters.php" server="C:/xampp/htdocs/" local="130582085585250207" remote="130582085580000000" />
+<file name="recruiters.php" server="C:/xampp/htdocs/" local="130582276245174276" remote="130582276240000000" />
 <file name="change_pwd.php" server="C:/xampp/htdocs/" local="130581437977865857" remote="130581437970000000" />
 <file name="jobs.php" server="C:/xampp/htdocs/" local="130582273832920050" remote="130582273830000000" />
 <file name="admin.php" server="C:/xampp/htdocs/" local="130582191282469901" remote="130582191280000000" />
 <file name="admin_createjob.php" server="C:/xampp/htdocs/" local="130582191282529937" remote="130582191280000000" />
 <file name="admin_home.php" server="C:/xampp/htdocs/" local="130582191282569968" remote="130582191280000000" />
+<file name="recruiter_applicants.php" server="C:/xampp/htdocs/" local="130582331525412905" remote="130582331520000000" />
 </dwsync>

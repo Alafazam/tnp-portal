@@ -202,6 +202,22 @@ Class recruiter extends CI_Model
     }
   }
 
+  
+
+  function get_students()
+  {
+        $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+
+   $this->db->select('id,applications.username ,enroll ,branch ,FNAME ,MNAME ,LNAME,applications.cover_letter,applications.job_id');
+    $this->db->from('users');
+    $this->db->join('applications', 'users.username = applications.username', 'LEFT OUTER');
+    $this->db->where('applications.r_id',$r_id);  
+    $query = $this->db->get();
+    return $query->result_array(); 
+  }
+
+
   function edit_job($data)
   {
    

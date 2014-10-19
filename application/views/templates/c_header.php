@@ -45,9 +45,7 @@ $message = $this->session->flashdata('message');
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a>
-                    </li>
-                    <li><a href="#">Settings</a>
+                    <li><a href="/">Dashboard</a>
                     </li>
                     <li><a href="/recruiter_profile">My Profile</a>
                     </li>
@@ -78,22 +76,18 @@ $message = $this->session->flashdata('message');
                     </li>
                     <li><a href="/recruiter_create_intern">Add new Internship</a>
                     </li>
-                    <li><a href="recruiter_plan">Plan a visit</a>
+                    <li><a href="#">Plan a visit</a>
                     </li>
-                    <li><a href="#">About Me</a>
-                    </li>
-
+                    
                 </ul>
                 <ul class="nav nav-sidebar">
                     <li><a href="#">Students List</a>
                     </li>
-                    <li><a href="recruiter_myjobs">My jobs</a>
+                    <li><a href="/recruiter_myjobs">My jobs</a>
                     </li>
-                    <li><a href="recruiter_myinterns">My interns</a>
+                    <li><a href="/recruiter_myinterns">My interns</a>
                     </li>
-                    <li><a href="#">Applicants</a>
-                    </li>
-                    <li><a href="#">settings</a>
+                    <li><a href="/recruiter_applicants">Applicants</a>
                     </li>
                 </ul>
             </div>

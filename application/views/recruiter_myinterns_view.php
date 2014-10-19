@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/timeline.css">
 
 <div class="container-fluid">
-		<h2>Announcements</h2>
+		<h2>My Internship Offers</h2>
 		<legend></legend>
 	<div class="row">
     
