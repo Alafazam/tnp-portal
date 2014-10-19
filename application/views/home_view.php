@@ -1,4 +1,11 @@
+<?php if (!isset($message)) {
+$message = $this->session->flashdata('message');
+}
+
+ ?>
 <link rel="stylesheet" href="/css/timeline.css">
+
+
 
 <div class="container-fluid">
 		<h2>Announcements</h2>

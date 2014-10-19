@@ -1,5 +1,9 @@
 <?php $data= $this->session->userdata('logged_in'); $username=$data['username']; $fname=$data['Company_name'];?>
+<?php if (!isset($message)) {
+$message = $this->session->flashdata('message');
+}
 
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,19 +100,33 @@
         </div>
     </div>
 
-     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
 
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-              <h4 class="modal-title text-center" id="mySmallModalLabel" >Message</h4>
-            </div>
-            <div class="modal-body text-center">
-            </div>
-          </div>
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title text-center" id="mySmallModalLabel" >Message</h4>
+        </div>
+        <div class="modal-body text-center">
+        </div>
       </div>
-    </div>
+  </div>
+</div>
+<?php  
+
+    if ($message) {
+        echo "
+        <script>
+        $( document ).ready(function() {
+        $('#myModal').modal('show');
+        $('.modal-body').text('".$message."');
+        });
+        </script>
+        ";
+    }
+ ?>
 
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

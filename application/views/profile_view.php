@@ -5,6 +5,13 @@
 
 <form class="form-horizontal">
     <fieldset>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="enroll">Enroll</label>
+            <div class="col-md-4">
+                <pre><?php if ($enroll) {  echo $enroll ;}?></pre>
+            </div>
+        </div>
+
         <!-- Form Name -->
         <legend>Personal Details  <?php if($allowedit) echo '<a href="/personal" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
         <!-- Text input-->
@@ -78,7 +85,16 @@
             </div>
         </div>
 
-        <legend>Semester wise SGPA <?php if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?></legend>
+        <legend>Academics <?php if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?></legend>
+        
+         <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="year_of_admin">Year of Admission</label>
+            <div class="col-md-4">
+                <pre><?php if ($year_of_admin) { echo $year_of_admin ;}?></pre>
+            </div>
+        </div>
+
         <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="cursem">Current Semester</label>

@@ -30,7 +30,7 @@ $message = $this->session->flashdata('message');
 
     <body style="background-color:#110022;text-transform:none;">
      <div class="container" style="margin-top:100px;">
-      <form class="form-signin" role="form" action="login/verify" method="post" accept-charset="utf-8">
+      <form class="form-signin" role="form" action="/login/verify" method="post" accept-charset="utf-8">
         <h2 style="color: #FFF;" class="form-signin-heading">Please sign in</h2>
         <input type="text" style="text-transform:none;" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
         <input type="password" style="text-transform:none;margin-top:10px;" name="password" id="password" class="form-control" placeholder="Password" required>

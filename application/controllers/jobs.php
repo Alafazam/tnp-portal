@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 session_start(); //we need to call PHP's session object to access it through CI
-class recruiters extends CI_Controller
+class jobs extends CI_Controller
 {
     
     function __construct()
@@ -24,9 +24,20 @@ class recruiters extends CI_Controller
     function index()
     {
                  
-    $result = $this->user->loadCompanyList();
-    $data = array('list' => $result );
-    $this->load->template('recruiters_view',$data);
+    $result2 = $this->user->loadCompanyList();
+    $company_names = array();
+    foreach ($result2 as $value) {
+        $var = $value['r_id'];
+        $company_names[''.$var.''] = $value['Company_name']; 
+    }
+
+    $result = $this->user->getJob();
+    $data = array(
+        'jobs' => $result,
+        'company_names'=>$company_names
+         );
+    
+    $this->load->template('jobsList_view',$data);
 
     }
 
@@ -35,17 +46,17 @@ class recruiters extends CI_Controller
     {
         if ($value!=''&& (ctype_digit($value))) 
         {
-        $r_id = $value;    
+        $j_id = $value;    
         $result  = $this->user->loadCompanyList($r_id);
         $data= $result[0];
         
-        $jobs = $this->user->getJob($r_id);
-        $data['jobs'] = $jobs;
-        $this->session->set_flashdata('flashSuccess', 'hello there');
-        $this->load->template('companyProfile_view',$data);
+        $jobs = $this->user->getjob_all($r_id);
+        $data = $jobs[0];
+        // $this->session->set_flashdata('flashSuccess', 'hello there');
+        $this->load->template('test_view',$data);
 
         } else {
-            redirect('recruiters', 'refresh');
+            redirect('jobs', 'refresh');
         }  
 
     }

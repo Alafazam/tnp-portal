@@ -34,7 +34,9 @@ class profile extends CI_Controller
                 'addl2' => $result1[0]['AddressL2'],
                 'city' => $result1[0]['City'],
                 'phone' => $result1[0]['Phone'],
-                'email_add' => $result1[0]['Email_add']
+                'email_add' => $result1[0]['Email_add'],
+                'enroll' => $result1[0]['enroll'],
+                'year_of_admin'=>$result1[0]['year_of_admin']
             );
             
             $result2 = $this->user->load_about_me();
@@ -104,7 +106,7 @@ class profile extends CI_Controller
 
         $result_id = $this->user->get_id($username);
         $id = $result_id[0]['id'];
-        if ($id===false) {
+        if ($id===false||$result_id===false) {
              redirect('profile', 'refresh');
         }
         else{
@@ -121,7 +123,9 @@ class profile extends CI_Controller
                     'addl2' => $result1[0]['AddressL2'],
                     'city' => $result1[0]['City'],
                     'phone' => $result1[0]['Phone'],
-                    'email_add' => $result1[0]['Email_add']
+                    'email_add' => $result1[0]['Email_add'],
+                    'enroll' => $result1[0]['enroll'],
+                    'year_of_admin' => $result1[0]['year_of_admin']
                 );
                 
                 $result2 = $this->user->load_about_me($id);

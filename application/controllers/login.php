@@ -149,7 +149,10 @@ class Login extends CI_Controller{
 
 			// Field validation failed.  User redirected to login page
 
-			$this->load->view("login_view",array('message' => 'Wrong username password' ));
+			$this->session->set_flashdata('message', 'Wrong username password');
+						redirect('login', 'refresh');
+
+			// $this->load->view("login_view",array('message' => 'Wrong username password' ));
 
 			}
 		  else

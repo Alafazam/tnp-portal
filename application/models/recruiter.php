@@ -107,6 +107,12 @@ Class recruiter extends CI_Model
     }
   }
 
+  function changePassword($username,$password){
+    
+    $this->db ->where('username', $username ) 
+          ->update('recruiters', array('password'=>MD5($password)));           
+  }
+
   function _updatebranch($value='')
   {
     $session_data = $this->session->userdata('logged_in');

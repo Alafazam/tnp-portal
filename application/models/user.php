@@ -25,7 +25,15 @@ function resetPassword($username,$password){
           
     $this->db ->delete('pwd_reset',array('username'=>$username));
   }
+  function changePassword($username,$password){
+    
+    $this->db ->where('username', $username ) 
+          ->update('users', array('password'=>MD5($password)));           
+  }
   
+
+
+
   function get_username($id='')
   {
     if ($id==='') {
@@ -96,22 +104,47 @@ function resetPassword($username,$password){
 
 //for students
 //only shows approved jobs
-  function getjob_all($Company_name='',$value='')
+  function getjob_all($value)
   {
     $this->db->select('*');
     $this->db->order_by('application_dead_line', 'desc');  
     $this->db->from('job_profiles');
     $this->db->where('approved','1');      
-     if ($Company_name=='' && $value==='') {
-      //nothing means return all approved jobs
-    }else if ($Company_name!='' && $value==='') {
-      //if only one parameter ie searching job by company name 
-      //return all approved jobs of that company 
-      $this->db->where('Company_name',$Company_name);
-    }elseif ($value!=='') {
-      //if we want to open only a perticulat job
-      $this->db->where('job_id',$value);   
+    $this->db->where('job_id',$value);   
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
     }
+    else {
+      return false;
+    }
+  }
+
+//looad all jobs if no parameter is give
+//loads all of a recruiter jobs if only r_id is given ,loads a periculat jon if job_id is also given
+//loads only approved job
+//can not load a job with only job iD
+//further plans -> later everthing will be used by company name
+ function getJob($value='',$job_id ='')
+  {
+    if ($value!=''&&ctype_digit($value)) {
+      $r_id = $value;
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('job_profiles');
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('r_id',$r_id);      
+      $this->db->where('approved','1');      
+      if (!$job_id==='') {
+        $this->db->where('job_id',$job_id);   
+      }
+    }else{
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('job_profiles');
+      $this->db->where('approved','1');            
+    }
+
 
     $query = $this->db->get();
     if ($query->num_rows()) {
@@ -120,6 +153,7 @@ function resetPassword($username,$password){
     else {
       return false;
     }
+
   }
 
 
@@ -182,7 +216,7 @@ function resetPassword($username,$password){
     $id = $session_data['id'];
     }
 
-    $this->db->select('FNAME,MNAME,LNAME,gender,dob,AddressL1,AddressL2,City,Phone,Email_add');
+    $this->db->select('FNAME,MNAME,LNAME,gender,dob,AddressL1,AddressL2,City,Phone,Email_add,enroll,year_of_admin');
     $this->db->from('users');
     $this->db->where('id', $id);
     $this->db->limit(1);
@@ -285,42 +319,6 @@ function resetPassword($username,$password){
     $query = $this->db->get();
     return $query->result_array();    
   }
-//looad all jobs if no parameter is give
-//loads all of a recruiter jobs if only r_id is given ,loads a periculat jon if job_id is also given
-//loads only approved job
-//can not load a job with only job iD
-//further plans -> later everthing will be used by company name
- function getJob($value='',$job_id ='')
-  {
-    if ($value!=''&&ctype_digit($value)) {
-      $r_id = $value;
-      $this->db->select('*');
-      $this->db->order_by('application_dead_line', 'desc');  
-      $this->db->from('job_profiles');
-      // $this->db->where('Company_name',$Company_name);
-      $this->db->where('r_id',$r_id);      
-      $this->db->where('approved','1');      
-      if (!$job_id==='') {
-        $this->db->where('job_id',$job_id);   
-      }
-    }else{
-      $this->db->select('*');
-      $this->db->order_by('application_dead_line', 'desc');  
-      $this->db->from('job_profiles');
-      $this->db->where('approved','1');            
-    }
-
-
-    $query = $this->db->get();
-    if ($query->num_rows()) {
-      return $query->result_array();
-    }
-    else {
-      return false;
-    }
-
-  }
-
 
 
 }

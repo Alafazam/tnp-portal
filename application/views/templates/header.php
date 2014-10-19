@@ -3,6 +3,11 @@ if ($fname=='') {
     $fname = $username;
 }
  ?>
+<?php if (!isset($message)) {
+$message = $this->session->flashdata('message');
+}
+
+ ?>
 
 
 <!DOCTYPE html>
@@ -114,5 +119,18 @@ if ($fname=='') {
       </div>
   </div>
 </div>
+<?php  
+
+    if ($message) {
+        echo "
+        <script>
+        $( document ).ready(function() {
+        $('#myModal').modal('show');
+        $('.modal-body').text('".$message."');
+        });
+        </script>
+        ";
+    }
+ ?>
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
