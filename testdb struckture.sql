@@ -79,14 +79,13 @@ CREATE TABLE school_details
 
 CREATE TABLE applications
 (
-    application_id          INT             NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-    id                      INT             NOT NULL,
+    username                INT             NOT NULL,
     job_id                  INT             NOT NULL, 
-    Company_name            VARCHAR(50)     NULL, 
-    Status                  VARCHAR(50)     NULL, 
+    r_id                    INT             NOT NULL, 
+    Status                  VARCHAR(50)     NULL default '0', 
     date                    VARCHAR(50)     NULL,
-    cover_letter            TEXT            NULL, 
-    CONSTRAINT FK_Applications_ToTable FOREIGN KEY (id) REFERENCES users(id)
+    cover_letter            TEXT            NULL,
+    PRIMARY KEY(username,job_id,r_id) 
 );
 
 //TODO add more feilds

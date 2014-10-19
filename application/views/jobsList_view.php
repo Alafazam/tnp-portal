@@ -1,7 +1,6 @@
 <style>
 	.company_name{
 		font-size: 24px;
-		margin-right: 10px;
 	}
 </style>
 
@@ -20,7 +19,7 @@
 			';
 
 			foreach ($jobs as $key)
-		    {	 $deadline = new DateTime($key["application_dead_line"]);
+		    {	$deadline = new DateTime($key["application_dead_line"]);
 				$deadline1 = $deadline->format('d-m-y');
 	  			echo '
 	  			<a class="row list-group-item"style="margin-right:5px;margin-left:5px;" href="/jobs/view/'.$key["job_id"].'">

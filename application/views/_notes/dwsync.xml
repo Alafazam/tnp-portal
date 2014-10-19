@@ -10,7 +10,7 @@
 <file name="edu_view.php" server="C:/xampp/htdocs/" local="130577760866546736" remote="130577760860000000" />
 <file name="personal_view.php" server="C:/xampp/htdocs/" local="130580423650620926" remote="130580423650000000" />
 <file name="upload_view.php" server="C:/xampp/htdocs/" local="130567459699362681" remote="130567459690000000" />
-<file name="test_view.php" server="C:/xampp/htdocs/" local="130582068277504224" remote="130582068270000000" />
+<file name="test_view.php" server="C:/xampp/htdocs/" local="130582244705676053" remote="130582244700000000" />
 <file name="academic_view.php" server="C:/xampp/htdocs/" local="130580427021192104" remote="130580427020000000" />
 <file name="profile_view.php" server="C:/xampp/htdocs/" local="130581385633923206" remote="130581385630000000" />
 <file name="recruiter_login_view.php" server="C:/xampp/htdocs/" local="130574497683352112" remote="130574497680000000" />
@@ -25,5 +25,8 @@
 <file name="pwd_reset.php" server="C:/xampp/htdocs/" local="130581287732210080" remote="130581287730000000" />
 <file name="change_pwd.php" server="C:/xampp/htdocs/" local="130581425883455871" remote="130581425880000000" />
 <file name="companyProfile_view.php" server="C:/xampp/htdocs/" local="130582067663808892" remote="130582067660000000" />
-<file name="jobsList_view.php" server="C:/xampp/htdocs/" local="130582102160594593" remote="130582102160000000" />
+<file name="jobsList_view.php" server="C:/xampp/htdocs/" local="130582275755425031" remote="130582275750000000" />
+<file name="admin_home.php" server="C:/xampp/htdocs/" local="130582191282630013" remote="130582191280000000" />
+<file name="admin_login.php" server="C:/xampp/htdocs/" local="130582191282650026" remote="130582191280000000" />
+<file name="applyJob.php" server="C:/xampp/htdocs/" local="130582273475020230" remote="130582273470000000" />
 </dwsync>

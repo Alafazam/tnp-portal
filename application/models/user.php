@@ -321,6 +321,36 @@ function resetPassword($username,$password){
   }
 
 
+  function applicationApply($value)
+  {
+          $this->db->insert('applications',$value);
+  }
+  function my_applications_load($value='')
+  {
+    $this->db->from('applications');
+    if ($value!='') {
+      $session_data = $this->session->userdata('logged_in');
+    $username = $session_data['username'];
+    $this->db->where('job_id',$value);  
+    $this->db->where('username',$username);  
+    }
+
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
+  function delete_application($value)
+  {
+    $this->db->delete('applications',$value);
+  }
+
+
+
 }
 
 

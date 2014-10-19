@@ -51,9 +51,9 @@ $message = $this->session->flashdata('message');
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a>
+                    <li><a href="/">Dashboard</a>
                     </li>
-                    <li><a href="#">Settings</a>
+                    <li><a href="/settings">Settings</a>
                     </li>
                     <li><a href="/profile">My Profile</a>
                     </li>
@@ -74,10 +74,6 @@ $message = $this->session->flashdata('message');
                 <ul class="nav  nav-sidebar">
                     <li class="active"><a href="/">Overview</a>
                     </li>
-                    <li><a href="#">Reports</a>
-                    </li>
-                    <li><a href="#">Analytics </a>
-                    </li>
                     <li><a href="#">Export</a>
                     </li>
                 </ul>
@@ -97,9 +93,9 @@ $message = $this->session->flashdata('message');
                 <ul class="nav nav-sidebar">
                     <li><a href="/recruiters">Companies List</a>
                     </li>
-                    <li><a href="#">Companies i have applied for</a>
+                    <li><a href="#">My Applications</a>
                     </li>
-                    <li><a href="#">Wishlist to apply</a>
+                    <li><a href="/jobs">Available Jobs</a>
                     </li>
                 </ul>
             </div>

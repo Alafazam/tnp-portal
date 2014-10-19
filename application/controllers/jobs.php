@@ -46,14 +46,15 @@ class jobs extends CI_Controller
     {
         if ($value!=''&& (ctype_digit($value))) 
         {
-        $j_id = $value;    
-        $result  = $this->user->loadCompanyList($r_id);
-        $data= $result[0];
-        
-        $jobs = $this->user->getjob_all($r_id);
-        $data = $jobs[0];
+        $job_id = $value;    
+        $jobs = $this->user->getjob_all($job_id);
+        $r_id = $jobs[0]["r_id"];
+        $result2=$this->user->loadCompanyList($r_id);
+        $application = $this->user->my_applications_load($job_id);
+        $company_name = $result2[0]["Company_name"];
+        $data =  array('job' => $jobs[0],'company_name'=>$company_name,'application'=>$application[0] );
         // $this->session->set_flashdata('flashSuccess', 'hello there');
-        $this->load->template('test_view',$data);
+        $this->load->template('applyJob',$data);
 
         } else {
             redirect('jobs', 'refresh');
@@ -61,6 +62,37 @@ class jobs extends CI_Controller
 
     }
     
+    function apply()
+    {
+        $this->load->library('form_validation');    
+        $this->form_validation->set_rules('username', 'username', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('job_id', 'job_id', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('r_id', 'r_id', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('date', 'date', 'trim|xss_clean|required');
+        $this->form_validation->set_rules('cover_letter', 'cover_letter', 'trim|xss_clean');
+
+        $data = array(
+        'username'       =>  $this->input->post('username'),
+        'job_id'         =>  $this->input->post('job_id'),
+        'r_id'           =>  $this->input->post('r_id'),
+        'date'           =>  $this->input->post('date'),
+        'cover_letter'   =>  $this->input->post('cover_letter')
+        );
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('message', 'Registraion failed try again');
+            redirect('home', 'refresh');
+        }
+        else
+        {
+            $this->user->applicationApply($data);
+            $this->session->set_flashdata('message', 'You have successfully applied for the job');
+            redirect('home', 'refresh');
+        }
+
+    }
+
+
 }
 
 ?>

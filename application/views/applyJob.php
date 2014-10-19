@@ -3,6 +3,10 @@ $data= $this->session->userdata('logged_in');
 $username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
 $fname=$data['fname'];
+if (isset($application)&&$application) {
+$alreadyApplied = true;
+}
+
 ?>
  <style>
 	.company_name{
@@ -85,7 +89,7 @@ echo '
 
   	 ?>
 
-<form class="form-horizontal" role="form" action="/job/apply" method="post">
+<form class="form-horizontal" role="form" <?php if(!$alreadyApplied) echo 'action="/jobs/apply"'; ?> method="post">
 <fieldset>
  <input id="r_id" name="r_id" type="text" class="hidden" value="<?php echo $job["r_id"] ;?>" >
  <input id="job_id" name="job_id" type="text" class="hidden" value="<?php echo $job["job_id"] ;?>" >
@@ -96,14 +100,14 @@ echo '
 <div class="form-group">
   <label class="col-md-4 control-label" for="textarea">Any Thing Special you want to mention</label>
   <div class="col-md-8">                     
-    <textarea class="form-control" id="textarea" name="textarea"></textarea>
+    <textarea class="form-control" id="textarea" name="cover_letter"><?php if($alreadyApplied){echo $application['cover_letter'];} ?></textarea>
   </div>
 </div>
 
 <!-- Button -->
 <div class="form-group">
   <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Apply For This !</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary"><?php if($alreadyApplied){echo "You have already applied";}else{echo "Apply For This !";} ?></button>
   </div>
 </div>
 
