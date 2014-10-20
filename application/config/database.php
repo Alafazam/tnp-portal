@@ -52,10 +52,10 @@ $active_record = TRUE;
 
 if($production)
 {
-	$db['default']['hostname'] = '162.222.225.87';
-	$db['default']['username'] = 'techvaganza14';
+	$db['default']['hostname'] = '162.222.225.88';
+	$db['default']['username'] = 'alafazam';
 	$db['default']['password'] = 'peekaboo';
-	$db['default']['database'] = 'techvklu_test';
+	$db['default']['database'] = 'tnp';
 	$db['default']['dbdriver'] = 'mysql';
 	$db['default']['dbprefix'] = '';
 	$db['default']['pconnect'] = TRUE;
