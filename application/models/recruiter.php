@@ -204,20 +204,6 @@ Class recruiter extends CI_Model
 
   
 
-  function get_students()
-  {
-        $session_data = $this->session->userdata('logged_in');
-    $r_id = $session_data['r_id'];
-
-   $this->db->select('id,applications.username ,enroll ,branch ,FNAME ,MNAME ,LNAME,applications.cover_letter,applications.job_id');
-    $this->db->from('users');
-    $this->db->join('applications', 'users.username = applications.username', 'LEFT OUTER');
-    $this->db->where('applications.r_id',$r_id);  
-    $query = $this->db->get();
-    return $query->result_array(); 
-  }
-
-
   function edit_job($data)
   {
    
@@ -244,6 +230,12 @@ Class recruiter extends CI_Model
     } 
   }
 
+
+
+
+
+
+//INTERNS
   function insert_intern($data='')
   {
     $session_data = $this->session->userdata('logged_in');
@@ -285,6 +277,34 @@ Class recruiter extends CI_Model
     $this->db->delete('intern_profiles', array('intern_id' => $value));
     } 
   }
+
+
+
+
+
+
+//students who have applied to any job by this recruiter
+  function get_students()
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->select('id,applications.username ,Career_obj,Technical_Skills,enroll ,branch ,FNAME ,MNAME ,LNAME,applications.cover_letter,applications.job_id');
+    $this->db->from('users');
+    $this->db->join('applications', 'users.username = applications.username', 'LEFT OUTER');
+    $this->db->where('applications.r_id',$r_id);  
+    $query = $this->db->get();
+    return $query->result_array(); 
+  }
+
+
+  function delete_application($username,$job_id)
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->delete('applications', array('job_id' => $job_id,'username'=>$username,'r_id'=>$r_id));
+  }
+
+
 
 }
 

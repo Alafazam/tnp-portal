@@ -41,7 +41,7 @@
 		<article class="timeline-entry">
 		<div class="timeline-entry-inner">
 		<div class="timeline-label">
-		<h4><a href="/recruiter_create_job">Want to create a job..???</a></h4>
+		<h4><a href="/recruiter_create_job">Want to create a job? </a></h4>
 		</div>
 		</div>
 		</article>

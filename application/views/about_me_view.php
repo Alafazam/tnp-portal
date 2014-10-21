@@ -27,7 +27,7 @@ $username=$data['username'];
           <option <?php if($branch=='ECE'){ echo 'selected' ;} ?> value="ECE">Electronics &amp; Communications</option>
           <option <?php if($branch=='IT'){ echo 'selected' ;} ?> value="IT">Information Technology</option>
           <option <?php if($branch=='MEC'){ echo 'selected' ;} ?> value="MEC">Mechanical</option>
-          <option <?php if($branch=='MAM'){ echo 'selected' ;} ?> value="MAM">Materials and Mettalurgy</option>
+          <option <?php if($branch=='MAM'){ echo 'selected' ;} ?> value="MAM">Metallurgy and Materials</option>
         </select>
       </div>
     </div>

@@ -241,6 +241,13 @@ if (isset($job_id))
             <div class="col-md-4">
                 <div class="checkbox">
                     <label for="Eligible-0">
+                    <input type="checkbox" hidden>
+                    </label>
+                </div>
+                <h4 class="">B.Tech courses</h4>
+
+                <div class="checkbox">
+                    <label for="Eligible-0">
                         <input  type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-0" <?php if(isset($eligible_departments) && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CHE">Chemical Engineering
                     </label>
                 </div>
@@ -270,6 +277,14 @@ if (isset($job_id))
                     </label>
                 </div>
 
+                
+
+             <!--    M.Tech courses
+1. Structural Engineering
+2. Electrical Power and Energy Systems
+3. Communication and Information Technology
+4. Mechanical System Design -->
+
                 <?php if ($approved) { echo 
                 '<div class="checkbox" hidden>
                     <label for="Eligible-6" hidden>
@@ -289,7 +304,38 @@ if (isset($job_id))
                     </label>
                 </div>
             </div>
+            <div class="checkbox">
+                    <label for="Eligible-0">
+                    <input type="checkbox" hidden>
+                    </label>
+            </div>
+            <h4 class="">M.Tech courses</h4>
+            <div class="checkbox">
+                <label for="Eligible-8">
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-8" <?php if(isset($eligible_departments) && (in_array("SE", $eligible))){ echo "checked = 'checked' " ;} ?> value="SE">Structural Engineering
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label for="Eligible-9">
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-9" <?php if(isset($eligible_departments) && (in_array("EPS", $eligible))){ echo "checked = 'checked' " ;} ?> value="EPS">Electrical Power and Energy Systems
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label for="Eligible-10">
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-10" <?php if(isset($eligible_departments) && (in_array("CIT", $eligible))){ echo "checked = 'checked' " ;} ?> value="CIT">Communication and Information Technology
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label for="Eligible-12">
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-11" <?php if(isset($eligible_departments) && (in_array("MSD", $eligible))){ echo "checked = 'checked' " ;} ?> value="MSD">Mechanical System Design
+                </label>
+            </div>
         </div>
+
+
 
         <!-- <h4 class="text-center"><small>Logistics Requirements</small></h4> -->
         <legend>Logistics Requirements</legend>

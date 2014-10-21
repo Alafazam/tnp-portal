@@ -39,7 +39,7 @@ $message = $this->session->flashdata('message');
             <input type="email" class="form-control" name="email" placeholder="Email address" required autofocus>
             <div class="row">
                 <div class="col-md-4">
-                  <button class="btn btn-lg  btn-primary btn-block" href="#" style="margin-top:10px;"><a style="" href="#">Cancel</a></button>
+                  <button class="btn btn-lg  btn-primary btn-block" href="#" style="margin-top:10px;"><a style="" href="/login">Cancel</a></button>
                 </div>
                 <div class="col-md-8">
                     <button class="btn btn-lg  btn-primary btn-block" type="submit" style="margin-top:10px;">Submit</button>

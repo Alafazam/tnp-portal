@@ -1,3 +1,5 @@
+<?php $message = $this->session->flashdata('message');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +24,7 @@
 
     <body style="background-color:#110022;">
      <div class="container" style="margin-top:100px;">
-      <form class="form-signin" role="form" action="recruiter_login/verify" method="post" accept-charset="utf-8">
+      <form class="form-signin" role="form" action="/recruiter_login/verify" method="post" accept-charset="utf-8">
         <h2 style="color: #FFF;" class="form-signin-heading">Recruiter Login</h2>
         <input type="text" style="text-transform:none;" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
         <input type="password" style="text-transform:none;margin-top:10px" name="password" id="password" class="form-control" placeholder="Password" required>
@@ -47,5 +49,33 @@
       </form>
 
     </div> <!-- /container -->
+<?php  
+
+    if ($message) {
+      echo '    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title text-center" id="mySmallModalLabel" >Message</h4>
+                      </div>
+                      <div class="modal-body text-center">
+                      </div>
+                    </div>
+                </div>
+              </div>
+';
+        echo "
+        <script>
+        $( document ).ready(function() {
+        $('#myModal').modal('show');
+        $('.modal-body').text('".$message."');
+        });
+        </script>
+        ";
+    }
+ ?>
+
   </body>
   </html>

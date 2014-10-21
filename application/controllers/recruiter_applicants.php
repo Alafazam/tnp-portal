@@ -48,32 +48,33 @@ class recruiter_applicants extends CI_Controller
         }
     }
 
-    function view($value='')
-    {
-        if ($value!='') 
-        {    
-            $session_data  = $this->session->userdata('logged_in');
-            $username = $session_data['username'];
-            $Company_name = $session_data['Company_name'];
-            $j_id = $value;
-            $result = $this->recruiter->getJob($j_id);
-            $data = $result[0];
-            $branches = $data['eligible_departments'];
-            $data['eligible_departments'] = explode(',', $branches);
-            $this->load->template('recruiter_create_new_job_view', $data);
-        } else {
-            //If no session, redirect to login page
-            redirect('recruiter_myjobs', 'refresh');
-        }  
-    }
+    // function view($value='')
+    // {
+    //     if ($value!='') 
+    //     {    
+    //         $session_data  = $this->session->userdata('logged_in');
+    //         $username = $session_data['username'];
+    //         $Company_name = $session_data['Company_name'];
+    //         $j_id = $value;
+    //         $result = $this->recruiter->getJob($j_id);
+    //         $data = $result[0];
+    //         $branches = $data['eligible_departments'];
+    //         $data['eligible_departments'] = explode(',', $branches);
+    //         $this->load->template('recruiter_create_new_job_view', $data);
+    //     } else {
+    //         //If no session, redirect to login page
+    //         redirect('recruiter_myjobs', 'refresh');
+    //     }  
+    // }
 
-    function delete($value='')
+    function delete($username,$job_id)
     {
-        if (ctype_digit($value)) {
-        $result = $this->recruiter->delete_job($value);
-        $this->session->set_flashdata('flashSuccess', 'success');
+        if (ctype_digit($username)&&ctype_digit($job_id)) {
+        $result = $this->recruiter->delete_application();
+        $this->session->set_flashdata('flashSuccess', 'Success');
         }
-        redirect('recruiter_myjobs', 'refresh');
+        $this->session->set_flashdata('message', 'invalid action');
+        redirect('recruiter_applicants', 'refresh');
 
     }
    

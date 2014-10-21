@@ -34,7 +34,7 @@ $message = $this->session->flashdata('message');
       <![endif]-->
 </head>
 
-<body style="text-transform: capitalize;">
+<body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -53,7 +53,7 @@ $message = $this->session->flashdata('message');
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Dashboard</a>
                     </li>
-                    <li><a href="/settings">Settings</a>
+                    <li><a href="/change_pwd">Change Password</a>
                     </li>
                     <li><a href="/profile">My Profile</a>
                     </li>

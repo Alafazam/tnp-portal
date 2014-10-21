@@ -80,17 +80,11 @@ $fname=$data['fname'];
 <div class="form-group">
   <label class="col-md-4 control-label" for="supply">Supplementary</label>
   <div class="col-md-2">
-    <select id="supply" name="supply" class="form-control">
-      <option <?php if ($supply==='1') {echo 'selected';}?> value="1">Yes</option>
-      <option <?php if ($supply==='2') {echo 'selected';}?> value="2">No</option>
-    </select>
+     <input id="supply" name="supply" value="<?php if ($supply) {echo $supply;}?>" type="text" placeholder="Supply" class="form-control input-md"> 
   </div>
   <label class="col-md-2 control-label" for="back">Backlog</label>
   <div class="col-md-2">
-    <select id="back" name="back" class="form-control">
-      <option <?php if ($back==='1') {echo 'selected';}?> value="1">Yes</option>
-      <option <?php if ($back==='2') {echo 'selected';}?> value="2">No</option>
-    </select>
+     <input id="back" name="back" value="<?php if ($back) {echo $back;}?>" type="text" placeholder="Backlog" class="form-control input-md"> 
   </div>
 </div>
 

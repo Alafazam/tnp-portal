@@ -1,303 +1,298 @@
-<form class="form-horizontal" role="form" action="recruiter_create_job/new" method="post" accept-charset="utf-8">
+<?php $data=$ this->session->userdata('logged_in'); $username=$data['username']; $flashSuccess =$this->session->flashdata('flashSuccess'); $eligible = array(); foreach ($branches as $key => $value) { $eligible[$key] = $value['branch']; } ?>
+
+
+<form class="form-horizontal" role="form" action="recruiter_profile/save" method="post" accept-charset="utf-8">
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Job Profile</legend>
+        <legend>
+            <?php if(isset($Company_name)){ echo $Company_name;}else{ echo "My Profile";} ?>
+        </legend>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Job Designation">Job Designation</label>
-            <div class="col-md-4">
-                <input id="Job Designation" name="Job Designation" type="text" placeholder="Job Designation" class="form-control input-md">
+            <label class="col-md-4 control-label" for="Company_name">Company Name</label>
+            <div class="col-md-5">
+                <input id="Company_name" <?php if(isset($Company_name)){ echo "value = '".$Company_name. "'" ;} ?>name="Company_name" type="text" placeholder="Company Name" class="form-control input-md" required="">
+            </div>
+        </div>
+
+        <!-- Prepended text-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="website_link">Website Link</label>
+            <div class="col-md-5">
+                <div class="input-group">
+                    <span style="text-transform:none;" class="input-group-addon">www.</span>
+                    <input style="text-transform:none;" id="website_link" <?php if(isset($website_link)){ echo "value = '".$website_link. "'" ;} ?>name="website_link" class="form-control" placeholder="example.com" type="text">
+                </div>
 
             </div>
         </div>
 
-        <!-- Text input-->
+
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Job Description">Job Description</label>
-            <div class="col-md-4">
-                <textarea id="Job Description" name="Job Description" type="text" placeholder="Job Description" class="form-control input-md"></textarea>
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Place of Posting">Place of Posting</label>
-            <div class="col-md-4">
-                <input id="Place of Posting" name="Place of Posting" type="text" placeholder="Place of Posting" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <legend>Salary Details</legend>
-
-        <!-- <h4 class="text-center"><small>Salary Details</small></h4> -->
-
-        <div class="container-fluid">
-            <p>
-                <h5>
-                    <strong>Please Note:</strong>
-                </h5>
-                <small>
-                    1. Performance based bonus should not be declared as part of Gross/CTC but to be indicated in Bonus/Perks/Incentive section.
-                    <br/>2. Any amount to be disbursed later than the end of first 12 months should not be a part of Gross/CTC.
-                    <br/>3. Joining Bonus/Signing Bonus to be indicated in Bonus/Perks/Incentive section.
-                    <br/>4. Statutory Annual Payouts (e.g., Medical, LTC etc.) not to be a part of Gross.
-                    <br/>
-                </small>
-            </p>
-        </div>
-        <br/>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Cost to Company">Cost to Company</label>
-            <div class="col-md-4">
-                <input id="Cost to Company" name="Cost to Company" type="text" placeholder="Cost to Company" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Gross">Gross (Take-home, before tax and other deductions)</label>
-            <div class="col-md-4">
-                <input id="Gross" name="Gross" type="text" placeholder="Gross" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="bonus">Bonus/Perks/Incentive (if any)</label>
-            <div class="col-md-4">
-                <input id="bonus" name="bonus" type="text" placeholder="bonus" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Bond">Bond or Service Contract(If yes, give details)</label>
-            <div class="col-md-4">
-                <select id="Bond" name="Bond" class="form-control">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
-            </div>
-        </div>
-
-
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="bond_desc">Bond Description</label>
-            <div class="col-md-4">
-                <textarea class="form-control" id="bond_desc" placeholder="Bond Description" name="bond_desc"></textarea>
-                <!-- <span class="help-block"></span>  -->
-            </div>
-        </div>
-
-
-        <!-- <h4 class="text-center"><small></small></h4> -->
-        <legend>Selection Process</legend>
-
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Shortlist from Resumes    ">Shortlist from Resumes</label>
-            <div class="col-md-4">
-                <select id="Shortlist from Resumes    " name="Shortlist from Resumes    " class="form-control">
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Written Test (Technical, Aptitude) ">Written Test (Technical, Aptitude)</label>
-            <div class="col-md-4">
-                <select id="Written Test (Technical, Aptitude)  " name="Written Test (Technical, Aptitude)  " class="form-control">
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Group Discussion       ">Group Discussion</label>
-            <div class="col-md-4">
-                <select id="Group Discussion       " name="Group Discussion       " class="form-control">
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Personal Interview">Personal Interview</label>
-            <div class="col-md-4">
-                <select id="Personal Interview" name="Personal Interview" class="form-control">
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Medical Test">Medical Test</label>
-            <div class="col-md-4">
-                <select id="Medical Test" name="Medical Test" class="form-control">
-                    <option value="YES">YES</option>
-                    <option value="NO">NO</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Number of Rounds">Number of Rounds</label>
-            <div class="col-md-4">
-                <input id="Number of Rounds" name="Number of Rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Minimum Number of offers you intend to make:">Minimum Number of offers you intend to make:</label>
-            <div class="col-md-4">
-                <input id="Minimum Number of offers you intend to make:" name="Minimum Number of offers you intend to make:" type="text" placeholder="" class="form-control input-md">
-
+            <label for="offer" class="col-md-4 control-label">Eligible Courses</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label for="offer-0">
+                            <input type="checkbox" id="one" <?php if($offer=='1' ){ echo "checked=checked" ;} ?>name="offer[]" value="1">B.Tech
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label for="offer-1">
+                            <input type="checkbox" id="two" <?php if($offer=='2' ){ echo "checked=checked" ;} ?>name="offer[]" value="2">M.Tech
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Multiple Checkboxes -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="Eligible">Eligible Departments and Programs</label>
+
             <div class="col-md-4">
+                <!-- <h4 class="col-md-4">B.Tech courses</h4> -->
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input type="checkbox" name="Eligible" id="Eligible-0" value="Chemical Engineering">Chemical Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "CHE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input type="checkbox" name="Eligible" id="Eligible-1" value="Civil Engineering">Civil Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "CE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" name="Eligible" id="Eligible-2" value="Computer Science &amp; Engineering">Computer Science &amp; Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "CSE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" name="Eligible" id="Eligible-3" value="Information Technology">Information Technology
+                        <input type="checkbox" <?php if($branches && (in_array( "IT", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" name="Eligible" id="Eligible-4" value="Electronics and Communication Engineering">Electronics and Communication Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "ECE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" name="Eligible" id="Eligible-5" value="Electrical Engineering">Electrical Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "EE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-6">
-                        <input type="checkbox" name="Eligible" id="Eligible-6" value="Mechanical Engineering">Mechanical Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "MEC", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" name="Eligible" id="Eligible-7" value="Metallurgy Engineering">Metallurgy Engineering
+                        <input type="checkbox" <?php if($branches && (in_array( "MME", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-7" value="MME">Metallurgical and Materials Engineering
+                    </label>
+                </div>
+                <!-- <h4 class="col-md-4">M.Tech courses</h4> -->
+                <div class="checkbox">
+                    <label for="Eligible-8">
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-8" <?php if(isset($branches) && (in_array( "SE", $eligible))){ echo "checked = 'checked' " ;} ?>value="SE">Structural Engineering
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label for="Eligible-9">
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-9" <?php if(isset($branches) && (in_array( "EPS", $eligible))){ echo "checked = 'checked' " ;} ?>value="EPS">Electrical Power and Energy Systems
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label for="Eligible-10">
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-10" <?php if(isset($branches) && (in_array( "CIT", $eligible))){ echo "checked = 'checked' " ;} ?>value="CIT">Communication and Information Technology
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label for="Eligible-12">
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-11" <?php if(isset($branches) && (in_array( "MSD", $eligible))){ echo "checked = 'checked' " ;} ?>value="MSD">Mechanical System Design
                     </label>
                 </div>
             </div>
         </div>
 
-        <!-- <h4 class="text-center"><small>Logistics Requirements</small></h4> -->
-        <legend>Logistics Requirements</legend>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Number of Members">Number of Members</label>
-            <div class="col-md-4">
-                <input id="Number of Members" name="Number of Members" type="text" placeholder="" class="form-control input-md">
+            <!-- Multiple Radios -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Company_Type">Company Type</label>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-0">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="Private Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-0" value="Private Sector" >1.Private Sector
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-1">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="Start-up" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-1" value="Start-up">2.Start-up
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-md-4 control-label" for="Company_Type"></label>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-2">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="Government" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-2" value="Government">3.Government
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-3">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="Public Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-3" value="Public Sector">4.Public Sector
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-md-4 control-label" for="Company_Type"></label>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-2">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Indian Origin)" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-4" value="MNC (Indian Origin)">5.MNC (Indian Origin)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-3">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Foreign Origin)" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-5" value="MNC (Foreign Origin)">6.MNC (Foreign Origin)
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
+                <label class="col-md-4 control-label" for="Company_Type"></label>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="radio">
+                            <label for="Company_Type-2">
+                                <input type="radio" name="Company_Type" <?php if($Company_Type=="Others" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-6" value="Others">7.Others
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Number of Rooms required for selection process">Number of Rooms required for selection process</label>
-            <div class="col-md-4">
-                <input id="Number of Rooms required for selection process" name="Number of Rooms required for selection process" type="text" placeholder="" class="form-control input-md">
 
+
+            <!-- Multiple Radios -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Industry_Sector">Industry Sector</label>
+                <div class="row">
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-0">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-0" <?php if($Industry_Sector=="Analytics" ){ echo "checked = 'checked' " ;} ?>value="Analytics" checked="checked">1.Analytics
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-1">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-1" <?php if($Industry_Sector=="Consulting" ){ echo "checked = 'checked' " ;} ?>value="Consulting">2.Consulting
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-md-4 control-label" for="Industry_Sector"></label>
+                <div class="row">
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-2">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-2" <?php if($Industry_Sector=="Core" ){ echo "checked = 'checked' " ;} ?>value="Core">3.Core (Technical)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-3">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-3" <?php if($Industry_Sector=="Finance" ){ echo "checked = 'checked' " ;} ?>value="Finance">4.Finance
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-md-4 control-label" for="Industry_Sector"></label>
+                <div class="row">
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-4">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-4" <?php if($Industry_Sector=="IT" ){ echo "checked = 'checked' " ;} ?>value="IT">5.IT
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-5">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-5" <?php if($Industry_Sector=="Management" ){ echo "checked = 'checked' " ;} ?>value="Management">6.Management
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="col-md-4 control-label" for="Industry_Sector"></label>
+                <div class="row">
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-6">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-6" <?php if($Industry_Sector=="Teaching" ){ echo "checked = 'checked' " ;} ?>value="Teaching">7.Teaching &amp; Research
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                        <div class="radio">
+                            <label for="Industry_Sector-7">
+                                <input type="radio" name="Industry_Sector" id="Industry_Sector-7" <?php if($Industry_Sector=="Other" ){ echo "checked = 'checked' " ;} ?>value="Other">8.Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Other Requirements">Other Requirements</label>
-            <div class="col-md-4">
-                <input id="Other Requirements" name="Other Requirements" type="text" placeholder="" class="form-control input-md">
-
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Brief">Brief write-up on the Company (50 -75 words)</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="Brief" name="Brief">
+                        <?php if(isset($Brief)){ echo $Brief ;} ?>
+                    </textarea>
+                </div>
             </div>
-        </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Name">Name</label>
-            <div class="col-md-4">
-                <input id="Name" name="Name" type="text" placeholder="" class="form-control input-md">
 
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " type="submit">
+                        <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}else echo "Save Changes"; ?>
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Designation">Designation</label>
-            <div class="col-md-4">
-                <input id="Designation" name="Designation" type="text" placeholder="" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Email Address">Email Address</label>
-            <div class="col-md-4">
-                <input id="Email Address" name="Email Address" type="text" placeholder="" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Contact Number (Mobile)">Contact Number (Mobile)</label>
-            <div class="col-md-4">
-                <input id="Contact Number (Mobile)" name="Contact Number (Mobile)" type="text" placeholder="" class="form-control input-md">
-
-            </div>
-        </div>
-
-        <!-- Button -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="singlebutton"></label>
-            <div class="col-md-4">
-                <button id="save" name="save" class="btn btn-primary <?php if($flashSuccess){echo 'btn-success' ;} ?> " type="submit">
-                    <?php if($flashSuccess){echo "<i class='glyphicon glyphicon-ok'></i>  Done " ;}else echo "Save Changes"; ?>
-                </button>
-            </div>
-        </div>
 
     </fieldset>
 </form>

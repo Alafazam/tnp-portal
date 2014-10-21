@@ -28,7 +28,7 @@ $message = $this->session->flashdata('message');
       <![endif]-->
 </head>
 
-<body style="text-transform: capitalize;">
+<body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">

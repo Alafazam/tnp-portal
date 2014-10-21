@@ -30,7 +30,7 @@ $message = $this->session->flashdata('message');
 
 	            <div class='timeline-entry-inner'>".$type."<div class='timeline-label'>
 	                    <h2><a href='#'>".$key['heading']."</a> <span>".$key['date']."</span></h2>
-	                    <p>".$key['data']."</p>
+	                    <p><pre>".$key['data']."</pre></p>
 	                </div>
 	            </div>
 	        </article>";

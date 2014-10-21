@@ -32,7 +32,7 @@ class recruiter_myjobs extends CI_Controller
             $data   = array(
               'jobs'=> $feeddata
           );
-            $this->load->template('recruiter_myjobs', $data);
+            $this->load->template('recruiter_myjobs_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');

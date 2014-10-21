@@ -71,8 +71,10 @@ class recruiter_profile extends CI_Controller
         $postData['offer']                      = $this->input->post('offer');
 
         $this->recruiter->_deletebranches();//use with care
-        foreach ($eligible as $key => $value) {
-        $result = $this->recruiter->_updatebranch($value);            
+        if ($eligible) {
+            foreach ($eligible as $key => $value) {
+            $result = $this->recruiter->_updatebranch($value);            
+            }
         }
 
         $result = $this->recruiter->_update($username, $postData);

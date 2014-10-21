@@ -3,6 +3,7 @@ $data= $this->session->userdata('logged_in');
 $username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
 $fname=$data['fname'];
+$alreadyApplied=false;
 if (isset($application)&&$application) {
 $alreadyApplied = true;
 }
