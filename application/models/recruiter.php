@@ -131,23 +131,7 @@ Class recruiter extends CI_Model
     $this->db->delete('branchesrecruiters', array('r_id' => $r_id));
   }
 
-  function _getBranches()
-  {
-   $session_data = $this->session->userdata('logged_in');
-    $r_id = $session_data['r_id'];
-    $this->db->select('branch');
-    $this->db->from('branchesrecruiters');
-    $this->db->where('r_id',$r_id); 
-    $query = $this->db->get();
-    $result = $query->result_array();
-    if ($query->num_rows()) {
-      return $query->result_array();
-    }
-    else {
-      return false;
-    }
-  }
-
+  
   function load_recruiter_profile($Company_name='')
   {
     $session_data = $this->session->userdata('logged_in');

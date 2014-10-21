@@ -149,8 +149,9 @@ class recruiter_login extends CI_Controller
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 		if ($this->form_validation->run() == FALSE)
 			{
-				$this->session->set_flashdata('message','Error Invalid username or password');
-				redirect('recruiter_login', 'refresh');
+		$data = array('message' => "Invalid Login Password");
+		$this->load->view('recruiter_login_view',$data);
+
 			}
 		  else
 			{

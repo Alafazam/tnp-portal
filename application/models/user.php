@@ -309,9 +309,8 @@ function resetPassword($username,$password){
 
   function loadCompanyList($value='')
   {
-    $this->db->select('recruiters.r_id, Company_name, offer, website_link, Company_type,Industry_Sector,Brief,GROUP_CONCAT(DISTINCT branchesrecruiters.branch) as branchez');
+    $this->db->select('recruiters.r_id, Company_name, offer, website_link, Company_type,Industry_Sector,Brief,branch as branchez');
     $this->db->from('recruiters');
-    $this->db->join('branchesrecruiters', 'recruiters.r_id = branchesrecruiters.r_id', 'LEFT OUTER');
     if ($value!='') {
     $this->db->where('recruiters.r_id',$value);  
     }

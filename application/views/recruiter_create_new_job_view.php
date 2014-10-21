@@ -248,60 +248,35 @@ if (isset($job_id))
 
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input  type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-0" <?php if(isset($eligible_departments) && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CHE">Chemical Engineering
-                    </label>
+                        <input  type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-0" <?php if(isset($eligible_departments) && (in_array("CHE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CHE">Chemical Engineering</label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input  type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-1" <?php if(isset($eligible_departments) && (in_array("CE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CE">Civil Engineering
-                    </label>
+                        <input  type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-1" <?php if(isset($eligible_departments) && (in_array("CE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CE">Civil Engineering</label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-2" <?php if(isset($eligible_departments) && (in_array("CSE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CSE">Computer Science &amp; Engineering
-                    </label>
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-2" <?php if(isset($eligible_departments) && (in_array("CSE", $eligible))){ echo "checked = 'checked' " ;} ?> value="CSE">Computer Science &amp; Engineering</label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-3" <?php if(isset($eligible_departments) && (in_array("IT", $eligible))){ echo "checked = 'checked' " ;} ?> value="IT">Information Technology
-                    </label>
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-3" <?php if(isset($eligible_departments) && (in_array("IT", $eligible))){ echo "checked = 'checked' " ;} ?> value="IT">Information Technology</label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-4" <?php if(isset($eligible_departments) && (in_array("ECE", $eligible))){ echo "checked = 'checked' " ;} ?> value="ECE">Electronics and Communication Engineering
-                    </label>
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-4" <?php if(isset($eligible_departments) && (in_array("ECE", $eligible))){ echo "checked = 'checked' " ;} ?> value="ECE">Electronics and Communication Engineering</label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-5" <?php if(isset($eligible_departments) && (in_array("EE", $eligible))){ echo "checked = 'checked' " ;} ?> value="EE">Electrical Engineering
-                    </label>
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-5" <?php if(isset($eligible_departments) && (in_array("EE", $eligible))){ echo "checked = 'checked' " ;} ?> value="EE">Electrical Engineering</label>
                 </div>
-
-                
-
-             <!--    M.Tech courses
-1. Structural Engineering
-2. Electrical Power and Energy Systems
-3. Communication and Information Technology
-4. Mechanical System Design -->
-
-                <?php if ($approved) { echo 
-                '<div class="checkbox" hidden>
-                    <label for="Eligible-6" hidden>
-                        <input type="checkbox" hidden checked name="eligible_departments[]"  id="Eligible-6" value="MEC">
-                    </label>
-                </div>';
-                }
-                ?>
                 <div class="checkbox" >
                     <label for="Eligible-6" >
                         <input type="checkbox"  name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-6" <?php if(isset($eligible_departments) && (in_array("MEC", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEC">Mechanical Engineering</label>
                 </div>
-
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if(isset($eligible_departments) && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEE">Metallurgical and Materials Engineering
-                    </label>
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if(isset($eligible_departments) && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEE">Metallurgical and Materials Engineering</label>
                 </div>
             </div>
             <div class="checkbox">
@@ -312,29 +287,33 @@ if (isset($job_id))
             <h4 class="">M.Tech courses</h4>
             <div class="checkbox">
                 <label for="Eligible-8">
-                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-8" <?php if(isset($eligible_departments) && (in_array("SE", $eligible))){ echo "checked = 'checked' " ;} ?> value="SE">Structural Engineering
-                </label>
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-8" <?php if(isset($eligible_departments) && (in_array("SE", $eligible))){ echo "checked = 'checked' " ;} ?> value="SE">Structural Engineering</label>
             </div>
 
             <div class="checkbox">
                 <label for="Eligible-9">
-                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-9" <?php if(isset($eligible_departments) && (in_array("EPS", $eligible))){ echo "checked = 'checked' " ;} ?> value="EPS">Electrical Power and Energy Systems
-                </label>
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-9" <?php if(isset($eligible_departments) && (in_array("EPS", $eligible))){ echo "checked = 'checked' " ;} ?> value="EPS">Electrical Power and Energy Systems</label>
             </div>
 
             <div class="checkbox">
                 <label for="Eligible-10">
-                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-10" <?php if(isset($eligible_departments) && (in_array("CIT", $eligible))){ echo "checked = 'checked' " ;} ?> value="CIT">Communication and Information Technology
-                </label>
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-10" <?php if(isset($eligible_departments) && (in_array("CIT", $eligible))){ echo "checked = 'checked' " ;} ?> value="CIT">Communication and Information Technology</label>
             </div>
 
             <div class="checkbox">
                 <label for="Eligible-12">
-                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-11" <?php if(isset($eligible_departments) && (in_array("MSD", $eligible))){ echo "checked = 'checked' " ;} ?> value="MSD">Mechanical System Design
-                </label>
+                    <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-11" <?php if(isset($eligible_departments) && (in_array("MSD", $eligible))){ echo "checked = 'checked' " ;} ?> value="MSD">Mechanical System Design</label>
             </div>
         </div>
 
+                <?php if ($approved) { echo 
+                '<div class="checkbox" hidden>
+                    <label for="Eligible-6" hidden>
+                        <input type="checkbox" hidden checked name="eligible_departments[]"  id="Eligible-6" value="MEC">
+                    </label>
+                </div>';
+                }
+                ?>
 
 
         <!-- <h4 class="text-center"><small>Logistics Requirements</small></h4> -->

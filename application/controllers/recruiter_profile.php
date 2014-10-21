@@ -28,8 +28,7 @@ class recruiter_profile extends CI_Controller
             $Company_name = $session_data['Company_name'];
             $result = $this->recruiter->load_recruiter_profile();
             $data = $result[0];
-            $result2 = $this->recruiter->_getBranches();
-            $data['branches'] = $result2;
+            $data['eligible_departments'] = explode(',', $result[0]['branch']);
             $this->load->template('recruiter_profile_view', $data);
         } else {
             //If no session, redirect to login page
@@ -53,6 +52,8 @@ class recruiter_profile extends CI_Controller
         $this->form_validation->set_rules('Industry_Sector' , 'Industry_Sector' , 'trim|xss_clean');
         $this->form_validation->set_rules('Brief'           , 'Brief'           , 'trim|xss_clean');
         $this->form_validation->set_rules('offer'           , 'offer'           , 'trim|xss_clean');
+        // $this->form_validation->set_rules('eligible_departments'           , 'eligible_departments'           , 'trim|xss_clean');
+         
        
         if ($this->form_validation->run() == false) {
             $this->form_validation->set_message('check_database', 'Invalid username or password');
@@ -60,7 +61,6 @@ class recruiter_profile extends CI_Controller
             redirect('/recruiter_profile', 'refresh');
 
         }
-        $eligible                                   = $this->input->post('eligible_departments');
         //query the database
         $postData['Company_name']                   = $this->input->post('Company_name');
         $postData['url'    ]                        = $this->input->post('url');
@@ -69,13 +69,8 @@ class recruiter_profile extends CI_Controller
         $postData['Industry_Sector']                = $this->input->post('Industry_Sector');
         $postData['Brief']                      = $this->input->post('Brief');
         $postData['offer']                      = $this->input->post('offer');
+        $postData['branch']   = implode(",",$this->input->post('eligible_departments'));
 
-        $this->recruiter->_deletebranches();//use with care
-        if ($eligible) {
-            foreach ($eligible as $key => $value) {
-            $result = $this->recruiter->_updatebranch($value);            
-            }
-        }
 
         $result = $this->recruiter->_update($username, $postData);
         $this->session->set_flashdata('flashSuccess', 'success');

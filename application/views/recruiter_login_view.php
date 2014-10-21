@@ -1,5 +1,4 @@
-<?php $message = $this->session->flashdata('message');
- ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +12,10 @@
   <title>Signin</title>
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/signin.css" rel="stylesheet">
+  <script src="/js/jquery.js"></script>
+    <script src="/js/jquery.form-validator.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.1/html5shiv.min.js"></script>
@@ -51,7 +54,7 @@
     </div> <!-- /container -->
 <?php  
 
-    if ($message) {
+    if (isset($message)) {
       echo '    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                   <div class="modal-content">

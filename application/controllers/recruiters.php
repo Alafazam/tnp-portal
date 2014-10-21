@@ -41,7 +41,6 @@ class recruiters extends CI_Controller
         
         $jobs = $this->user->getJob($r_id);
         $data['jobs'] = $jobs;
-        $this->session->set_flashdata('flashSuccess', 'hello there');
         $this->load->template('companyProfile_view',$data);
 
         } else {

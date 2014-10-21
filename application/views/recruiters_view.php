@@ -30,8 +30,8 @@ if (isset($list)&&$list) {
 			    	<p  class="col-md-4 text-right">'.$key["Industry_Sector"].'</p>
 		    	</h3>
 				<div class="list-group-item-text row">
-			    	<p class="col-md-8 ">Visiting on: '.$key["visit"].'</p>
-			    	<p class="col-md-4 text-right">Eligible Branches: '.$key["branchez"].'</p>
+			    	<p class="col-md-6 ">Visiting on: '.$key["visit"].'</p>
+			    	<p class="col-md-6 text-right">Eligible Branches: '.$key["branchez"].'</p>
 		    	</div>
 			  </a>
 

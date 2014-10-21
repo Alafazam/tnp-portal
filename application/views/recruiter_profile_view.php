@@ -1,12 +1,14 @@
 <?php $data=$this->session->userdata('logged_in');
  $username=$data['username'];
  $flashSuccess =$this->session->flashdata('flashSuccess');
- $eligible = array();
- if(isset($branches)&&$branches){
-    foreach ($branches as $key => $value) { 
-        $eligible[$key] = $value['branch']; 
+ 
+$eligible = array();
+if (isset($eligible_departments)) {   
+    foreach ($eligible_departments as $key => $value) {
+        $eligible[$key] = $value;
     }
-} ?>
+}
+ ?>
 
 
 <form class="form-horizontal" role="form" action="recruiter_profile/save" method="post" accept-charset="utf-8">
@@ -71,66 +73,66 @@
                 <h4 class="text-center">B.Tech</h4>
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input type="checkbox" <?php if($branches && (in_array( "CHE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "CHE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input type="checkbox" <?php if($branches && (in_array( "CE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "CE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" <?php if($branches && (in_array( "CSE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "CSE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" <?php if($branches && (in_array( "IT", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
+                        <input type="checkbox" <?php if($branch && (in_array( "IT", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" <?php if($branches && (in_array( "ECE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "ECE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" <?php if($branches && (in_array( "EE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "EE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-6">
-                        <input type="checkbox" <?php if($branches && (in_array( "MEC", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "MEC", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" <?php if($branches && (in_array( "MME", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-7" value="MME">Metallurgical and Materials Engineering
+                        <input type="checkbox" <?php if($branch && (in_array( "MME", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-7" value="MME">Metallurgical and Materials Engineering
                     </label>
                 </div>
                 <h4 class="text-center">M.Tech</h4>
                 <div class="checkbox">
                     <label for="Eligible-8">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-8" <?php if(isset($branches) && (in_array( "SE", $eligible))){ echo "checked = 'checked' " ;} ?>value="SE">Structural Engineering
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-8" <?php if(isset($branch) && (in_array( "SE", $eligible))){ echo "checked = 'checked' " ;} ?>value="SE">Structural Engineering
                     </label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-9">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-9" <?php if(isset($branches) && (in_array( "EPS", $eligible))){ echo "checked = 'checked' " ;} ?>value="EPS">Electrical Power and Energy Systems
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-9" <?php if(isset($branch) && (in_array( "EPS", $eligible))){ echo "checked = 'checked' " ;} ?>value="EPS">Electrical Power and Energy Systems
                     </label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-10">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-10" <?php if(isset($branches) && (in_array( "CIT", $eligible))){ echo "checked = 'checked' " ;} ?>value="CIT">Communication and Information Technology
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-10" <?php if(isset($branch) && (in_array( "CIT", $eligible))){ echo "checked = 'checked' " ;} ?>value="CIT">Communication and Information Technology
                     </label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-12">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-11" <?php if(isset($branches) && (in_array( "MSD", $eligible))){ echo "checked = 'checked' " ;} ?>value="MSD">Mechanical System Design
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-11" <?php if(isset($branch) && (in_array( "MSD", $eligible))){ echo "checked = 'checked' " ;} ?>value="MSD">Mechanical System Design
                     </label>
                 </div>
             </div>
@@ -144,14 +146,14 @@
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-0">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Private Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-0" value="Private Sector" >1.Private Sector
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Private Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-0" value="Private Sector" >Private Sector
                         </label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-1">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Start-up" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-1" value="Start-up">2.Start-up
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Start-up" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-1" value="Start-up">Start-up
                         </label>
                     </div>
                 </div>
@@ -161,14 +163,14 @@
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-2">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Government" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-2" value="Government">3.Government
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Government" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-2" value="Government">Government
                         </label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-3">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Public Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-3" value="Public Sector">4.Public Sector
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Public Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-3" value="Public Sector">Public Sector
                         </label>
                     </div>
                 </div>
@@ -178,14 +180,14 @@
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-2">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Indian Origin)" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-4" value="MNC (Indian Origin)">5.MNC (Indian Origin)
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Indian Origin)" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-4" value="MNC (Indian Origin)">MNC (Indian Origin)
                         </label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-3">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Foreign Origin)" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-5" value="MNC (Foreign Origin)">6.MNC (Foreign Origin)
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="MNC (Foreign Origin)" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-5" value="MNC (Foreign Origin)">MNC (Foreign Origin)
                         </label>
                     </div>
                 </div>
@@ -196,7 +198,7 @@
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-2">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Others" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-6" value="Others">7.Others
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Others" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-6" value="Others">Others
                         </label>
                     </div>
                 </div>
@@ -213,7 +215,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-0">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-0" <?php if($Industry_Sector=="Analytics" ){ echo "checked = 'checked' " ;} ?>value="Analytics" checked="checked">1.Analytics
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-0" <?php if($Industry_Sector=="Analytics" ){ echo "checked = 'checked' " ;} ?>value="Analytics" checked="checked">Analytics
                         </label>
                     </div>
                 </div>
@@ -221,7 +223,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-1">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-1" <?php if($Industry_Sector=="Consulting" ){ echo "checked = 'checked' " ;} ?>value="Consulting">2.Consulting
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-1" <?php if($Industry_Sector=="Consulting" ){ echo "checked = 'checked' " ;} ?>value="Consulting">Consulting
                         </label>
                     </div>
                 </div>
@@ -232,7 +234,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-2">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-2" <?php if($Industry_Sector=="Core" ){ echo "checked = 'checked' " ;} ?>value="Core">3.Core (Technical)
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-2" <?php if($Industry_Sector=="Core" ){ echo "checked = 'checked' " ;} ?>value="Core">Core (Technical)
                         </label>
                     </div>
                 </div>
@@ -240,7 +242,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-3">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-3" <?php if($Industry_Sector=="Finance" ){ echo "checked = 'checked' " ;} ?>value="Finance">4.Finance
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-3" <?php if($Industry_Sector=="Finance" ){ echo "checked = 'checked' " ;} ?>value="Finance">Finance
                         </label>
                     </div>
                 </div>
@@ -251,7 +253,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-4">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-4" <?php if($Industry_Sector=="IT" ){ echo "checked = 'checked' " ;} ?>value="IT">5.IT
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-4" <?php if($Industry_Sector=="IT" ){ echo "checked = 'checked' " ;} ?>value="IT">IT
                         </label>
                     </div>
                 </div>
@@ -259,7 +261,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-5">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-5" <?php if($Industry_Sector=="Management" ){ echo "checked = 'checked' " ;} ?>value="Management">6.Management
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-5" <?php if($Industry_Sector=="Management" ){ echo "checked = 'checked' " ;} ?>value="Management">Management
                         </label>
                     </div>
                 </div>
@@ -270,7 +272,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-6">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-6" <?php if($Industry_Sector=="Teaching" ){ echo "checked = 'checked' " ;} ?>value="Teaching">7.Teaching &amp; Research
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-6" <?php if($Industry_Sector=="Teaching" ){ echo "checked = 'checked' " ;} ?>value="Teaching">Teaching &amp; Research
                         </label>
                     </div>
                 </div>
@@ -278,7 +280,7 @@
 
                     <div class="radio">
                         <label for="Industry_Sector-7">
-                            <input type="radio" name="Industry_Sector" id="Industry_Sector-7" <?php if($Industry_Sector=="Other" ){ echo "checked = 'checked' " ;} ?>value="Other">8.Other
+                            <input type="radio" name="Industry_Sector" id="Industry_Sector-7" <?php if($Industry_Sector=="Other" ){ echo "checked = 'checked' " ;} ?>value="Other">Other
                         </label>
                     </div>
                 </div>
