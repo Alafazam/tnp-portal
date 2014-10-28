@@ -61,14 +61,11 @@ $message = $this->session->flashdata('message');
                         <a <?php if(isset($username)) { echo ' href="/home/logout">Logout'; } else { echo ' href="/login">Login'; } ?></a>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid hidden-print">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav  nav-sidebar">
@@ -81,12 +78,12 @@ $message = $this->session->flashdata('message');
                     <li><a href="/profile">Complete Profile</a>
                     </li>
                     <li><a href="/personal">Personal Profile</a>
+                    <li><a href="/aboutme">About Me</a>
+                    </li>
                     </li>
                     <li><a href="/educational">Educational Profile</a>
                     </li>
                     <li><a href="/academic">Academic Profile</a>
-                    </li>
-                    <li><a href="/aboutme">About Me</a>
                     </li>
 
                 </ul>

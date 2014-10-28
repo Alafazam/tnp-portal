@@ -83,7 +83,7 @@ class recruiter_create_intern extends CI_Controller
         $postData['personal_Interview']             = $this->input->post('personal_Interview');
         $postData['seats']                          = $this->input->post('seats');
         // $comma_separated = implode(",", $array);
-        $postData['eligible_departments']           = implode(",",$this->input->post('eligible_departments'));
+        $postData['eligible_departments']           = implode(", ",$this->input->post('eligible_departments'));
         $postData['l_requirements']                 = $this->input->post('l_requirements');
         $postData['contact_name']                   = $this->input->post('contact_name');
         $postData['contact_designation']            = $this->input->post('contact_designation');

@@ -162,6 +162,9 @@ function resetPassword($username,$password){
   {
     $this->db->select('*');
     $this->db->from('feed');
+    $this->db->where('type','1');
+    $this->db->or_where('type','3');
+
      $this->db->order_by('date', 'desc');
      //desc
     $query = $this->db->get();
@@ -327,11 +330,12 @@ function resetPassword($username,$password){
   function my_applications_load($value='')
   {
     $this->db->from('applications');
-    if ($value!='') {
-      $session_data = $this->session->userdata('logged_in');
+    $session_data = $this->session->userdata('logged_in');
     $username = $session_data['username'];
-    $this->db->where('job_id',$value);  
     $this->db->where('username',$username);  
+    
+    if ($value!='') {
+    $this->db->where('job_id',$value);  
     }
 
     $query = $this->db->get();
@@ -345,7 +349,11 @@ function resetPassword($username,$password){
 
   function delete_application($value)
   {
-    $this->db->delete('applications',$value);
+    $session_data = $this->session->userdata('logged_in');
+    $username = $session_data['username'];
+    $this->db->where('username',$username);  
+    $this->db->delete('applications',array('job_id' =>$value));
+   
   }
 
 

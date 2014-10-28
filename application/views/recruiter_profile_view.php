@@ -146,7 +146,7 @@ if (isset($eligible_departments)) {
                 <div class="col-md-2">
                     <div class="radio">
                         <label for="Company_Type-0">
-                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Private Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-0" value="Private Sector" >Private Sector
+                            <input type="radio" name="Company_Type" <?php if($Company_Type=="Private Sector" ){ echo "checked = 'checked' " ;} ?>id="Company_Type-0" value="Private Sector" checked="checked">Private Sector
                         </label>
                     </div>
                 </div>

@@ -16,6 +16,8 @@ class recruiter_applicants extends CI_Controller
             if ($session_data['type']==='student') {
                 redirect('home', 'refresh');                  
                 }//if student is logged in ,redirect to student page
+            }else{
+                redirect('recruiter_login', 'refresh');                  
             }
     }
     
@@ -36,12 +38,14 @@ class recruiter_applicants extends CI_Controller
             }
             $alljobs = $this->recruiter->getJob();
             $jobs = array();
-            foreach ($alljobs as $value) {
-                $jobs[''.$value['job_id'].''] = $value['job_desig'] ;
+            if ($alljobs) {
+                foreach ($alljobs as $value) {
+                    $jobs[''.$value['job_id'].''] = $value['job_desig'] ;
+                }
             }
             $data = array('jobs' =>$jobs ,'student_jobs'=>$student_jobs,'users'=>$users);
-
-            $this->load->template('test_view', $data);
+                
+            $this->load->template('recruiter_applicants_view', $data);
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');

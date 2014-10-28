@@ -14,9 +14,9 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://nitsritnp.techvaganza.org/';
+// $config['base_url']	= 'http://nitsritnp.techvaganza.org/';
 
-// $config['base_url']	= 'http://localhost/';
+$config['base_url']	= 'http://localhost/';
 // $config['base_url'] = "127.0.0.1:80";
 // $config['base_url'] = "http://1.22.87.229/";
 

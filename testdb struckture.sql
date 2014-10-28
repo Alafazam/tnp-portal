@@ -204,6 +204,8 @@ INSERT INTO school (id, school_name, city, year, board, paercentage, type) VALUE
 
 //notice that username format has changed
 INSERT INTO users (username, password) values ('2012552', MD5('alaf552'));
+INSERT INTO admin (id, password) values ('9796181024', MD5('alaf552'));
+
 
 INSERT INTO feed (date,data,heading) values('2014-12-15','I am a disco dancer','Yeah baby');
 

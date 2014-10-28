@@ -13,7 +13,7 @@
         </div>
 
         <!-- Form Name -->
-        <legend>Personal Details  <?php if($allowedit) echo '<a href="/personal" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
+        <legend>Personal Details  <?php if($allowedit) echo '<a href="/personal" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?> </legend>
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="fname">First Name</label>
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <legend>Academics <?php if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?></legend>
+        <legend>Academics <?php if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?></legend>
         
          <!-- Text input-->
         <div class="form-group">
@@ -175,7 +175,7 @@
 
 
         <!-- Form Name -->
-        <legend>About Me  <?php if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
+        <legend>About Me  <?php if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?> </legend>
         <!-- ECA,Career_obj,Technical_Skills,Other_skills -->
         <!-- Textarea -->
 
@@ -219,7 +219,7 @@
 
 
         <!-- Form Name -->
-        <legend>Educational Details <?php if($allowedit) echo '<a href="/educational" style="float:right;padding:3px 12px" class="btn btn-primary">Edit</a>'?> </legend>
+        <legend>Educational Details <?php if($allowedit) echo '<a href="/educational" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?> </legend>
         <h4 class="text-center">
             <small>12th Standard</small>
         </h4>

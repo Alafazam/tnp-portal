@@ -19,11 +19,9 @@ if (isset($eligible_departments)) {
 ?>
 <link rel="stylesheet" type="text/css" media="screen"href="/css/datepicker.css">
 <script type="text/javascript"src="/js/datepicker.js"></script>
-<script type="text/javascript" src="/js/datetimepicker.pt-BR.js"></script>
 <style>.form-control[readonly] {
      cursor: text;
 }
-.bootstrap-datetimepicker-widget,.dropdown-menu>ul{padding:0px;}
 
 </style>
 
@@ -62,24 +60,19 @@ if (isset($eligible_departments)) {
 
         <div class="form-group">
           <label for="last_date" class="col-md-4 control-label">Application Deadline</label>
-          <div id="datetimepicker1"   class="input-append input-group date col-md-4">
-            <div class="input-group date">
-              <input type="text" data-format="yyyy-MM-dd hh:mm:ss" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" required class="form-control"><span class="input-group-addon add-on"><i class="glyphicon glyphicon-th"></i></span>
-            </div>
+          <div id="datetimepicker1"   class="date col-md-4">
+              <input type="text" data-date-format="yyyy-mm-dd" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($application_dead_line)) { echo "value='".$application_dead_line."'"; } ?> name="application_dead_line" required class="form-control">
           </div>
       </div>
       <?php 
       if (!$approved) {
       echo 
-      "<script type='text/javascript'>
-  $(function() {
-    $('#datetimepicker1').datetimepicker({
-      language: 'en',
-      pick12HourFormat: true,
+     "<script type='text/javascript'>
+  $('#datetimepicker1 input').datepicker({
+    format: 'yyyy-mm-dd',
     startDate: 'today'
+});
 
-    });
-  });
 </script>";
 };
 

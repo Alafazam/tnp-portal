@@ -1,10 +1,6 @@
 <?php 
 $data = array('jobs' =>$jobs ,'student_jobs'=>$student_jobs,'users'=>$users);
 
-var_dump($data);
-
-
-
  ?>
 
 
@@ -15,12 +11,11 @@ var_dump($data);
 <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Branch</th>
-          <th>Career objective</th>
-          <th>Profile</th>
-          <th>Cover Letter</th>
-          <th>Action</th>
+          <th class="col-md-2">Name</th>
+          <th class="col-md-1">Branch</th>
+          <th class="col-md-4">Career objective</th>
+          <th class="col-md-4">Cover Letter</th>
+          <th class="col-md-1">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -37,11 +32,11 @@ if (isset($users)&&$users) {
           
             echo '
           <tr>
-            <td>'.$key["FNAME"].' '.$key["LNAME"]'</td>
-            <td>'.$key["branch"].'</td>
+          <td><a href="/profile/view/.'.$key["username"].'">'.$key["FNAME"].' '.$key["LNAME"].'</a></td>
+            <td>'.$key["branch"].' </td>
             <td>'.$key["Career_obj"].'</td>
-            <td><a href="/recruiter_applicants/delete/'.$key["username"].'/'.$key["job_id"].'" style="float:right;padding:3px 12px" class="btn btn-primary">Delete</a></td>
             <td>'.$key["cover_letter"].'</td>
+            <td><a href="/recruiter_applicants/delete/'.$key["username"].'/'.$key["job_id"].'" style="padding:3px 12px" class="btn btn-primary">Delete</a></td>
           </tr>'
         ;
 
@@ -53,7 +48,8 @@ if (isset($users)&&$users) {
       ?>
 
 
+    </div>
         
       </tbody>
     </table>
-    </div>
+  </div>

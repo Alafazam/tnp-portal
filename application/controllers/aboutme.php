@@ -13,8 +13,10 @@ class Aboutme extends CI_Controller
             { $session_data = $this->session->userdata('logged_in');
             if ($session_data['type']!=='student') {
                 redirect('recruiter_home', 'refresh');                  
-                }//if recruiter redirect to recruiter page
-        }
+                }
+        }else{
+                redirect('login', 'refresh');                  
+            }
 
     }
     

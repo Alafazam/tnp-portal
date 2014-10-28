@@ -13,7 +13,10 @@ class Educational  extends CI_Controller {
         if ($session_data['type']!=='student') {
             redirect('recruiter_home', 'refresh');                  
             }//if recruiter redirect to recruiter page
-    }
+    }else{
+                redirect('login', 'refresh');                  
+            }
+
  }
 
  function index()

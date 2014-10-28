@@ -6,16 +6,6 @@ class admin extends CI_Controller{
 	function __construct(){
 
 		parent::__construct();
-		if ($this->session->userdata('logged_in')){
-
-		    $session_data = $this->session->userdata('logged_in');
-
-		    if ($session_data['type']==='admin') {
-				//redirect('admin/home', 'refresh');
-		    }else{
-				redirect('admin', 'refresh');		    		
-		    }
-		}
 		$this->load->model('admin_model', '', TRUE);
 	}
 
@@ -25,7 +15,7 @@ class admin extends CI_Controller{
 		$session_data = $this->session->userdata('logged_in');
 
 		if ($this->session->userdata('logged_in') and $session_data['type']==='admin'){
-			$this->load->view('admin_home');
+			$this->load->template('admin_home');
 		}
 		else{
 			$this->load->helper(array(

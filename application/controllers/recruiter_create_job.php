@@ -94,7 +94,7 @@ class recruiter_create_job extends CI_Controller
         $postData['number_of_rounds']       = $this->input->post('number_of_rounds');
         $postData['min_offers']             = $this->input->post('min_offers');
         // $comma_separated = implode(",", $array);
-        $postData['eligible_departments']   = implode(",",$this->input->post('eligible_departments'));
+        $postData['eligible_departments']   = implode(", ",$this->input->post('eligible_departments'));
         $postData['number_of_members'    ]  = $this->input->post('number_of_members');
         $postData['number_of_rooms']        = $this->input->post('number_of_rooms');
         $postData['other_requirements']     = $this->input->post('other_requirements');
@@ -111,7 +111,7 @@ class recruiter_create_job extends CI_Controller
         }else{
             $result = $this->recruiter->insert_job($postData);
         }
-        $this->session->set_flashdata('flashSuccess',$postData['job_id']);
+        $this->session->set_flashdata('flashSuccess','Sucess');
         redirect('/recruiter_myjobs', 'refresh');
 
     }

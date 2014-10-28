@@ -135,9 +135,9 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="quota">Quota</label>
       <div class="col-md-4">
-        <select id="quota" name="quota" value="<?php if($quota){ echo $quota ;} ?>" class="form-control">
-          <option value="Home State">Home State</option>
-          <option value="Other State">Other State</option>
+        <select id="quota" name="quota"  class="form-control">
+          <option <?php if($quota=='Home State'){ echo 'selected' ;} ?> value="Home State">Home State</option>
+          <option <?php if($quota=='Other State'){ echo 'selected' ;} ?> value="Other State">Other State</option>
         </select>
       </div>
     </div>
@@ -146,11 +146,11 @@ $fname=$data['fname'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="category">Category</label>
       <div class="col-md-4">
-        <select id="category" name="category" value="<?php if($category){ echo $category ;} ?>" class="form-control">
-          <option value="General">General</option>
-          <option value="S.C">S.C.</option>
-          <option value="S.T">S.T.</option>
-          <option value="O.B.C">O.B.C.</option>
+        <select id="category" name="category" class="form-control">
+          <option <?php if($category=='General'){ echo 'selected' ;} ?> value="General">General</option>
+          <option <?php if($category=='S.C'){ echo 'selected' ;} ?> value="S.C">S.C.</option>
+          <option <?php if($category=='S.T'){ echo 'selected' ;} ?> value="S.T">S.T.</option>
+          <option <?php if($category=='O.B.C'){ echo 'selected' ;} ?> value="O.B.C">O.B.C.</option>
         </select>
       </div>
     </div>

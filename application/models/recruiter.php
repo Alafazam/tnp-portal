@@ -68,6 +68,9 @@ Class recruiter extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('feed');
+    $this->db->where('type','2');
+    $this->db->or_where('type','3');
+
      $this->db->order_by('date', 'desc');
     $query = $this->db->get();
     if ($query->num_rows()) {

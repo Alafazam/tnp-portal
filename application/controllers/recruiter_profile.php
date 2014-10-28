@@ -28,7 +28,7 @@ class recruiter_profile extends CI_Controller
             $Company_name = $session_data['Company_name'];
             $result = $this->recruiter->load_recruiter_profile();
             $data = $result[0];
-            $data['eligible_departments'] = explode(',', $result[0]['branch']);
+            $data['eligible_departments'] = explode(', ', $result[0]['branch']);
             $this->load->template('recruiter_profile_view', $data);
         } else {
             //If no session, redirect to login page
@@ -69,7 +69,7 @@ class recruiter_profile extends CI_Controller
         $postData['Industry_Sector']                = $this->input->post('Industry_Sector');
         $postData['Brief']                      = $this->input->post('Brief');
         $postData['offer']                      = $this->input->post('offer');
-        $postData['branch']   = implode(",",$this->input->post('eligible_departments'));
+        $postData['branch']   = implode(", ",$this->input->post('eligible_departments'));
 
 
         $result = $this->recruiter->_update($username, $postData);

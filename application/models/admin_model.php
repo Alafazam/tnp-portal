@@ -17,6 +17,37 @@ Class admin_model extends CI_Model
       return false;
     }
   }
+
+
+  function load_feeds()
+    {
+      $this->db->select('*');
+      $this->db->from('feed');
+       $this->db->order_by('date', 'desc');
+       //desc
+      $query = $this->db->get();
+      if ($query->num_rows()) {
+        return $query->result_array();
+      }
+      else {
+        return false;
+      }
+    }
+  function insert_feed($value)
+    {
+            
+     try {
+      $query = $this->db->insert('feed',$value);
+      return $query;
+      }
+     catch(Exception $e) {
+        return $e;
+      }
+
+    }
+
+
+
 }
 
 ?>

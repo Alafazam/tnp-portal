@@ -37,14 +37,14 @@ $username=$data['username'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="Career_obj">Career objectives </label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="Career_obj"  data-validation="length" data-validation-length="max200" name="Career_obj"><?php if($eca){echo $Career_obj ;} ?></textarea>
+        <textarea rows="4" class="form-control" id="Career_obj"  data-validation="length" data-validation-length="max2000" name="Career_obj"><?php if($eca){echo $Career_obj ;} ?></textarea>
       </div>
     </div>
     <!-- Textarea -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="Technical_Skills">Technical Skills</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="Technical_Skills" data-validation="length" data-validation-length="max320" name="Technical_Skills"><?php if($eca){echo $Technical_Skills ;} ?></textarea>
+        <textarea rows="4" class="form-control" id="Technical_Skills" data-validation="length" data-validation-length="max3200" name="Technical_Skills"><?php if($eca){echo $Technical_Skills ;} ?></textarea>
       </div>
     </div>
 
@@ -52,7 +52,7 @@ $username=$data['username'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="Other_skills">Other Skills</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="Other_skills" data-validation="length" data-validation-length="max320" name="Other_skills"><?php if($eca){echo $Other_skills ;} ?></textarea>
+        <textarea rows="4" class="form-control" id="Other_skills" data-validation="length" data-validation-length="max3200" name="Other_skills"><?php if($eca){echo $Other_skills ;} ?></textarea>
       </div>
     </div>
 
@@ -61,7 +61,7 @@ $username=$data['username'];
     <div class="form-group">
       <label class="col-md-4 control-label" for="eca">Extra Curricular Activities</label>
       <div class="col-md-4">                     
-        <textarea class="form-control" id="eca" data-validation="length" data-validation-length="max320" name="eca"><?php if($eca){echo $eca ;} ?></textarea>
+        <textarea rows="4" class="form-control" id="eca" data-validation="length" data-validation-length="max3200" name="eca"><?php if($eca){echo $eca ;} ?></textarea>
       </div>
     </div>
     <!-- Button -->

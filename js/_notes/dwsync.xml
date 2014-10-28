@@ -6,12 +6,13 @@
 <file name="bootstrap.js" server="C:/xampp/htdocs/" local="130434378660000000" remote="130434378660000000" />
 <file name="bootstrap.min.js" server="C:/xampp/htdocs/" local="130482278520000000" remote="130482278520000000" />
 <file name="jquery.js" server="C:/xampp/htdocs/" local="130316760690000000" remote="130316760690000000" />
-<file name="datepicker.js" server="C:/xampp/htdocs/" local="130580371195320851" remote="130580371190000000" />
+<file name="datepicker.js" server="C:/xampp/htdocs/" local="130585638806573647" remote="130585638800000000" />
 <file name="jquery.form-validator.min.js" server="C:/xampp/htdocs/" local="130560107140000000" remote="130560107140000000" />
 <file name="datetimepicker.pt-BR.js" server="C:/xampp/htdocs/" local="130578638515279641" remote="130578638510000000" />
 <file name="jquery.js" server="162.222.225.77" local="130316760690000000" remote="130582506600000000" />
 <file name="jquery.form-validator.min.js" server="162.222.225.77" local="130560107140000000" remote="130582506600000000" />
 <file name="bootstrap.min.js" server="162.222.225.77" local="130482278520000000" remote="130582506600000000" />
-<file name="datepicker.js" server="162.222.225.77" local="130580371195320851" remote="130582515000000000" />
+<file name="datepicker.js" server="162.222.225.77" local="130585638806573647" remote="130585460400000000" />
 <file name="datetimepicker.pt-BR.js" server="162.222.225.77" local="130578638515279641" remote="130582515000000000" />
+<file name="datepicker_old.js" server="C:/xampp/htdocs/" local="130580371195320851" remote="130580371190000000" />
 </dwsync>
