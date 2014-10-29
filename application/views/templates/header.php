@@ -90,9 +90,13 @@ $message = $this->session->flashdata('message');
                 <ul class="nav nav-sidebar">
                     <li><a href="/recruiters">Companies List</a>
                     </li>
-                    <li><a href="#">My Applications</a>
+                    <li><a href="/undercons">Visiting Companies</a>
                     </li>
-                    <li><a href="/jobs">Available Jobs</a>
+                    <li><a href="/myapplications">My Applications</a>
+                    </li>
+                    <li><a href="/jobs">Available Jobs Positions</a>
+                    </li>
+                    <li><a href="/undercons">Available Intern Positions</a>
                     </li>
                 </ul>
             </div>

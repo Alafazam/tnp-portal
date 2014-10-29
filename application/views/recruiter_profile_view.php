@@ -1,12 +1,13 @@
 <?php $data=$this->session->userdata('logged_in');
  $username=$data['username'];
  $flashSuccess =$this->session->flashdata('flashSuccess');
- 
-$eligible = array();
-if (isset($eligible_departments)) {   
-    foreach ($eligible_departments as $key => $value) {
-        $eligible[$key] = $value;
-    }
+
+if (!isset($eligible_departments)) {
+    $eligible_departments=fasle;
+}
+
+if (!isset($offer)) {
+    $offer=fasle;
 }
  ?>
 
@@ -39,6 +40,33 @@ if (isset($eligible_departments)) {
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="offer" class="col-md-4 control-label">Offers</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label for="offer-0">
+                            <input type="checkbox" id="one" <?php if($offer && (in_array( "1", $offer))){ echo "checked = 'checked' " ;} ?>name="offer[]" checked value="1">Jobs
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="checkbox">
+                        <label for="offer-1">
+                            <input type="checkbox" id="two" <?php if($offer && (in_array( "2", $offer))){ echo "checked = 'checked' " ;} ?>name="offer[]" value="2">Internships
+                        </label>
+                    </div>
+                </div><div class="col-md-2">
+                    <div class="checkbox">
+                        <label for="offer-3">
+                            <input type="checkbox" id="three" <?php if($offer && (in_array( "3", $offer))){ echo "checked = 'checked' " ;} ?>name="offer[]" value="3">Trainings
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div class="form-group">
             <label for="offer" class="col-md-4 control-label">Eligible Courses</label>
@@ -46,14 +74,14 @@ if (isset($eligible_departments)) {
                 <div class="col-md-2">
                     <div class="checkbox">
                         <label for="offer-0">
-                            <input type="checkbox" id="one" <?php if($offer=='1' ){ echo "checked=checked" ;} ?>name="offer[]" value="1">B.Tech
+                            <input type="checkbox" id="one" <?php if($offer && (in_array( "4", $offer))){ echo "checked = 'checked' " ;} ?>name="offer[]" checked value="4">B.Tech
                         </label>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="checkbox">
                         <label for="offer-1">
-                            <input type="checkbox" id="two" <?php if($offer=='2' ){ echo "checked=checked" ;} ?>name="offer[]" value="2">M.Tech
+                            <input type="checkbox" id="two" <?php if($offer && (in_array( "5", $offer))){ echo "checked = 'checked' " ;} ?>name="offer[]" value="5">M.Tech
                         </label>
                     </div>
                 </div>
@@ -73,66 +101,66 @@ if (isset($eligible_departments)) {
                 <h4 class="text-center">B.Tech</h4>
                 <div class="checkbox">
                     <label for="Eligible-0">
-                        <input type="checkbox" <?php if($branch && (in_array( "CHE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "CHE", $eligible_departments))){ echo "checked = 'checked' " ;} ?> name="eligible_departments[]" id="Eligible-0" value="CHE">Chemical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-1">
-                        <input type="checkbox" <?php if($branch && (in_array( "CE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "CE", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-1" value="CE">Civil Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-2">
-                        <input type="checkbox" <?php if($branch && (in_array( "CSE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-2" value="CSE">Computer Science &amp; Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "CSE", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-2"  value="CSE">Computer Science &amp; Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-3">
-                        <input type="checkbox" <?php if($branch && (in_array( "IT", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-3" value="IT">Information Technology
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "IT", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-3" checked value="IT">Information Technology
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-4">
-                        <input type="checkbox" <?php if($branch && (in_array( "ECE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "ECE", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-4" value="ECE">Electronics and Communication Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-5">
-                        <input type="checkbox" <?php if($branch && (in_array( "EE", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "EE", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-5" value="EE">Electrical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-6">
-                        <input type="checkbox" <?php if($branch && (in_array( "MEC", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "MEC", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-6" value="MEC">Mechanical Engineering
                     </label>
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" <?php if($branch && (in_array( "MME", $eligible))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-7" value="MME">Metallurgical and Materials Engineering
+                        <input type="checkbox" <?php if($eligible_departments && (in_array( "MME", $eligible_departments))){ echo "checked = 'checked' " ;} ?>name="eligible_departments[]" id="Eligible-7" value="MME">Metallurgical and Materials Engineering
                     </label>
                 </div>
                 <h4 class="text-center">M.Tech</h4>
                 <div class="checkbox">
                     <label for="Eligible-8">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-8" <?php if(isset($branch) && (in_array( "SE", $eligible))){ echo "checked = 'checked' " ;} ?>value="SE">Structural Engineering
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-8" <?php if(isset($eligible_departments) && (in_array( "SE", $eligible_departments))){ echo "checked = 'checked' " ;} ?>value="SE">Structural Engineering
                     </label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-9">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-9" <?php if(isset($branch) && (in_array( "EPS", $eligible))){ echo "checked = 'checked' " ;} ?>value="EPS">Electrical Power and Energy Systems
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-9" <?php if(isset($eligible_departments) && (in_array( "EPS", $eligible_departments))){ echo "checked = 'checked' " ;} ?>value="EPS">Electrical Power and Energy Systems
                     </label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-10">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-10" <?php if(isset($branch) && (in_array( "CIT", $eligible))){ echo "checked = 'checked' " ;} ?>value="CIT">Communication and Information Technology
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-10" <?php if(isset($eligible_departments) && (in_array( "CIT", $eligible_departments))){ echo "checked = 'checked' " ;} ?>value="CIT">Communication and Information Technology
                     </label>
                 </div>
 
                 <div class="checkbox">
                     <label for="Eligible-12">
-                        <input type="checkbox" name="eligible_departments[]" id="Eligible-11" <?php if(isset($branch) && (in_array( "MSD", $eligible))){ echo "checked = 'checked' " ;} ?>value="MSD">Mechanical System Design
+                        <input type="checkbox" name="eligible_departments[]" id="Eligible-11" <?php if(isset($eligible_departments) && (in_array( "MSD", $eligible_departments))){ echo "checked = 'checked' " ;} ?>value="MSD">Mechanical System Design
                     </label>
                 </div>
             </div>

@@ -288,8 +288,51 @@ Class recruiter extends CI_Model
   {
     $session_data = $this->session->userdata('logged_in');
     $r_id = $session_data['r_id'];
+    if ($username!=''&&$job_id!='') {
     $this->db->delete('applications', array('job_id' => $job_id,'username'=>$username,'r_id'=>$r_id));
+    }
   }
+
+
+
+  function new_visit($data)
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $data['r_id']  = $r_id;
+    $this->db->insert('visits', $data);  
+
+  }
+
+  function visits($value='')
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+
+    $this->db->from('visits');
+    
+    if ($value!='') {
+      $this->db->where('v_id',$value);  
+    }
+    
+    $this->db->where('r_id',$r_id);  
+
+    $query = $this->db->get();
+    return $query->result_array(); 
+  }
+
+  function delete_visit($v_id)
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->delete('visit', array('v_id' => $v_id,'r_id'=>$r_id));
+  }
+
+
+
+
+
+
 
 
 

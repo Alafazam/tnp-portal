@@ -28,7 +28,9 @@ class recruiter_profile extends CI_Controller
             $Company_name = $session_data['Company_name'];
             $result = $this->recruiter->load_recruiter_profile();
             $data = $result[0];
-            $data['eligible_departments'] = explode(', ', $result[0]['branch']);
+            $data['eligible_departments'] = explode(',', $result[0]['branch']);
+            $data['offer'] = explode(',', $result[0]['offer']);
+            
             $this->load->template('recruiter_profile_view', $data);
         } else {
             //If no session, redirect to login page
@@ -51,7 +53,7 @@ class recruiter_profile extends CI_Controller
         $this->form_validation->set_rules('Company_Type'    , 'Company_Type'    , 'trim|xss_clean');
         $this->form_validation->set_rules('Industry_Sector' , 'Industry_Sector' , 'trim|xss_clean');
         $this->form_validation->set_rules('Brief'           , 'Brief'           , 'trim|xss_clean');
-        $this->form_validation->set_rules('offer'           , 'offer'           , 'trim|xss_clean');
+        // $this->form_validation->set_rules('offer'           , 'offer'           , 'trim|xss_clean');
         // $this->form_validation->set_rules('eligible_departments'           , 'eligible_departments'           , 'trim|xss_clean');
          
        
@@ -69,7 +71,8 @@ class recruiter_profile extends CI_Controller
         $postData['Industry_Sector']                = $this->input->post('Industry_Sector');
         $postData['Brief']                      = $this->input->post('Brief');
         $postData['offer']                      = $this->input->post('offer');
-        $postData['branch']   = implode(", ",$this->input->post('eligible_departments'));
+        $postData['branch']   = implode(",",$this->input->post('eligible_departments'));
+        $postData['offer']   = implode(",",$this->input->post('offer'));
 
 
         $result = $this->recruiter->_update($username, $postData);

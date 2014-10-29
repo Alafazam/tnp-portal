@@ -73,7 +73,7 @@ $message = $this->session->flashdata('message');
                     </li>
                     <li><a href="/recruiter_create_intern">Add new Internship</a>
                     </li>
-                    <li><a href="#">Plan a visit</a>
+                    <li><a href="/recruiter_visit">Plan a visit</a>
                     </li>
                     
                 </ul>

@@ -49,7 +49,7 @@ class jobs extends CI_Controller
         $job_id = $value;    
         $jobs = $this->user->getjob_all($job_id);
         $r_id = $jobs[0]["r_id"];
-        $result2=$this->user->loadCompanyList($r_id);
+        $result2=   $this->user->loadCompanyList($r_id);
         $application = $this->user->my_applications_load($job_id);
         $company_name = $result2[0]["Company_name"];
         $data =  array('job' => $jobs[0],'company_name'=>$company_name,'application'=>$application[0] );

@@ -56,12 +56,6 @@ class recruiter_create_intern extends CI_Controller
         $this->form_validation->set_rules('shortlist_from_Resumes', 'shortlist_from_Resumes', 'trim|xss_clean');
         $this->form_validation->set_rules('personal_Interview', 'personal_Interview', 'trim|xss_clean');
         $this->form_validation->set_rules('seats', 'seats', 'trim|xss_clean');
-        $this->form_validation->set_rules('l_requirements', 'l_requirements', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_name', 'contact_name', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_designation', 'contact_designation', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_email', 'contact_email', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_number', 'contact_number', 'trim|xss_clean');
-       
         if ($this->form_validation->run() == false) {
             $this->form_validation->set_message('check_database', 'Invalid username or password');
             $this->session->set_flashdata('flashError', 'Error.');
@@ -84,12 +78,6 @@ class recruiter_create_intern extends CI_Controller
         $postData['seats']                          = $this->input->post('seats');
         // $comma_separated = implode(",", $array);
         $postData['eligible_departments']           = implode(", ",$this->input->post('eligible_departments'));
-        $postData['l_requirements']                 = $this->input->post('l_requirements');
-        $postData['contact_name']                   = $this->input->post('contact_name');
-        $postData['contact_designation']            = $this->input->post('contact_designation');
-        $postData['contact_email']                  = $this->input->post('contact_email');
-        $postData['contact_number']                 = $this->input->post('contact_number');
-
 
 
 

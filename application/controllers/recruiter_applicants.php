@@ -74,10 +74,11 @@ class recruiter_applicants extends CI_Controller
     function delete($username,$job_id)
     {
         if (ctype_digit($username)&&ctype_digit($job_id)) {
-        $result = $this->recruiter->delete_application();
+        $result = $this->recruiter->delete_application($username,$job_id);
         $this->session->set_flashdata('flashSuccess', 'Success');
+        }else{
+            $this->session->set_flashdata('message', 'invalid action');
         }
-        $this->session->set_flashdata('message', 'invalid action');
         redirect('recruiter_applicants', 'refresh');
 
     }

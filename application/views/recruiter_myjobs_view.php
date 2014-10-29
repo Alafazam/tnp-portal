@@ -46,16 +46,7 @@
 		</div>
 		</article>
 		';
-		// echo '
-		// <article class="timeline-entry">
-		// <div class="timeline-entry-inner">
-		// <div class="timeline-label">
-		// <h4><a href="/recruiter_create_job">Want to create a job..???</a></h4>
-		// </div>
-		// </div>
-		// </article>
-		// ';
-
+		
 
 		}
 		?>
@@ -77,7 +68,7 @@
 	            <div class="timeline-entry-inner">
 
 	                <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
-	                    <i class="entypo-flight"></i> +
+	                    <i class="entypo-flight"></i><a href="/recruiter_create_job">+</a>
 	                </div>
 
 	            </div>

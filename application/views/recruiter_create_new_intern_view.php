@@ -258,19 +258,7 @@ if (isset($eligible_departments)) {
 
         <!-- <h4 class="text-center"><small>Logistics Requirements</small></h4> -->
 
-       <legend> Logistics Requirements</legend>
-<!-- Other Requirements (If Any) -->
-
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Requirements (If Any)">Requirements (If Any)</label>
-            <div class="col-md-4">
-                <textarea class="form-control" id="Requirements (If Any)" <?php if ($approved) { echo "readonly"; } ?> placeholder="Requirements (If Any)"  name="l_requirements"><?php if (isset($l_requirements)) { echo "".$l_requirements.""; } ?></textarea>
-                <!-- <span class="help-block"></span>  -->
-            </div>
-        </div>
-
-        
-       <legend>Contact Person</legend>
+       <!-- <legend>Contact Person</legend> -->
         <!-- Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>

@@ -61,14 +61,6 @@ class recruiter_create_job extends CI_Controller
         $this->form_validation->set_rules('medical_Test', 'medical_Test', 'trim|xss_clean');
         $this->form_validation->set_rules('number_of_rounds', 'number_of_rounds', 'trim|xss_clean');
         $this->form_validation->set_rules('min_offers', 'min_offers', 'trim|xss_clean');
-        $this->form_validation->set_rules('number_of_members', 'number_of_members', 'trim|xss_clean');
-        $this->form_validation->set_rules('number_of_rooms', 'number_of_rooms', 'trim|xss_clean');
-        $this->form_validation->set_rules('other_requirements', 'other_requirements', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_name', 'contact_name', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_designation', 'contact_designation', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_email', 'contact_email', 'trim|xss_clean');
-        $this->form_validation->set_rules('contact_number', 'contact_number', 'trim|xss_clean');
-       
         if ($this->form_validation->run() == false) {
             $this->form_validation->set_message('check_database', 'Invalid username or password');
             $this->session->set_flashdata('flashError', 'Error.');
@@ -95,14 +87,7 @@ class recruiter_create_job extends CI_Controller
         $postData['min_offers']             = $this->input->post('min_offers');
         // $comma_separated = implode(",", $array);
         $postData['eligible_departments']   = implode(", ",$this->input->post('eligible_departments'));
-        $postData['number_of_members'    ]  = $this->input->post('number_of_members');
-        $postData['number_of_rooms']        = $this->input->post('number_of_rooms');
-        $postData['other_requirements']     = $this->input->post('other_requirements');
-        $postData['contact_name']           = $this->input->post('contact_name');
-        $postData['contact_designation']    = $this->input->post('contact_designation');
-        $postData['contact_email']          = $this->input->post('contact_email');
-        $postData['contact_number']         = $this->input->post('contact_number');
-
+       
 
 
         if ($value=='edit') {

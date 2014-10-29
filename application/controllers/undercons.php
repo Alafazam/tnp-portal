@@ -17,7 +17,7 @@ class undercons extends CI_Controller
 
         if ($this->session->userdata('logged_in')) 
         {    
-            $this->load->recruiter_template('underconstruction');
+            $this->load->template('underconstruction');
         } else {
             //If no session, redirect to login page
             redirect('login', 'refresh');
