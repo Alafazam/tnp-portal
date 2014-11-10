@@ -9,11 +9,14 @@ class recruiter_home extends CI_Controller {
    $this->load->model('recruiter', '', TRUE);
 
    if ($this->session->userdata('logged_in'))
-        { $session_data = $this->session->userdata('logged_in');
-        if ($session_data['type']==='student') {
-            redirect('home', 'refresh');                  
-            }//if recruiter redirect to recruiter page
-    }
+            { $session_data = $this->session->userdata('logged_in');
+            if ($session_data['type']!=='recruiter') {
+                redirect('home', 'refresh');                  
+                }
+                //if student is logged in ,redirect to student page
+            }else{
+                redirect('recruiter_login', 'refresh');                  
+            }     
 
  }
 
@@ -25,7 +28,7 @@ class recruiter_home extends CI_Controller {
      $data['username'] = $session_data['username'];
      $data['Company_name'] = $session_data['Company_name'];
 
-     $feeddata = $this->user->load_feeds();
+     $feeddata = $this->recruiter->load_feeds();
      $data   = array(
               'feeds'=> $feeddata
           );

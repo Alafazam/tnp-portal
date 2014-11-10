@@ -1,8 +1,6 @@
 <?php
 $data= $this->session->userdata('logged_in');
-$username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
-$fname=$data['fname'];
 ?>
  <style>
 	.company_name{
@@ -23,17 +21,18 @@ $fname=$data['fname'];
 	echo '
 		<div class="panel panel-default">
 		  <!-- Default panel contents -->
-		  <div class="panel-heading company_name text-center">'.$Company_name.'</div>
+		  <div class="panel-heading company_name panel-success text-center">'.$Company_name.'</div>
 		  
 		  <ul class="list-group">
+		    <a class="list-group-item" href="#">Official Website</a>
 		    <li class="list-group-item">Company Type: '.$Company_type.'</li>
 		    <li class="list-group-item">Industry Sector: '.$Industry_Sector.'</li>
 		    <li class="list-group-item">Expected Date of Visit: '.$visit.'</li>
 		    <li class="list-group-item">Eligible Branches: '.$branchez.'</li>
-		    <a class="list-group-item" href="">website</a>
 		  </ul>
 		  <div class="panel-body">
-		 	<p>'.$Brief.'</p>   
+		 	<p>Brief:
+		 	'.$Brief.'</p>   
 		  </div>
 		</div>
 	';

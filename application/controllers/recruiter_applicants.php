@@ -13,9 +13,10 @@ class recruiter_applicants extends CI_Controller
 
         if ($this->session->userdata('logged_in'))
             { $session_data = $this->session->userdata('logged_in');
-            if ($session_data['type']==='student') {
+            if ($session_data['type']!=='recruiter') {
                 redirect('home', 'refresh');                  
-                }//if student is logged in ,redirect to student page
+                }
+                //if student is logged in ,redirect to student page
             }else{
                 redirect('recruiter_login', 'refresh');                  
             }

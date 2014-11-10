@@ -19,9 +19,6 @@ $data = array('jobs' =>$jobs ,'student_jobs'=>$student_jobs,'users'=>$users);
         </tr>
       </thead>
       <tbody>
-
-
-      <div class="list-group">
 <?php 
 if (isset($users)&&$users) {
 

@@ -17,7 +17,10 @@ $message = $this->session->flashdata('message');
         <div class="timeline-centered">
 			<!-- Start of articals -->
 	
-			<?php foreach ($feeds as $key)
+			<?php 
+
+			if (isset($feeds)&&$feeds) {
+			foreach ($feeds as $key)
 			{	$type = "";
 				if ($key['type']==='1') {
 					$type = "<div class='timeline-icon bg-success'><i class='entypo-feather'></i></div>";
@@ -35,7 +38,19 @@ $message = $this->session->flashdata('message');
 	            </div>
 	        </article>";
 
-			} ?>
+			}
+			}else{
+				echo "No new Announcements";
+			}
+
+
+
+
+
+
+
+
+			 ?>
 
 	     
 	        <article class="timeline-entry begin">

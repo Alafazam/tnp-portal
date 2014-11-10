@@ -10,15 +10,25 @@ class admin_view_lists extends CI_Controller
         parent::__construct();
         $this->load->model('user', '', TRUE);
         $this->load->model('recruiter', '', TRUE);
+
+        if ($this->session->userdata('logged_in')){ 
+            $session_data = $this->session->userdata('logged_in');
+            if ($session_data['type']!=='admin') {
+                redirect('login', 'refresh');                              
+            }
+        }else{
+            redirect('login', 'refresh');                              
+
+        }
     }
-    
+   
     function index()
     {
         
     if ($this->session->userdata('logged_in')&&$this->session->userdata('logged_in')['type']==='admin') 
         {
 
-
+            
 
         } else {
             //If no session, redirect to login page

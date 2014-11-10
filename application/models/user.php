@@ -120,8 +120,24 @@ function resetPassword($username,$password){
     }
   }
 
+function getintern_all($value)
+  {
+    $this->db->select('*');
+    $this->db->order_by('application_dead_line', 'desc');  
+    $this->db->from('intern_profiles');
+    $this->db->where('approved','1');      
+    $this->db->where('intern_id',$value);   
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+  }
+
 //looad all jobs if no parameter is give
-//loads all of a recruiter jobs if only r_id is given ,loads a periculat jon if job_id is also given
+//loads all of a recruiter jobs if only r_id is given ,loads a pericular job if job_id is also given
 //loads only approved job
 //can not load a job with only job iD
 //further plans -> later everthing will be used by company name
@@ -156,6 +172,36 @@ function resetPassword($username,$password){
 
   }
 
+function getintern($value='',$intern_id ='')
+  {
+    if ($value!=''&&ctype_digit($value)) {
+      $r_id = $value;
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('intern_profiles');
+      // $this->db->where('Company_name',$Company_name);
+      $this->db->where('r_id',$r_id);      
+      $this->db->where('approved','1');      
+      if (!$intern_id==='') {
+        $this->db->where('intern_id',$intern_id);   
+      }
+    }else{
+      $this->db->select('*');
+      $this->db->order_by('application_dead_line', 'desc');  
+      $this->db->from('intern_profiles');
+      $this->db->where('approved','1');            
+    }
+
+
+    $query = $this->db->get();
+    if ($query->num_rows()) {
+      return $query->result_array();
+    }
+    else {
+      return false;
+    }
+
+  }
 
 
   function load_feeds()
@@ -325,6 +371,7 @@ function resetPassword($username,$password){
 
   function applicationApply($value)
   {
+
           $this->db->insert('applications',$value);
   }
   function my_applications_load($value='')
@@ -333,6 +380,7 @@ function resetPassword($username,$password){
     $session_data = $this->session->userdata('logged_in');
     $username = $session_data['username'];
     $this->db->where('username',$username);  
+    $this->db->where('type',0);  
     
     if ($value!='') {
     $this->db->where('job_id',$value);  
@@ -356,7 +404,14 @@ function resetPassword($username,$password){
    
   }
 
+  function load_calender($value='')
+  {
+    $this->db->select('r_id,date,Company_name');
+    $this->db->from('visits');
+    $query = $this->db->get();
+    return $query->result_array();    
 
+  }
 
 }
 

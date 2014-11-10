@@ -51,7 +51,7 @@ class recruiter_visit extends CI_Controller
         }   
     }
 
-    function save()
+    function save($value='')
     {
         $session_data = $this->session->userdata('logged_in');
         $username     = $session_data['username'];
@@ -75,8 +75,12 @@ class recruiter_visit extends CI_Controller
         $postData['contact_email']          = $this->input->post('contact_email');
         $postData['contact_number']         = $this->input->post('contact_number');
 
-
-        $result = $this->recruiter->new_visit($postData);
+        if ($value=='edit') {
+            $v_id = $this->input->post('v_id');
+            $result = $this->recruiter->visit_update($v_id,$postData);        
+        }else{
+            $result = $this->recruiter->new_visit($postData);
+        }
         $this->session->set_flashdata('flashSuccess','Sucess');
         redirect('/recruiter_visit', 'refresh');
 

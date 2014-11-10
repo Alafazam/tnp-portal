@@ -207,14 +207,16 @@ Class recruiter extends CI_Model
   
 
   }
-  function delete_job($value='')
+  function delete_job($value)
   {
     $session_data = $this->session->userdata('logged_in');
     if (ctype_digit($value)) {   
     $r_id = $session_data['r_id'];
     $this->db->where('r_id',$r_id);
     $this->db->delete('job_profiles', array('job_id' => $value));
-    } 
+    }
+    $this->db->delete('applications', array('job_id' => $value,'r_id'=>$r_id));
+ 
   }
 
 
@@ -294,14 +296,37 @@ Class recruiter extends CI_Model
   }
 
 
-
   function new_visit($data)
   {
     $session_data = $this->session->userdata('logged_in');
+    $Company_name = $session_data['Company_name'];
     $r_id = $session_data['r_id'];
     $data['r_id']  = $r_id;
+    $data['Company_name']  = $Company_name;
+
     $this->db->insert('visits', $data);  
 
+  }
+
+  function visit_update($v_id, $data)
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $Company_name = $session_data['Company_name'];
+    $r_id = $session_data['r_id'];
+    $data['r_id']  = $r_id;
+    $data['Company_name']  = $Company_name;
+
+
+    try {
+      $query = $this->db->where(array(
+        'v_id' => $v_id
+      ))->update('visits', $data);
+      return $query;
+    }
+
+    catch(Exception $e) {
+      return $e;
+    }
   }
 
   function visits($value='')

@@ -10,6 +10,16 @@ class admin_edit_details extends CI_Controller
         parent::__construct();
         $this->load->model('user', '', TRUE);
         $this->load->model('recruiter', '', TRUE);
+
+        if ($this->session->userdata('logged_in')){ 
+            $session_data = $this->session->userdata('logged_in');
+            if ($session_data['type']!=='admin') {
+                redirect('login', 'refresh');                              
+            }
+        }else{
+            redirect('login', 'refresh');                              
+
+        }
     }
     
     function index()

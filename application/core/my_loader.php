@@ -34,9 +34,9 @@ class my_loader extends CI_Loader {
                   $content .= $this->view($template_name, $vars, $return);
                   $content .= $this->view('templates/c_footer', $vars, $return);
                 }elseif ($session_data['type']==='admin') {
-                  $content  = $this->view('admin/header', $vars, $return);
-                  $content .= $this->view('admin/'.$template_name, $vars, $return);
-                  $content .= $this->view('admin/footer', $vars, $return);
+                  $content  = $this->view('templates/admin_header', $vars, $return);
+                  $content .= $this->view($template_name, $vars, $return);
+                  $content .= $this->view('templates/admin_footer', $vars, $return);
                 }
             }
 

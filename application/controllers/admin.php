@@ -15,6 +15,12 @@ class admin extends CI_Controller{
 		$session_data = $this->session->userdata('logged_in');
 
 		if ($this->session->userdata('logged_in') and $session_data['type']==='admin'){
+			
+
+
+
+
+
 			$this->load->template('admin_home');
 		}
 		else{

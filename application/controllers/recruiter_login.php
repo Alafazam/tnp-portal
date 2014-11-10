@@ -1,7 +1,5 @@
 
-<?php
-
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class recruiter_login extends CI_Controller
 
 	{
@@ -9,14 +7,14 @@ class recruiter_login extends CI_Controller
 		{
 		parent::__construct();
 		if ($this->session->userdata('logged_in'))
-			{
+		{
 		    $session_data = $this->session->userdata('logged_in');
 		    if ($session_data['type']==='recruiter') {
-				redirect('recruiter_home', 'refresh');
+					redirect('recruiter_home', 'refresh');
 		    	}else{
-				redirect('home', 'refresh');		    		
+					redirect('home', 'refresh');		    		
 		    	}
-			}
+		}
 		$this->load->model('recruiter', '', TRUE);
 		}
 

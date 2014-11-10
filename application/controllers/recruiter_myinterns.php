@@ -10,16 +10,22 @@ class recruiter_myinterns extends CI_Controller
         parent::__construct();
         $this->load->model('user', '', TRUE);
         $this->load->model('recruiter', '', TRUE);
+        
+        if ($this->session->userdata('logged_in'))
+            { 
+                $session_data = $this->session->userdata('logged_in');
+                if ($session_data['type']!=='recruiter') {
+                    redirect('home', 'refresh');                  
+                }
+            }else{
+                redirect('recruiter_login', 'refresh');                  
+        }     
+
     }
     
     function index()
     {
-        if ($this->session->userdata('logged_in'))
-            { $session_data = $this->session->userdata('logged_in');
-            if ($session_data['type']==='student') {
-                redirect('home', 'refresh');                  
-                }//if recruiter is logged in ,redirect to recruiter page
-            }
+        
 
         if ($this->session->userdata('logged_in')) 
         {    

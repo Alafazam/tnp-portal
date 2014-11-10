@@ -2,7 +2,7 @@
         <link rel="stylesheet" type="text/css" media="screen"href="/css/datepicker.css">
 <script type="text/javascript"src="/js/datepicker.js"></script>
 
-<form class="form-horizontal" role="form" action="/recruiter_visit/save" method="post" accept-charset="utf-8">
+<form class="form-horizontal" role="form" action="/recruiter_visit/save<?php if (isset($v_id)) { echo '/edit'; } ?>" method="post" accept-charset="utf-8">
   <fieldset>
   <!-- <h4 class="text-center"><small>Logistics Requirements</small></h4> -->
         
@@ -51,7 +51,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="Other Requirements">Other Requirements</label>
             <div class="col-md-4">
-                <textarea rows="4" class="form-control" id="other_requirements" data-validation="length" data-validation-length="max3200" name="other_requirements"> <?php if (isset($other_requirements)) { echo $other_requirements; } ?></textarea>
+                <textarea rows="4" class="form-control" id="other_requirements" data-validation="length" data-validation-length="max3200" name="other_requirements"><?php if (isset($other_requirements)) { echo $other_requirements; } ?></textarea>
 
             </div>
         </div>
@@ -92,6 +92,12 @@
             <div class="col-md-4">
                 <input required id="Contact Number (Mobile)"  <?php if (isset($contact_number)) { echo "value='".$contact_number."'"; } ?> name="contact_number" type="text" placeholder="" class="form-control input-md">
 
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            <div class="col-md-4" hidden >
+                <input  id="v_id" hidden name="v_id" <?php if (isset($v_id)) { echo "value='".$v_id."'"; } ?>>
             </div>
         </div>
 

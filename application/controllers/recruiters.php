@@ -10,13 +10,7 @@ class recruiters extends CI_Controller
         parent::__construct();
         $this->load->model('user', '', TRUE);
         $this->load->model('recruiter', '', TRUE);
-        if ($this->session->userdata('logged_in')){ 
-            // if user exists give access
-            $session_data = $this->session->userdata('logged_in');
-            if ($session_data['type']!=='student') {
-                redirect('recruiter_home', 'refresh');                  
-            }
-        }else{
+        if (!$this->session->userdata('logged_in')){ 
                 redirect('login', 'refresh');                              
         }
     }

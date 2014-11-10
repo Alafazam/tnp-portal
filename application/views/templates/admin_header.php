@@ -1,5 +1,9 @@
 <?php $data= $this->session->userdata('logged_in'); ?>
-<?php if (!isset($message)) {
+
+
+<?php 
+
+if (!isset($message)) {
 $message = $this->session->flashdata('message');
 }
 
@@ -64,12 +68,14 @@ $message = $this->session->flashdata('message');
                     <li class="active"><a href="/">Announcemnets</a>
                     </li>
                 </ul>
-                <ul class="nav nav-sidebar">
+                <ul class="nav nav-sidebar ">
                     <li><a href="/admin_feeds">New Announcement</a>
                     </li>
                     <li><a href="/admin_create_a_login">Create a login</a>
+                    </li>
                     <li><a href="/admin_view_list">View lists</a>
                     </li>
+                    <li><a href="/admin_jobs">Available Jobs</a>
                     </li>
                     <li><a href="/admin_edit_details">Edit Details</a>
                     </li>

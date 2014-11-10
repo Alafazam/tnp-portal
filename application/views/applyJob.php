@@ -1,12 +1,20 @@
 <?php
 $data= $this->session->userdata('logged_in');
-$username=$data['username'];
 $flashSuccess =$this->session->flashdata('flashSuccess');
+
+if ($data['type']!='admin') {
 $fname=$data['fname'];
+$username=$data['username'];
+}
+
+
+
 $alreadyApplied=false;
 if (isset($application)&&$application) {
 $alreadyApplied = true;
 }
+
+
 
 ?>
  <style>
@@ -93,32 +101,51 @@ echo '
 
   	 ?>
 
+
+<?php if ($data['type']!='admin') {
+ ?>
 <form class="form-horizontal" role="form" <?php if(!$alreadyApplied) echo 'action="/jobs/apply" method="post"';else{echo 'action="/myapplications/delete/'.$job["job_id"].'"';} ?> >
-<fieldset>
- <input id="r_id" name="r_id" type="text" class="hidden" value="<?php echo $job["r_id"] ;?>" >
- <input id="job_id" name="job_id" type="text" class="hidden" value="<?php echo $job["job_id"] ;?>" >
- <input id="username" name="username" type="text" class="hidden" value="<?php echo $username; ?>" >
- <input id="date" name="date" type="text" class="hidden" value="<?php echo $deadline1; ?>" >
+  <fieldset>
+   <input id="r_id" name="r_id" type="text" class="hidden" value="<?php echo $job["r_id"] ;?>" >
+   <input id="job_id" name="job_id" type="text" class="hidden" value="<?php echo $job["job_id"] ;?>" >
+   <input id="username" name="username" type="text" class="hidden" value="<?php echo $username; ?>" >
+   <input id="date" name="date" type="text" class="hidden" value="<?php echo $deadline1; ?>" >
 
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textarea">Any Thing Special you want to mention</label>
-  <div class="col-md-8">                     
-    <textarea class="form-control" id="textarea" name="cover_letter"><?php if($alreadyApplied){echo $application['cover_letter'];} ?></textarea>
+  <!-- Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textarea">Any Thing Special you want to mention</label>
+    <div class="col-md-8">                     
+      <textarea class="form-control" id="textarea" name="cover_letter"><?php if($alreadyApplied){echo $application['cover_letter'];} ?></textarea>
+    </div>
   </div>
-</div>
 
-<!-- Button -->
-<div class="form-group">
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary"><?php if($alreadyApplied){echo "You have already applied,Take Back";}else{echo "Apply For This !";} ?></button>
+  <!-- Button -->
+  <div class="form-group">
+    <div class="col-md-4">
+      <button id="singlebutton" name="singlebutton" class="btn btn-primary"><?php if($alreadyApplied){echo "You have already applied,Take Back";}else{echo "Apply For This !";} ?></button>
+    </div>
   </div>
-</div>
 
 
-</fieldset>
+  </fieldset>
+</form>
+<?php }else{
+  ?>
+
+<form class="form-horizontal" role="form" action="/admin_jobs/approveJob" method="post">
+  <fieldset>
+   <input id="job_id" name="job_id" type="text" class="hidden" value="<?php echo $job["job_id"] ;?>" >
+  <!-- Button -->
+  <div class="form-group">
+    <div class="col-md-4">
+      <button id="singlebutton" name="singlebutton" class="btn btn-primary"><?php if($job["approved"]=='1'){echo "You have Approved this job";}else{echo "Approve this job";} ?></button>
+    </div>
+  </div>
+
+  </fieldset>
 </form>
 
+<?php  }; ?>
 
 
 
