@@ -5,7 +5,7 @@
 
 <?php 
 if (isset($jobs)&&$jobs) {
-	
+  
   echo ' <table class="table table-hover">
               <thead>
                 <tr>
@@ -21,10 +21,10 @@ if (isset($jobs)&&$jobs) {
 
       <div class="list-group">';
         
-		foreach ($jobs as $key)
-		{   
+    foreach ($jobs as $key)
+    {   
           $deadline = new DateTime($key["application_dead_line"]);
-				$deadline1 = $deadline->format('d-m-y');
+        $deadline1 = $deadline->format('d-m-y');
         
         if ($key["approved"]=='1') {
           $text = 'class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Approved';
@@ -32,7 +32,7 @@ if (isset($jobs)&&$jobs) {
           $text = 'class="btn btn-danger"><span class="glyphicon glyphicon-time"></span> Not yet Approved';
         }
 
-            echo '			
+            echo '      
           <tr>
           <td><a href="/recruiters/view/'.$key["r_id"].'">'.$company_names["".$key["r_id"].""].'</a></td>  
           <td><a href="/admin_jobs/view/'.$key["job_id"].'">'.$key["job_desig"].'</a></td>

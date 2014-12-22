@@ -25,15 +25,7 @@ class admin_edit_details extends CI_Controller
     function index()
     {
         
-    if ($this->session->userdata('logged_in')&&$this->session->userdata('logged_in')['type']==='admin') 
-        {
-
-
-
-        } else {
-            //If no session, redirect to login page
-            redirect('login', 'refresh');
-        }
+    redirect('undercons', 'refresh');
     }
 
     

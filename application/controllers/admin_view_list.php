@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 session_start(); //we need to call PHP's session object to access it through CI
-class admin_view_lists extends CI_Controller
+class admin_view_list extends CI_Controller
 {
     
     function __construct()
@@ -24,16 +24,9 @@ class admin_view_lists extends CI_Controller
    
     function index()
     {
-        
-    if ($this->session->userdata('logged_in')&&$this->session->userdata('logged_in')['type']==='admin') 
-        {
+                    redirect('undercons', 'refresh');                              
+               // $this->load->template('jobsList_view');
 
-            
-
-        } else {
-            //If no session, redirect to login page
-            redirect('login', 'refresh');
-        }
     }
 
     

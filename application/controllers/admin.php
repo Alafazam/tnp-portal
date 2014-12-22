@@ -1,7 +1,6 @@
 
-<?php
-
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+session_start();
 class admin extends CI_Controller{
 	function __construct(){
 
@@ -16,12 +15,11 @@ class admin extends CI_Controller{
 
 		if ($this->session->userdata('logged_in') and $session_data['type']==='admin'){
 			
-
-
-
-
-
-			$this->load->template('admin_home');
+			$feeddata = $this->admin_model->load_feeds();
+ 			$data   = array(
+              'feeds'=> $feeddata
+          );
+			$this->load->template('admin_home',$data);
 		}
 		else{
 			$this->load->helper(array(
