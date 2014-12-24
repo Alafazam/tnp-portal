@@ -7,4 +7,6 @@ but company ko jahan date pic karni ho usko busy day aur open day type me hi dik
       1. companies ko login password bna k de sake
       2. announcements daal sake
       3. company jo job vacancy create karegi uss ko ko finalise/approve kar sake taki to students k announcements section me ajaye
+
+
 4.student profile me ja ke ctrl+P karne pe form ki details sari print hoti toh hai but formatting theek nahi hoti.. uske  print wali CSS dekh lena.. taki wo resume jasia lagne lage.. :)
