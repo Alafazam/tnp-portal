@@ -19,7 +19,7 @@
 <file name="recruiters.php" server="C:/xampp/htdocs/" local="130593315330000000" remote="130593315330000000" />
 <file name="change_pwd.php" server="C:/xampp/htdocs/" local="130581437970000000" remote="130581437970000000" />
 <file name="jobs.php" server="C:/xampp/htdocs/" local="130595099950000000" remote="130595099950000000" />
-<file name="admin.php" server="C:/xampp/htdocs/" local="130637136347699245" remote="130637136340000000" />
+<file name="admin.php" server="C:/xampp/htdocs/" local="130638961173761237" remote="130638961170000000" />
 <file name="recruiter_applicants.php" server="C:/xampp/htdocs/" local="130593311160000000" remote="130593311160000000" />
 <file name="recruiter_myjobs.php" server="162.222.225.77" local="130593311878450020" remote="130597126200000000" />
 <file name="settings.php" server="C:/xampp/htdocs/" local="130582694690000000" remote="130582694690000000" />
@@ -64,14 +64,18 @@
 <file name="interns.php" server="C:/xampp/htdocs/" local="130595112880000000" remote="130595112880000000" />
 <file name="admin_jobs.php" server="162.222.225.77" local="130596914111612473" remote="130597125600000000" />
 <file name="interns.php" server="162.222.225.77" local="130595112881500795" remote="130597125600000000" />
-<file name="admin.php" server="31.170.164.114" local="130637136347699245" remote="130637010000000000" />
-<file name="admin_feeds.php" server="31.170.164.114" local="130637041874521042" remote="130636843800000000" />
-<file name="admin_create_a_login.php" server="31.170.164.114" local="130637043555292074" remote="130636845600000000" />
+<file name="admin.php" server="31.170.164.114" local="130638961173761237" remote="130638807000000000" />
+<file name="admin_feeds.php" server="31.170.164.114" local="130596893320000000" remote="130638807000000000" />
+<file name="admin_create_a_login.php" server="31.170.164.114" local="130639004992857816" remote="130638807000000000" />
 <file name="admin_createjob.php" server="C:/xampp/htdocs/" local="130582191280000000" remote="130582191280000000" />
-<file name="admin_home.php" server="C:/xampp/htdocs/" local="130588198510000000" remote="130588198510000000" />
+<file name="admin_home.php" server="C:/xampp/htdocs/" local="130638962379587909" remote="130638962370000000" />
 <file name="index.html" server="C:/xampp/htdocs/" local="129664021580000000" remote="129664021580000000" />
 <file name="interns.html" server="C:/xampp/htdocs/" local="130595098830000000" remote="130595098830000000" />
 <file name="recruiter_home .php" server="C:/xampp/htdocs/" local="130574493400000000" remote="130574493400000000" />
-<file name="admin_jobs.php" server="31.170.164.114" local="130637085879583060" remote="130636888200000000" />
-<file name="admin_view_list.php" server="31.170.164.114" local="130637132180790667" remote="130636933800000000" />
+<file name="admin_jobs.php" server="31.170.164.114" local="130637096799704824" remote="130638807000000000" />
+<file name="admin_view_list.php" server="31.170.164.114" local="130637132180790667" remote="130638807000000000" />
+<file name="myapplications.php" server="31.170.164.114" local="130637387203703279" remote="130637190000000000" />
+<file name="admin_home.php" server="31.170.164.114" local="130638962379587909" remote="130638807000000000" />
+<file name="admin_createjob.php" server="31.170.164.114" local="130582191280000000" remote="130638807000000000" />
+<file name="admin_edit_details.php" server="31.170.164.114" local="130637093265889978" remote="130638807000000000" />
 </dwsync>

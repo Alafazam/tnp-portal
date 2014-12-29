@@ -15,11 +15,8 @@ class admin extends CI_Controller{
 
 		if ($this->session->userdata('logged_in') and $session_data['type']==='admin'){
 			
-			$feeddata = $this->admin_model->load_feeds();
- 			$data   = array(
-              'feeds'=> $feeddata
-          );
-			$this->load->template('admin_home',$data);
+		      redirect('admin_home', 'refresh');     
+
 		}
 		else{
 			$this->load->helper(array(

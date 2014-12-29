@@ -30,13 +30,17 @@ class myapplications extends CI_Controller
     $result2 = $this->user->loadCompanyList();
     
     $jobs = array();
-    foreach ($result1 as $key => $value) {
-        $jobs[$value['job_id']] = $value;
+    if ($result1) {
+        foreach ($result1 as $key => $value) {
+            $jobs[$value['job_id']] = $value;
+        }
     }
 
     $company_names =  array();
-    foreach ($result2 as $key => $value) {
-    $company_names[$value['r_id']] = $value['Company_name'];
+    if ($result2) {
+        foreach ($result2 as $key => $value) {
+        $company_names[$value['r_id']] = $value['Company_name'];
+        }
     }
 
     $data = array(

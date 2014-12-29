@@ -9,7 +9,7 @@ if (!isset($message)) {
 
 
 <div class="container-fluid">
-	<h2>Announcements</h2>
+	<h2>Announcement</h2>
 	<legend></legend>
 	<div class="row">
         <div class="timeline-centered">
