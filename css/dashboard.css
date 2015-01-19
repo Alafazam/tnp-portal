@@ -31,7 +31,7 @@ body {
 
 /* Hide for mobile, show later */
 .sidebar {
-  display: none;
+  display: block;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -48,6 +48,13 @@ body {
     border-right: 1px solid #eee;
   }
 }
+
+@media (max-width: 768px){
+  .sidebar{
+    text-align: center;
+  }
+}
+
 
 /* Sidebar navigation */
 .nav-sidebar {

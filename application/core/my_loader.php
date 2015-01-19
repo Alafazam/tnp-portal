@@ -1,7 +1,7 @@
 <?php
 class my_loader extends CI_Loader {
 
-	/*public function view($view, $vars = array(), $return = FALSE)
+  /*public function view($view, $vars = array(), $return = FALSE)
     {
         $CI =& get_instance();
 
@@ -15,22 +15,46 @@ class my_loader extends CI_Loader {
     }*/
 
 
+     
 
 
     public function template($template_name, $vars = array(), $return = FALSE)
     {
       $CI =& get_instance();
 
+      if ($CI->session->userdata('logged_in'))
+      { 
+        $session_data = $CI->session->userdata('logged_in');
+            if ($session_data['type']==='student') {
+                  $content  = $this->view('templates/header', $vars, $return);
+                  $content .= $this->view($template_name, $vars, $return);
+                  $content .= $this->view('templates/footer', $vars, $return);
+                }elseif ($session_data['type']==='recruiter') {
+                  $content  = $this->view('templates/c_header', $vars, $return);
+                  $content .= $this->view($template_name, $vars, $return);
+                  $content .= $this->view('templates/c_footer', $vars, $return);
+                }elseif ($session_data['type']==='admin') {
+                  $content  = $this->view('templates/admin_header', $vars, $return);
+                  $content .= $this->view($template_name, $vars, $return);
+                  $content .= $this->view('templates/admin_footer', $vars, $return);
+                }
+            }
 
-      $content  = $this->view('templates/header', $vars, $return);
-      $content .= $this->view($template_name, $vars, $return);
-      $content .= $this->view('templates/footer', $vars, $return);
-
+      
       if ($return)
       {
         return $content;
     }
 }
+
+// public function recruiter_template($template_name, $vars = array(), $return = FALSE)
+//     {
+//       $CI =& get_instance();
+//       if ($return)
+//       {
+//         return $content;
+//     }
+// }
 
 	// public function opera($template_name, $vars = array(), $return = FALSE)
  //    {

@@ -1,0 +1,29 @@
+announcements
+	1=user
+	2=recruiter
+	3=both
+	4=view
+
+create_a_login
+	1=user    	random id password
+
+	2=recruiter	custom id password
+
+
+
+view_list 
+	1= 	user 				
+	2=	recruiter			
+	3=	jobs				approve
+	4=	intern				approve
+	5=	applications			
+	6=	upcoming visits		approve
+
+edit_details_of 
+	1= 	user
+	2=	recruiter
+	3=	jobs
+	4=	intern
+	5=	applications
+
+

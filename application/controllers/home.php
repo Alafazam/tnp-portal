@@ -5,6 +5,20 @@ class Home extends CI_Controller {
  function __construct()
  {
    parent::__construct();
+   $this->load->model('user', '', TRUE);
+   if ($this->session->userdata('logged_in'))
+        { 
+          $session_data = $this->session->userdata('logged_in');
+        if ($session_data['type']==='recruiter') {
+              redirect('recruiter_home', 'refresh');                  
+            }elseif ($session_data['type']=='admin') {
+              redirect('admin', 'refresh');                  
+            }
+    }else{
+                redirect('login', 'refresh');                  
+            }
+
+
  }
 
  function index()
@@ -13,6 +27,12 @@ class Home extends CI_Controller {
    {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
+     $data['fname'] = $session_data['fname'];
+
+     $feeddata = $this->user->load_feeds();
+     $data   = array(
+              'feeds'=> $feeddata
+          );
      $this->load->template('home_view', $data);
    }
    else

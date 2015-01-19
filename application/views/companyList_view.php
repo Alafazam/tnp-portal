@@ -1,85 +1,49 @@
-<style>
-.toggle-header{
-    padding:10px 0;
-    margin:10px 0;
-    background-color:black;
-    color:white;
-}
-.txt-green{
-    color:green;
-}
-.txt-red{
-    color:red;
-}
-</style>
+<link rel="stylesheet" href="/css/timeline.css">
+<link rel="stylesheet" href="/css/timeline.css">
 
-<h1>Company Markings</h1>
-<div class="row">
-	<div class="panel panel-default clearfix">
-        <div class="panel-heading">
-            <h2 class="panel-title">Package Heading</h2>
-            <p class="small">
-                Package Description                              
-            </p>
-        </div>
+<div class="container-fluid">
+        <h2>Announcements</h2>
+        <legend></legend>
 
-        <div class="col-xs-12 toggle-header">
-            <div class="col-xs-6">
-                <button type="button" class="btn btn-primary btn-sm hidden-xs" data-toggle="collapse" data-target="#feature-1">
-                    <i class="glyphicon glyphicon-resize-vertical"></i>Toggle Feature Set
-                </button>
-                <button type="button" class="btn btn-primary btn-xs visible-xs" data-toggle="collapse" data-target="#feature-1">
-                    <i class="glyphicon glyphicon-resize-vertical"></i>Toggle Set
-                </button>
-            </div>
-            <div class="col-xs-2 text-center">
-                <span class="hidden-xs">Small</span>
-                <span class="visible-xs">S</span>
-            </div>
-            <div class="col-xs-2 text-center">
-             <span class="hidden-xs">Medium</span>
-             <span class="visible-xs">M</span>
-         </div>
-         <div class="col-xs-2 text-center">
-             <span class="hidden-xs">Large</span>
-             <span class="visible-xs">L</span>
-         </div>
-     </div>
-     
-     <div id="feature-1" class="collapse in">
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-6">
-                    First Package Feature                                             
+    <div class="row">
+    
+
+        <div class="timeline-centered">
+            <!-- Start of articals -->
+    
+            <?php foreach ($jobs as $key)
+            // implode("-", array_reverse(explode("/", $var)));
+            // {    $key['application_dead_line'] = implode("-", array_reverse(explode("/", $key['application_dead_line'])));
+            {
+                    $type = "<div class='timeline-icon bg-success'><i class='entypo-feather'></i></div>";
+                echo "<article class='timeline-entry'>
+
+                <div class='timeline-entry-inner'>".$type."<div class='timeline-label'>
+                        <h2><a href='/recruiter_myjobs/".$key['job_id']."'>".$key['job_desig']."</a> <span>".$key['application_dead_line']."</span></h2>
+                        <pre>".$key['place']."</pre>
+                        <pre>CTC:".$key['ctc'].", GROSS:".$key['gross']."</pre>
+                        <p>".$key['job_descr']."</p>
+                    </div>
                 </div>
-                <div class="col-xs-2 text-center">
-                    <i class="glyphicon glyphicon-ok txt-green"></i>
+            </article>";
+
+            } ?>
+
+    
+            <article class="timeline-entry begin">
+
+                <div class="timeline-entry-inner">
+
+                    <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                        <i class="entypo-flight"></i> +
+                    </div>
+
                 </div>
-                <div class="col-xs-2 text-center">
-                    <i class="glyphicon glyphicon-ok txt-green"></i>
-                </div>
-                <div class="col-xs-2 text-center">
-                    <i class="glyphicon glyphicon-ok txt-green"></i>
-                </div>
-            </div>
-        </div>  
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-6">
-                    Second Package Feature
-                </div>
-                <div class="col-xs-2 text-center">
-                    <i class="glyphicon glyphicon-remove txt-red"></i>
-                </div>
-                <div class="col-xs-2 text-center">
-                    <i class="glyphicon glyphicon-remove txt-red"></i>
-                </div>
-                <div class="col-xs-2 text-center">
-                    <i class="glyphicon glyphicon-ok txt-green"></i>
-                </div>
-            </div>
-        </div>  
+
+            </article>
+
     </div>
-</div>
-</div>
+
+    
+    </div>
 </div>
