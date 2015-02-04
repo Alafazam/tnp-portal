@@ -90,7 +90,7 @@ class jobs extends CI_Controller
         {
             $this->user->applicationApply($data);
             $this->session->set_flashdata('message', 'You have successfully applied for the job');
-            redirect('home', 'refresh');
+            redirect('myapplications', 'refresh');
         }
 
     }

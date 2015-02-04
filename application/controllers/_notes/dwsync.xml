@@ -18,7 +18,7 @@
 <file name="recruiter_myinterns.php" server="C:/xampp/htdocs/" local="130593311100000000" remote="130593311100000000" />
 <file name="recruiters.php" server="C:/xampp/htdocs/" local="130593315330000000" remote="130593315330000000" />
 <file name="change_pwd.php" server="C:/xampp/htdocs/" local="130581437970000000" remote="130581437970000000" />
-<file name="jobs.php" server="C:/xampp/htdocs/" local="130595099950000000" remote="130595099950000000" />
+<file name="jobs.php" server="C:/xampp/htdocs/" local="130643533618601151" remote="130643533610000000" />
 <file name="admin.php" server="C:/xampp/htdocs/" local="130638961173761237" remote="130638961170000000" />
 <file name="recruiter_applicants.php" server="C:/xampp/htdocs/" local="130593311160000000" remote="130593311160000000" />
 <file name="recruiter_myjobs.php" server="162.222.225.77" local="130593311878450020" remote="130597126200000000" />
@@ -45,11 +45,11 @@
 <file name="settings.php" server="162.222.225.77" local="130582694691349778" remote="130597126200000000" />
 <file name="undercons.php" server="162.222.225.77" local="130590547959534043" remote="130597126200000000" />
 <file name="CONTROLLERS TO BE MADE FO ADMIN" server="C:/xampp/htdocs/" local="130590618320000000" remote="130590618320000000" />
-<file name="admin_create_a_login.php" server="C:/xampp/htdocs/" local="130593305750000000" remote="130593305750000000" />
+<file name="admin_create_a_login.php" server="C:/xampp/htdocs/" local="130639004992857816" remote="130639004990000000" />
 <file name="admin_edit_details.php" server="C:/xampp/htdocs/" local="130637093265889978" remote="130637093260000000" />
 <file name="admin_feeds.php" server="C:/xampp/htdocs/" local="130596893320000000" remote="130596893320000000" />
 <file name="admin_view_list.php" server="C:/xampp/htdocs/" local="130637132180790667" remote="130637132180000000" />
-<file name="myapplications.php" server="C:/xampp/htdocs/" local="130589116590000000" remote="130589116590000000" />
+<file name="myapplications.php" server="C:/xampp/htdocs/" local="130637387203703279" remote="130637387200000000" />
 <file name="admin_create_a_login.php" server="162.222.225.77" local="130593305750958067" remote="130597125600000000" />
 <file name="admin_edit_details.php" server="162.222.225.77" local="130596893230409377" remote="130597125600000000" />
 <file name="admin_feeds.php" server="162.222.225.77" local="130596893321252381" remote="130597125600000000" />
