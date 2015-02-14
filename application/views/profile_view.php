@@ -18,9 +18,9 @@
             ?></h1>
         <?php 
             if ($email_add) { echo "&lt;<span>".$email_add."</span>&gt;" ;}
-            echo "<span style='margin-right:50px'></span>";
+            echo "<span class='next-line' style='margin-right:50px'></span>";
             if ($phone) { 
-                echo "<span>Phone:</span><span>".$phone."</span>" ;
+                echo "<span class='next-line'>Phone:".$phone."</span>" ;
             }
         ?>
     </div>
@@ -189,7 +189,7 @@
 <?php if($Other_skills): ?>
 <div class="row top-margin">
     <!-- Technical Skills -->
-    <div class="col-xs-3 absolute" style="position:absolute" >
+    <div class="col-xs-3 absolute" >
         <legend>Other Skills<?php 
             if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
         ?></legend>
