@@ -110,3 +110,41 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.line{
+  border-left:1px solid #777;
+}
+
+.top-margin{
+  margin-top: 20px;
+  position: relative;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.pre{
+  background: none;
+  border:none;
+  border-radius: 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+}
+
+@media print {
+  body{
+    font-size:0.8em;
+  }
+  .pre{
+    font-size:11px;
+  }
+}
+
+@media only screen and (max-width : 580px){
+  .col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{
+    width: 100%;
+    text-align: left  !important;
+  }
+}
+

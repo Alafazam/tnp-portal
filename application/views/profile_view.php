@@ -1,321 +1,216 @@
 <?php $data= $this->session->userdata('logged_in'); $flashSuccess =$this->session->flashdata('flashSuccess'); $username=$data['username'];if(!isset($allowedit)){$allowedit=false;} ?>
 <!--   <pre>i am just here for tesing purposes</pre> -->
-    <?php if($allowedit) echo'<h2 class="text-center">My Profile</h2>'?>
-    <?php if(!$allowedit) echo'<h2 class="text-center" style="text-transform:capitalize" >'.$fname.' '.$mname.' '.$lname.'</h2>'?>
+<?php //if($allowedit) echo'<h2 class="text-center">My Profile</h2>'?>
+<?php 
+    if(!$allowedit) 
+        echo'<h2 class="text-center" style="text-transform:capitalize" >'.$fname.' '.$mname.' '.$lname.'</h2>';
+    if($allowedit) 
+        echo '<a href="/personal" style="padding:3px 12px" class="btn hidden-print btn-primary">Edit Basic Info</a>';
 
-<form class="form-horizontal">
-    <fieldset>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="enroll">Enroll</label>
-            <div class="col-md-4">
-                <pre><?php if ($enroll) {  echo $enroll ;}?></pre>
-            </div>
+    $semesters = array("Zeroth","First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eighth");
+?> 
+<div class="row" style="position:relative;font-size:1.1em">
+    <div class="col-xs-8" > 
+        <h1 style="margin-bottom:0"><?php 
+                if ($fname) {  echo $fname." " ;}
+                if ($mname) {  echo $mname." " ;}
+                if ($lname) {  echo $lname ;}
+            ?></h1>
+        <?php 
+            if ($email_add) { echo "&lt;<span>".$email_add."</span>&gt;" ;}
+            echo "<span style='margin-right:50px'></span>";
+            if ($phone) { 
+                echo "<span>Phone:</span><span>".$phone."</span>" ;
+            }
+        ?>
+    </div>
+    <div class="col-xs-4" style="margin-top:20px;font-size:1.1em;text-align:right">
+        <div>
+            <span><?php if ($gender==='M'){echo 'Male,' ;} ?><?php if ($gender==='F'){echo 'Female,' ;} ?></span>
+            <span><?php if ($dob) { 
+                $datetime1 = new DateTime("now");
+                $datetime2 = new DateTime($dob);
+                $interval = $datetime2->diff($datetime1);
+                echo $interval->format("%y years old") ;
+            }?>
+            </span>
+        </div> 
+        <div>
+            <span><?php if ($addl2) {  echo $addl2.", ".$city ;} ?> </span>
         </div>
-
-        <!-- Form Name -->
-        <legend>Personal Details  <?php if($allowedit) echo '<a href="/personal" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?> </legend>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="fname">First Name</label>
-            <div class="col-md-4">
-                <pre><?php if ($fname) {  echo $fname ;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="mname">Middle Name</label>
-            <div class="col-md-4">
-                <pre><?php if ($mname) {  echo $mname ;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="lname">Last Name</label>
-            <div class="col-md-4">
-                <pre><?php if ($lname) {  echo $lname ;}?></pre>
-            </div>
-        </div>
-        <!-- Multiple Radios (inline) -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="gender">Gender</label>
-            <div class="col-md-4">
-                <pre><?php if ($gender==='M'){echo 'Male' ;} ?><?php if ($gender==='F'){echo 'Female' ;} ?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="dob">Date of Birth</label>
-            <div class="col-md-4">
-                <pre><?php if ($dob) {  echo $dob ;}?></pre>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="addl1">Address Line 1</label>
-            <div class="col-md-4">
-                <pre><?php if ($addl1) {  echo $addl1 ;}?></pre>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="addl2">Address Line 2</label>
-            <div class="col-md-4">
-                <pre><?php if ($addl2) {  echo $addl2 ;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="city">City</label>
-            <div class="col-md-4">
-                <pre><?php if ($city) {  echo $city ;}?></pre>
-            </div>
-        </div>
-        <!-- Prepended text-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="phone">Phone</label>
-            <div class="col-md-4">
-                <pre><?php if ($phone) { echo $phone ;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="email_add">Email Address</label>
-            <div class="col-md-4">
-                <pre><?php if ($email_add) { echo $email_add ;}?></pre>
-            </div>
-        </div>
-
-        <legend>Academics <?php if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?></legend>
+    </div>
+    <div class="col-xs-12" style="margin-top:5px" >
+        <?php
+            $string = "";
+            if($cursem){
+                $string.=$cursem==9?"Graduate in":$semesters[$cursem]." Semester ";
+            }   
+            if($branch){
+                $string.=" ".$branch;
+            }   
+            if(strlen($string)>0){
+                $string.=", ";
+            }
+            $string.="National Institute of Technology, Srinagar";
+            echo $string;
+        ?>
+    </div>
+    <legend></legend>
+</div>
+<div class="row top-margin">
+    <!-- Academics -->
+    <div class="col-xs-3 absolute" >
+        <legend>Academics <?php 
+            if($allowedit) echo '<a href="/academic" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
+        ?></legend>
+    </div> 
+    <div class="col-xs-9 col-xs-offset-3 line" style="">
+        <table class="table">
+            <thead>
+                <th>Semester</th>
+                <th>Score</th>
+                <th>Semester</th>
+                <th>Score</th>
+            </thead>
+            <tbody>
+                <?php if($cursem > 1): ?>
+                <tr>
+                    <td>First</td>
+                    <td><?php if ($sem1) {echo number_format($sem1,2);} ?></td>
+                <?php endif ?>
+                <?php if($cursem>2): ?>
+                    <td>Second</td>
+                    <td><?php if ($sem2) {echo number_format($sem2,2);} ?></td>
+                <?php endif ?>
+                </tr>
+                <?php if($cursem>3): ?>
+                <tr>
+                    <td>Third</td>
+                    <td><?php if ($sem3) {echo number_format($sem3,2);} ?></td>
+                <?php endif ?>
+                <?php if($cursem>4): ?>
+                    <td>Fourth</td>
+                    <td><?php if ($sem4) {echo number_format($sem4,2);} ?></td>
+                <?php endif ?>
+                </tr>
+                <?php if($cursem>5): ?>
+                <tr>
+                    <td>Fifth</td>
+                    <td><?php if ($sem5) {echo number_format($sem5,2);} ?></td>
+                <?php endif ?>
+                <?php if($cursem>6): ?>
+                    <td>Sixth</td>
+                    <td><?php if ($sem6) {echo number_format($sem6,2);} ?></td>
+                <?php endif ?>
+                </tr>
+                <?php if($cursem>7): ?>
+                <tr>
+                    <td>Seventh</td>
+                    <td><?php if ($sem7) {echo number_format($sem7,2);} ?></td>
+                <?php endif ?>
+                <?php if($cursem>8): ?>
+                    <td>Eighth</td>
+                    <td><?php if ($sem8) {echo number_format($sem8,2);} ?></td>
+                <?php endif ?>
+                </tr>
+            </tbody>
+        </table>
+        <div style="font-size:1.1em">Overall CGPA:<b><?php if ($cgpa) {echo $cgpa;}?></b></div>
+    </div>
+</div>
+<?php if($school_name1 or  $school_name2): ?>
+<div class="row top-margin">
+    <!-- Technical Skills -->
+    <div class="col-xs-3 absolute" >
+        <legend>School Education<?php 
+            if($allowedit) echo '<a href="/educational" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
+        ?></legend>
+    </div>
+    <div class="col-xs-9 col-xs-offset-3 line">
+    <table class="table">
+        <thead>
+            <th>Standard</th>
+            <th>School Name</th>
+            <th>Board</th>
+            <th>Year</th>
+            <th>Score</th>
+        </thead>
+        <tbody>
+        <?php if($school_name1): ?>
+            <tr>
+                <td>12th</td>
+                <td><?= $school_name1 ?></td>
+                <td><?= $board1 ?></td>
+                <td><?= $year1 ?></td>
+                <td><?= $percentage1 ?></td>
+            </tr>
+        <?php endif ?> 
+        <?php if($school_name2): ?>
+            <tr>
+                <td>10th</td>
+                <td><?= $school_name2 ?></td>
+                <td><?= $board2 ?></td>
+                <td><?= $year2 ?></td>
+                <td><?= $percentage2 ?></td>
+            </tr>
+        <?php endif ?> 
+        </tbody>
+    </table>
         
-         <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="year_of_admin">Year of Admission</label>
-            <div class="col-md-4">
-                <pre><?php if ($year_of_admin) { echo $year_of_admin ;}?></pre>
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="cursem">Current Semester</label>
-            <div class="col-md-4">
-                <pre><?php if ($cursem) {echo $cursem;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group row">
-            <label class="col-md-4 control-label" for="sem1">Semester I</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem1) {echo $sem1;}?></pre>
-            </div>
-            <label class="col-md-2 control-label" for="sem2">Semester II</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem2) {echo $sem2;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="sem3">Semester III</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem3) {echo $sem3;}?></pre>
-            </div>
-            <label class="col-md-2 control-label" for="sem4">Semester IV</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem4) {echo $sem4;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="sem5">Semester V</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem5) {echo $sem5;}?></pre>
-            </div>
-            <label class="col-md-2 control-label" for="sem6">Semester VI</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem6) {echo $sem6;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="sem7">Semester VII</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem7) {echo $sem7;}?></pre>
-            </div>
-            <label class="col-md-2 control-label" for="sem8">Semester VIII</label>
-            <div class="col-md-2">
-                <pre><?php if ($sem8) {echo $sem8;}?></pre>
-            </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="supply">Supplementary</label>
-            <div class="col-md-2">
-                <pre><?php if ($supply) {echo $supply;}?></pre>
-            </div>
-            <label class="col-md-2 control-label" for="back">Backlog</label>
-            <div class="col-md-2">
-                <pre><?php if ($back) {echo $back;}?></pre>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="reason">Reason for Supplementary/ Backlog If Any</label>
-            <div class="col-md-4">
-                <pre><?php if ($reason) {echo $reason;}?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="cgpa">Overall CGPA</label>
-            <div class="col-md-4">
-                <pre><?php if ($cgpa) {echo $cgpa;}?></pre>
-            </div>
-        </div>
+    </div>
+</div>
+<?php endif ?>
+<?php if($Career_obj): ?>
+<div class="row top-margin">
+    <!-- Career objective -->
+    <div class="col-xs-3 absolute" >
+        <legend>Career Objective<?php 
+            if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
+        ?></legend>
+    </div>
+    <div class="col-xs-9 col-xs-offset-3 line">
+        <pre class="pre"><?php echo $Career_obj ?></pre>     
+    </div>
+</div>
+<?php endif ?>
+<?php if($Technical_Skills): ?>
+<div class="row top-margin">
+    <!-- Technical Skills -->
+    <div class="col-xs-3 absolute" >
+        <legend>Technical Skills<?php 
+            if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
+        ?></legend>
+    </div>
+    <div class="col-xs-9 col-xs-offset-3 line">
+        <pre class="pre"><?php echo $Technical_Skills; ?></pre>     
+    </div>
+</div>
+<?php endif ?>
+<?php if($Other_skills): ?>
+<div class="row top-margin">
+    <!-- Technical Skills -->
+    <div class="col-xs-3 absolute" style="position:absolute" >
+        <legend>Other Skills<?php 
+            if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
+        ?></legend>
+    </div>
+    <div class="col-xs-9 col-xs-offset-3 line">
+        <pre class="pre"><?php echo $Other_skills; ?></pre>     
+    </div>
+</div>
+<?php endif ?>
+<?php if($eca): ?>
+<div class="row top-margin">
+    <!-- Technical Skills -->
+    <div class="col-xs-3 absolute" >
+        <legend>Extracurricular Activities<?php 
+            if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'
+        ?></legend>
+    </div>
+    <div class="col-xs-9 col-xs-offset-3 line">
+        <pre class="pre"><?php echo $eca; ?></pre>     
+    </div>
+</div>
+<?php endif ?>
 
 
-        <!-- Form Name -->
-        <legend>About Me  <?php if($allowedit) echo '<a href="/aboutme" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?> </legend>
-        <!-- ECA,Career_obj,Technical_Skills,Other_skills -->
-        <!-- Textarea -->
-
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="branch">Branch</label>
-            <div class="col-md-4">
-                <pre><?php if($branch){ echo $branch ;} ?></pre>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Career_obj">Career objectives</label>
-            <div class="col-md-4">
-                <pre><?php if($eca){echo $Career_obj ;} ?></pre>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Technical_Skills">Technical Skills</label>
-            <div class="col-md-4">
-                <pre><?php if($eca){echo $Technical_Skills ;} ?></pre>
-            </div>
-        </div>
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Other_skills">Other Skills</label>
-            <div class="col-md-4">
-                <pre><?php if($eca){echo $Other_skills ;} ?></pre>
-            </div>
-        </div>
-
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="eca">Extra Curricular Activities</label>
-            <div class="col-md-4">
-                <pre><?php if($eca){echo $eca ;} ?></pre>
-            </div>
-        </div>
-
-
-
-        <!-- Form Name -->
-        <legend>Educational Details <?php if($allowedit) echo '<a href="/educational" style="float:right;padding:3px 12px" class="btn hidden-print btn-primary">Edit</a>'?> </legend>
-        <h4 class="text-center">
-            <small>12th Standard</small>
-        </h4>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="school_name1">School Name</label>
-            <div class="col-md-6">
-                <pre><?php if ($school_name1) {echo $school_name1 ;}?></pre>
-            </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="year1">Year of passing</label>
-            <div class="col-md-4">
-                <pre><?php if($year1){ echo $year1;} ?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="board1">Board</label>
-            <div class="col-md-4">
-                <pre><?php if($board1){ echo $board1 ;} ?></pre>
-            </div>
-        </div>
-        <!-- Appended Input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="percentage1">Aggregate</label>
-            <div class="col-md-4">
-                <pre><?php if($percentage1){ echo $percentage1 ;} ?></pre>
-            </div>
-        </div>
-
-        <h4 class="text-center">
-            <small>10th Standard</small>
-        </h4>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="school_name2">School Name</label>
-            <div class="col-md-6">
-                <pre><?php if($school_name2){ echo $school_name2 ;} ?></pre>
-            </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="year2">Year of passing</label>
-            <div class="col-md-4">
-                <pre><?php if($year2){ echo $year2 ;} ?></pre>
-            </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="board2">Board</label>
-            <div class="col-md-4">
-                <pre><?php if($board2){ echo $board2 ;} ?></pre>
-            </div>
-        </div>
-        <!-- Appended Input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="percentage2">Aggregate</label>
-            <div class="col-md-4">
-                <pre><?php if($percentage2){ echo $percentage2 ;} ?></pre>
-            </div>
-        </div>
-
-        <h4 class="text-center">
-            <small>Entrance Exam</small>
-        </h4>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="air">AIR</label>
-            <div class="col-md-4">
-                <pre><?php if($air){ echo $air ;} ?></pre>
-            </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="year3">Year</label>
-            <div class="col-md-4">
-                <pre><?php if($year3){ echo $year3 ;} ?></pre>
-            </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="quota">Quota</label>
-            <div class="col-md-4">
-                <pre><?php if($quota){ echo $quota ;} ?></pre>
-            </div>
-        </div>
-        <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="category">Category</label>
-            <div class="col-md-4">
-                <pre><?php if($category){ echo $category ;} ?></pre>
-            </div>
-        </div>
-
-
-    </fieldset>
-</form>

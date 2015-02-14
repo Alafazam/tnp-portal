@@ -14,11 +14,11 @@ class profile extends CI_Controller
     
     function index()
     {
-        if ($this->session->userdata('logged_in'))
-            { $session_data = $this->session->userdata('logged_in');
+        if ($this->session->userdata('logged_in')){ 
+            $session_data = $this->session->userdata('logged_in');
             if ($session_data['type']!=='student') {
                 redirect('recruiter_home', 'refresh');                  
-                }//if recruiter is logged in ,redirect to recruiter page
+            }//if recruiter is logged in ,redirect to recruiter page
         }
         if ($this->session->userdata('logged_in')) {
             $result1 = $this->user->load_personal();

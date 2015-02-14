@@ -22,6 +22,7 @@ $fname=$data['fname'];
       <option <?php if ($cursem==='6') {echo 'selected';}?> value="6">VI</option>
       <option <?php if ($cursem==='7') {echo 'selected';}?> value="7">VII</option>
       <option <?php if ($cursem==='8') {echo 'selected';}?> value="8">VIII</option>
+      <option <?php if ($cursem==='9') {echo 'selected';}?> value="9">Passout</option>
     </select>
   </div>
 </div>
