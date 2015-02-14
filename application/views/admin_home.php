@@ -32,7 +32,6 @@ if (isset($feeds) && $feeds) {
 	            <div class='timeline-entry-inner'>" . $type . "<div class='timeline-label'>
 	                    <h2><a href='#'>" . $key['heading'] . "</a> <span>" . $key['date'] . "</span></h2>
 	                    <p><pre>" . $key['data'] . "</pre></p>
-	            	<a href='/admin_feeds'></a>
 	            	<a href='#".$key["feed_id"]."' style='padding:3px 12px' class='btn btn-warning'>Edit</a>
           			<a href='#".$key['feed_id']."' style='padding:3px 12px' class='btn btn-danger'>Delete</a>
 	                </div>

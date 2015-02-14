@@ -124,7 +124,7 @@ if (isset($job_id))
         <div class="form-group">
             <label class="col-md-4 control-label" for="bonus">Bonus/Perks/Incentive (if any)</label>
             <div class="col-md-4">
-                <input <?php if (isset($bonus)) { echo "value='".$bonus."'"; } ?> required id="bonus" <?php if ($approved) { echo "readonly"; } ?> name="bonus" type="text" placeholder="bonus" class="form-control input-md">
+                <input <?php if (isset($bonus)) { echo "value='".$bonus."'"; } ?>  id="bonus" <?php if ($approved) { echo "readonly"; } ?> name="bonus" type="text" placeholder="bonus" class="form-control input-md">
 
             </div>
         </div>
@@ -134,8 +134,8 @@ if (isset($job_id))
             <label class="col-md-4 control-label" for="Bond">Bond or Service Contract(If yes, give details)</label>
             <div class="col-md-4">
                 <select id="Bond" <?php if (isset($bond)) { echo "value='".$bond."'"; } ?>  <?php if ($approved) { echo "readonly"; } ?> name="bond" class="form-control">
-                    <option value="Yes">Yes</option>
                     <option value="No">No</option>
+                    <option value="Yes">Yes</option>
                 </select>
             </div>
         </div>
@@ -214,7 +214,7 @@ if (isset($job_id))
         <div class="form-group">
             <label class="col-md-4 control-label"    for="Number of Rounds">Number of Rounds</label>
             <div class="col-md-4">
-                <input required id="Number_of_Rounds" <?php if ($approved) { echo "readonly"; } ?> required <?php if (isset($number_of_rounds)) { echo "value='".$number_of_rounds."'"; } ?> name="number_of_rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
+                <input  id="Number_of_Rounds" <?php if ($approved) { echo "readonly"; } ?>  <?php if (isset($number_of_rounds)) { echo "value='".$number_of_rounds."'"; } ?> name="number_of_rounds" type="text" placeholder="Number of Rounds" class="form-control input-md">
 
             </div>
         </div>
@@ -223,7 +223,7 @@ if (isset($job_id))
         <div class="form-group">
             <label class="col-md-4 control-label" for="Minimum Number of offers you intend to make:">Minimum Number of offers you intend to make:</label>
             <div class="col-md-4">
-                <input required id="MinNoOffers" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($min_offers)) { echo "value='".$min_offers."'"; } ?> name="min_offers" type="text" placeholder="" class="form-control input-md">
+                <input  id="MinNoOffers" <?php if ($approved) { echo "readonly"; } ?> <?php if (isset($min_offers)) { echo "value='".$min_offers."'"; } ?> name="min_offers" type="text" placeholder="" class="form-control input-md">
 
             </div>
         </div>
@@ -269,7 +269,7 @@ if (isset($job_id))
                 </div>
                 <div class="checkbox">
                     <label for="Eligible-7">
-                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if(isset($eligible_departments) && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MEE">Metallurgical and Materials Engineering</label>
+                        <input type="checkbox" name="eligible_departments[]" <?php if ($approved) { echo "disabled"; } ?> id="Eligible-7" <?php if(isset($eligible_departments) && (in_array("MME", $eligible))){ echo "checked = 'checked' " ;} ?> value="MME">Metallurgical and Materials Engineering</label>
                 </div>
             </div>
             <div class="checkbox">

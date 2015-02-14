@@ -52,9 +52,16 @@ class jobs extends CI_Controller
         $jobs = $this->user->getjob_all($job_id);
         $r_id = $jobs[0]["r_id"];
         $result2=   $this->user->loadCompanyList($r_id);
+        $session_data = $this->session->userdata('logged_in');
+        if (isset($session_data['username'])) {
+        $username = $session_data['username'];
         $application = $this->user->my_applications_load($job_id);
+        $applicationz = $application[0]; 
+        }else{
+            $applicationz = "";
+        }
         $company_name = $result2[0]["Company_name"];
-        $data =  array('job' => $jobs[0],'company_name'=>$company_name,'application'=>$application[0] );
+        $data =  array('job' => $jobs[0],'company_name'=>$company_name,'application'=>$applicationz );
         // $this->session->set_flashdata('flashSuccess', 'hello there');
         $this->load->template('applyJob',$data);
 
