@@ -65,19 +65,15 @@ $message = $this->session->flashdata('message');
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav  nav-sidebar">
-                    <li class="active"><a href="/">Announcemnets</a>
+                    <li class="active"><a href="/">Announcements</a>
                     </li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href="/admin_feeds">New Announcement</a>
-                    </li>
+                    <li><a href="/admin_feeds">New Announcement</a></li>
                     <li><a href="/admin_create_a_login">Create a login</a></li>
                     <li><a href="/admin_view_list">View lists</a></li>
-                    <li><a href="/admin_jobs">Available Jobs</a>
-                    </li>
-                    
-                    <li><a href="/admin_edit_details">Edit Details</a>
-                    </li>
+                    <li><a href="/admin_jobs">Available Jobs</a></li>
+                    <li><a href="/admin_edit_details">Edit Details</a></li>
 
                 </ul>
                 

@@ -2,7 +2,6 @@
 <script src="/js/moment.min.js"></script>
 <script src="/js/fullcalendar.min.js"></script>
 
-<?php var_dump($data) ?>
 <script>
 
 var j = new Date();

@@ -65,7 +65,7 @@ $message = $this->session->flashdata('message');
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav  nav-sidebar">
-                    <li class="active"><a href="/">Announcemnets</a>
+                    <li class=""><a href="/admin_home">Announcemnets</a>
                     </li>
                 </ul>
                 <ul class="nav nav-sidebar ">

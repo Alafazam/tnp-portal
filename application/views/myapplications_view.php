@@ -11,7 +11,8 @@ $data = array('application' =>$application ,'company_names'=>$company_names,'job
 
 
 <?php 
-if (isset($application)&&$application) {
+
+if (isset($application) && $application) {
 
   echo ' <table class="table">
               <thead>

@@ -22,14 +22,7 @@ class admin_create_a_login extends CI_Controller
     function index()
     {
         
-    if ($this->session->userdata('logged_in')&&$this->session->userdata('logged_in')['type']==='admin') 
-        {
             $this->load->template('admin_create_a_login');
-
-        } else {
-            //If no session, redirect to login page
-            redirect('login', 'refresh');
-        }
     }
 
 

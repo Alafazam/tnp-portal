@@ -12,11 +12,13 @@ class admin_feeds extends CI_Controller
         $this->load->model('recruiter', '', TRUE);
         $this->load->model('admin_model', '', TRUE);
         $this->load->library('form_validation');
+        
         if ($this->session->userdata('logged_in')){ 
             $session_data = $this->session->userdata('logged_in');
             if ($session_data['type']!=='admin') {
                 redirect('login', 'refresh');                              
             }
+
         }else{
             redirect('login', 'refresh');                              
 
@@ -25,16 +27,7 @@ class admin_feeds extends CI_Controller
     
     function index()
     {
-        
-    if ($this->session->userdata('logged_in')&&$this->session->userdata('logged_in')['type']==='admin') 
-        {
-
         $this->load->template('admin_create_feed');
-
-        } else {
-            //If no session, redirect to login page
-            redirect('login', 'refresh');
-        }
     }
     
 
