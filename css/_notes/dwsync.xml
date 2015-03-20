@@ -17,7 +17,7 @@
 <file name="bootstrap.css" server="C:/xampp/htdocs/" local="130569864529010586" remote="130569864520000000" />
 <file name="bootstrap.css.map" server="C:/xampp/htdocs/" local="130434378660000000" remote="130434378660000000" />
 <file name="bootstrap.min.css" server="C:/xampp/htdocs/" local="130579609890706330" remote="130579609890000000" />
-<file name="dashboard.css" server="C:/xampp/htdocs/" local="130582904950518716" remote="130582904950000000" />
+<file name="dashboard.css" server="C:/xampp/htdocs/" local="130684520798619525" remote="130684520790000000" />
 <file name="signin.css" server="C:/xampp/htdocs/" local="130434378660000000" remote="130434378660000000" />
 <file name="timeline.css" server="C:/xampp/htdocs/" local="130577892120745183" remote="130577892120000000" />
 <file name="bootstrap.min.css" server="162.222.225.77" local="130579609890706330" remote="130582506000000000" />
@@ -34,4 +34,5 @@
 <file name="bootstrap-theme.min.css" server="31.170.164.114" local="130434378660000000" remote="130636998000000000" />
 <file name="bootstrap.css" server="31.170.164.114" local="130569864529010586" remote="130636998000000000" />
 <file name="datepicker.css" server="31.170.164.114" local="130637194426419944" remote="130636998000000000" />
+<file name="dashboard.css" server="31.170.164.114" local="130684524715167385" remote="130684327200000000" />
 </dwsync>

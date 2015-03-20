@@ -25,29 +25,22 @@ class myapplications extends CI_Controller
     {
                  
     
-    $result = $this->user->my_applications_load();
-    $result1 = $this->user->getJob();
-    $result2 = $this->user->loadCompanyList();
+    $application = $this->user->my_applications_load();
+    $jobs = $this->user->getJob();
+    // $result2 = $this->user->loadCompanyList();
     
-    $jobs = array();
-    if ($result1) {
-        foreach ($result1 as $key => $value) {
-            $jobs[$value['job_id']] = $value;
-        }
-    }
+    // $jobs = array();
+    // if ($result1) {
+    //     foreach ($result1 as $key => $value) {
+    //         $jobs[$value['job_id']] = $value;
+    //     }
+    // }
 
-    $company_names =  array();
-    if ($result2) {
-        foreach ($result2 as $key => $value) {
-        $company_names[$value['r_id']] = $value['Company_name'];
-        }
-    }
-
+    
     $data = array(
         'jobs' => $jobs,
-        'application' => $result,
-        'company_names'=>$company_names
-         );
+        'application' => $application,
+              );
     
     $this->load->template('myapplications_view',$data);
 

@@ -15,9 +15,9 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
 
 
  <?php 
-	$visit = "22/8/2014";
+	//$visit = "22/8/2014";
 	$today = new DateTime();
-       
+     $branchez = str_replace(",", ", ", $branchez);
 	echo '
 		<div class="panel panel-default">
 		  <!-- Default panel contents -->
@@ -55,8 +55,8 @@ $flashSuccess =$this->session->flashdata('flashSuccess');
   			<a class="row list-group-item"style="margin-right:5px;margin-left:5px;" href="/jobs/view/'.$key["job_id"].'">
   			<div class="col-md-3">Designation :'.$key["job_desig"].'</div>
   			<div class="col-md-2">Place :'.$key["place"].'</div>
-  			<div class="col-md-2">CTC :'.$key["ctc"].'PM</div>
-  			<div class="col-md-2">Lastdate to Apply	:'.$deadline1.'PM</div>
+  			<div class="col-md-2">CTC : '.$key["ctc"].'</div>
+  			<div class="col-md-2">Lastdate to Apply	: '.$deadline1.'</div>
   			<div class="col-md-3">'.$key["eligible_departments"].'</div>
   			</a>';
 

@@ -26,7 +26,7 @@ $message = $this->session->flashdata('message');
     <script src="/js/jquery.js"></script>
     <script src="/js/jquery.form-validator.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
+    <style>@media print{a[href]:after{content:none}}</style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.1/html5shiv.min.js"></script>
@@ -65,7 +65,7 @@ $message = $this->session->flashdata('message');
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav  nav-sidebar">
-                    <li class=""><a href="/admin_home">Announcemnets</a>
+                    <li class=""><a href="/admin_home">Announcements</a>
                     </li>
                 </ul>
                 <ul class="nav nav-sidebar ">
@@ -73,11 +73,11 @@ $message = $this->session->flashdata('message');
                     </li>
                     <li><a href="/admin_create_a_login">Create a login</a>
                     </li>
-                    <li><a href="/admin_view_list">View lists</a>
+                    <li><a href="/admin_view_list">Recruiters List</a>
                     </li>
                     <li><a href="/admin_jobs">Available Jobs</a>
                     </li>
-                    <li><a href="/admin_edit_details">Edit Details</a>
+                    <li><a href="/admin_view_students">View Students</a>
                     </li>
 
                 </ul>

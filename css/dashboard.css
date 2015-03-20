@@ -112,7 +112,7 @@ body {
 }
 
 .line{
-  border-left:1px solid #777;
+  /*border-left:1px solid #777;*/
 }
 
 .top-margin{
@@ -130,6 +130,11 @@ body {
   border-radius: 0;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 15px;
+}
+
+.pref-fix{
+    background-color: #fff;
+    border: none;
 }
 
 @media print {

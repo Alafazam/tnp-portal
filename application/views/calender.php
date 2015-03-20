@@ -17,6 +17,7 @@ var a = ""+j.getFullYear()+"-"+(j.getMonth()+1)+"-"+j.getDate();
 			eventLimit: true, // allow "more" link when too many events
 			fixedWeekCount:false,
 			events: [
+
 				<?php 
 				if (isset($data)){					
 					foreach ($data as $value) {
@@ -29,11 +30,7 @@ var a = ""+j.getFullYear()+"-"+(j.getMonth()+1)+"-"+j.getDate();
 					}
 				};
 				?>
-				{
-					title: 'calendar by fullcalendar.io',
-					url: 'http://fullcalendar.io',
-					start: '2000-09-28'
-				}
+				
 			]
 		});
 		

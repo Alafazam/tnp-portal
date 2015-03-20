@@ -296,19 +296,9 @@ Class recruiter extends CI_Model
   }
 
 
-  function new_visit($data)
-  {
-    $session_data = $this->session->userdata('logged_in');
-    $Company_name = $session_data['Company_name'];
-    $r_id = $session_data['r_id'];
-    $data['r_id']  = $r_id;
-    $data['Company_name']  = $Company_name;
 
-    $this->db->insert('visits', $data);  
 
-  }
-
-  function visit_update($v_id, $data)
+  function visit_update($data)
   {
     $session_data = $this->session->userdata('logged_in');
     $Company_name = $session_data['Company_name'];
@@ -319,8 +309,8 @@ Class recruiter extends CI_Model
 
     try {
       $query = $this->db->where(array(
-        'v_id' => $v_id
-      ))->update('visits', $data);
+        'job_id' => $data['job_id'] 
+      ))->update('job_profiles', $data);
       return $query;
     }
 
@@ -329,15 +319,25 @@ Class recruiter extends CI_Model
     }
   }
 
+  function get_unplanned_jobs()
+  {
+    $session_data = $this->session->userdata('logged_in');
+    $r_id = $session_data['r_id'];
+    $this->db->from('job_profiles');
+    $this->db->where('visit',0);  
+    $query = $this->db->get();
+    return $query->result_array();
+  }
+
   function visits($value='')
   {
     $session_data = $this->session->userdata('logged_in');
     $r_id = $session_data['r_id'];
 
-    $this->db->from('visits');
+    $this->db->from('job_profiles');
     
     if ($value!='') {
-      $this->db->where('v_id',$value);  
+      $this->db->where('job_id',$value);  
     }
     
     $this->db->where('r_id',$r_id);  
@@ -349,8 +349,8 @@ Class recruiter extends CI_Model
   function delete_visit($v_id)
   {
     $session_data = $this->session->userdata('logged_in');
-    $r_id = $session_data['r_id'];
-    $this->db->delete('visit', array('v_id' => $v_id,'r_id'=>$r_id));
+    $r_id = $session_data['job_id'];
+    $this->db->delete('visit', array('job_id' => $v_id,'r_id'=>$r_id));
   }
 
 

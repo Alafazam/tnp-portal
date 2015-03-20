@@ -1,11 +1,13 @@
-<?php $data= $this->session->userdata('logged_in'); $flashSuccess =$this->session->flashdata('flashSuccess'); $username=$data['username'];if(!isset($allowedit)){$allowedit=false;} ?>
+<?php $data= $this->session->userdata('logged_in'); $flashSuccess =$this->session->flashdata('flashSuccess');if(!isset($allowedit)){$allowedit=false;} ?>
 <!--   <pre>i am just here for tesing purposes</pre> -->
 <?php //if($allowedit) echo'<h2 class="text-center">My Profile</h2>'?>
 <?php 
     if(!$allowedit) 
         echo'<h2 class="text-center" style="text-transform:capitalize" >'.$fname.' '.$mname.' '.$lname.'</h2>';
     if($allowedit) 
-        echo '<a href="/personal" style="padding:3px 12px" class="btn hidden-print btn-primary">Edit Basic Info</a>';
+        {echo '<a href="/personal" style="padding:3px 12px" class="btn hidden-print btn-primary">Edit Basic Info</a>';
+    echo '<a class="btn hidden-print btn-primary" style="padding:3px 12px; margin-left:5px;" onclick="window.print()">Print</a>';
+        }
 
     $semesters = array("Zeroth","First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eighth");
 ?> 
@@ -142,7 +144,7 @@
                 <td><?= $school_name1 ?></td>
                 <td><?= $board1 ?></td>
                 <td><?= $year1 ?></td>
-                <td><?= $percentage1 ?></td>
+                <td><?= $percentage1 ?>%</td>
             </tr>
         <?php endif ?> 
         <?php if($school_name2): ?>
@@ -151,7 +153,7 @@
                 <td><?= $school_name2 ?></td>
                 <td><?= $board2 ?></td>
                 <td><?= $year2 ?></td>
-                <td><?= $percentage2 ?></td>
+                <td><?= $percentage2 ?>%</td>
             </tr>
         <?php endif ?> 
         </tbody>
@@ -169,7 +171,7 @@
         ?></legend>
     </div>
     <div class="col-xs-9 col-xs-offset-3 line">
-        <pre class="pre"><?php echo $Career_obj ?></pre>     
+        <pre class="pre pref-fix"><?php echo $Career_obj ?></pre>     
     </div>
 </div>
 <?php endif ?>
@@ -182,7 +184,7 @@
         ?></legend>
     </div>
     <div class="col-xs-9 col-xs-offset-3 line">
-        <pre class="pre"><?php echo $Technical_Skills; ?></pre>     
+        <pre class="pre pref-fix"><?php echo $Technical_Skills; ?></pre>     
     </div>
 </div>
 <?php endif ?>
@@ -195,7 +197,7 @@
         ?></legend>
     </div>
     <div class="col-xs-9 col-xs-offset-3 line">
-        <pre class="pre"><?php echo $Other_skills; ?></pre>     
+        <pre class="pre pref-fix"><?php echo $Other_skills; ?></pre>     
     </div>
 </div>
 <?php endif ?>
@@ -208,7 +210,7 @@
         ?></legend>
     </div>
     <div class="col-xs-9 col-xs-offset-3 line">
-        <pre class="pre"><?php echo $eca; ?></pre>     
+        <pre class="pre pref-fix"><?php echo $eca; ?></pre>     
     </div>
 </div>
 <?php endif ?>

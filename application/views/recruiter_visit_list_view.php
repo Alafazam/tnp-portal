@@ -10,30 +10,41 @@
 		<legend></legend>
 
 
-			<div class="list-group">
-<?php 
-if (isset($data)&&$data) {
-				
-			foreach ($data as $key)
-            {		
-            	            
-            	echo '	
+		
+<?php
+if (isset($data) && $data) {
+		
+		echo "<table class='table'>
+			      <thead>
+			        <tr>
+			          <th class='col-md-4'>Job Designation</th>
+			          <th class='col-md-4'>Visiting Date</th>
+			          <th class='col-md-3'>Assinged Contact Person</th>
+			          <th class='col-md-1'>Action</th>
+			        </tr>
+			      </thead>
+			      <tbody>";
+		
+		foreach ($data as $key) {
+			if (!isset($key["date"])||$key["date"]==NULL) {
+				$key["date"] = "plan here";
+			}
+				echo '
+		          <tr>
+		          <td><a href="/recruiter_myjobs/view/' . $key["job_id"] . '">' . $key["job_desig"] . '</a></td>
+		          <td><a href="/recruiter_visit/view/' . $key["job_id"] . '"> ' . $key["date"] . '</a> </td>
+    	          <td>' . $key["contact_name"] . '</td>
+		          <td><a href="/recruiter_visit/cancle/' . $key["job_id"] . '"style="padding:3px 12px" class="btn btn-danger">Delete  <span class="glyphicon glyphicon-remove"></span></a></td>
+		          </tr>';
+		}
 
-			  <a href="/recruiter_visit/view/'.$key["v_id"].'" style="margin-bottom:3px;" class="list-group-item">
-			    <h3 class="list-group-item-heading row">
-			    	<p class="col-md-8">Visiting Date:	'.$key["date"].'</p>
-		    	</h3>
-				<div class="list-group-item-text row">
-			    	<p class="col-md-6 ">Contact Person: '.$key["contact_name"].'</p>
-		    	</div>
-			  </a>
+		echo "
+	</tbody>
+</table>
 
-'	;
-			
-
-	} 
+		";
 }
-			?>
+?>
 
 		<div>
 			<a href="/recruiter_visit/plan">Want to plan a new visit?</a>

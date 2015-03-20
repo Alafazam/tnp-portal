@@ -88,7 +88,7 @@ echo '
     <li class="list-group-item"><label class="col-md-6">Number Of Rounds:</label>
     <span class="text-center">'.$job["number_of_rounds"].' </span>
     </li>
-    <li class="list-group-item"><label class="col-md-6">Minimum Number Of Offers You Intend To Make::</label>
+    <li class="list-group-item"><label class="col-md-6">Approx Number Of Offers they Intend To Make::</label>
     <span class="text-center">'.$job["min_offers"].' </span>
     </li>
   </ul>

@@ -29,7 +29,7 @@ if (isset($users)&&$users) {
           
             echo '
           <tr>
-          <td><a href="/profile/view/.'.$key["username"].'">'.$key["FNAME"].' '.$key["LNAME"].'</a></td>
+          <td><a href="/profile/view/'.$key["username"].'">'.$key["FNAME"].' '.$key["LNAME"].'</a></td>
             <td>'.$key["branch"].' </td>
             <td>'.$key["Career_obj"].'</td>
             <td>'.$key["cover_letter"].'</td>

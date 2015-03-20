@@ -13,7 +13,8 @@ if (isset($jobs)&&$jobs) {
                   <th class="col-md-2">Designation</th>
                   <th class="col-md-2">CTC</th>
                   <th class="col-md-2">Last Date</th>
-                  <th class="col-md-2">Status</th>
+                  <th class="col-md-1">Status</th>
+                  <th class="col-md-1">Applications</th>
                   <th class="col-md-1">Action</th>
                 </tr>
               </thead>
@@ -38,9 +39,9 @@ if (isset($jobs)&&$jobs) {
           <td><a href="/admin_jobs/view/'.$key["job_id"].'">'.$key["job_desig"].'</a></td>
           <td>'.$key["ctc"].'</td>  
           <td>'.$deadline1.'</td>
-          <td>
-            <a href="admin_jobs/approveJob/'.$key["job_id"].'" style="padding:3px 12px"  '.$text.'</a></td>
-          <td><a href="#'.$key["job_id"].'" style="padding:3px 12px" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+          <td><a href="admin_jobs/approveJob/'.$key["job_id"].'" style="padding:3px 12px"  '.$text.'</a></td>
+          <td style="text-align: center;"><a style="display: block;" href="admin_jobs/applicants/'.$key["job_id"].'" >'.$count[$key["job_id"]].'</a></td>
+          <td><a href="#'.$key["job_id"].'" style="padding:3px 12px" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
 
             </tr>'
         ;

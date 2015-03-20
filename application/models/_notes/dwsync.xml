@@ -4,13 +4,18 @@
 <file name="user.php" server="C:/xampp/htdocs/ci/" local="130565536963975255" remote="130565536960000000" />
 <file name="user2.php" server="C:/xampp/htdocs/ci/" local="130435350266780038" remote="130435350260000000" />
 <file name="index.html" server="C:/xampp/htdocs/" local="129664021580000000" remote="129664021580000000" />
-<file name="user.php" server="C:/xampp/htdocs/" local="130595200270085071" remote="130595200270000000" />
+<file name="user.php" server="C:/xampp/htdocs/" local="130688037171094499" remote="130688037170000000" />
 <file name="user2.php" server="C:/xampp/htdocs/" local="130573277252735789" remote="130573277250000000" />
 <file name="Recruiter.php" server="C:/xampp/htdocs/" local="130574487742346383" remote="130574487740000000" />
-<file name="admin_model.php" server="C:/xampp/htdocs/" local="130596918608176816" remote="130596918600000000" />
+<file name="admin_model.php" server="C:/xampp/htdocs/" local="130688892126485914" remote="130688892120000000" />
 <file name="recruiter.php" server="162.222.225.77" local="130592473324790320" remote="130597126200000000" />
 <file name="user.php" server="162.222.225.77" local="130595200270085071" remote="130597126200000000" />
 <file name="admin_model.php" server="162.222.225.77" local="130596918608176816" remote="130597126200000000" />
 <file name="index.html" server="162.222.225.77" local="129664021580000000" remote="130597126200000000" />
 <file name="user2.php" server="162.222.225.77" local="130573277252735789" remote="130597126200000000" />
+<file name="admin_model.php" server="31.170.164.114" local="130688892126485914" remote="130688694000000000" />
+<file name="index.html" server="31.170.164.114" local="129664021580000000" remote="130688286600000000" />
+<file name="recruiter.php" server="31.170.164.114" local="130685926307693893" remote="130688286600000000" />
+<file name="user.php" server="31.170.164.114" local="130688037171094499" remote="130688286600000000" />
+<file name="user2.php" server="31.170.164.114" local="130573277252735789" remote="130688286600000000" />
 </dwsync>
